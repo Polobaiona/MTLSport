@@ -54,19 +54,20 @@ class UnconnectedApp extends Component {
   renderMisc = () => {
     return <div>Miscallenous sports subforum</div>;
   };
-  login = () => {
-    return <Login />;
-  };
-  signup = () => {
-    return <Signup />;
+  both = () => {
+    return (
+      <div>
+        <Login />;
+        <Signup />;
+      </div>
+    );
   };
   render = () => {
     return (
       <BrowserRouter>
         <div>
           <TopBar />
-          <Route exact={true} path="/Login" render={this.login} />
-          <Route exact={true} path="/Signup" render={this.signup} />
+          <Route exact={true} path="/both" render={this.both} />
         </div>
         <div>
           <Route exact={true} path="/" render={this.renderRoot} />

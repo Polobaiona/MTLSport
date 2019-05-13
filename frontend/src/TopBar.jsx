@@ -12,7 +12,7 @@ class UnconnectedTopBar extends Component {
               <Link to="/">MTLSport</Link>
             </div>{" "}
             <div className="form">
-              <Link to="/">Login/Signup</Link>
+              <Link to="/both">Login/Signup</Link>
             </div>{" "}
           </div>
         </div>
@@ -34,6 +34,12 @@ class UnconnectedTopBar extends Component {
   };
 }
 
-let TopBar = connect()(UnconnectedTopBar);
+let mapStateToProps = state => {
+  return {
+    loggedIn: state.loggedIn
+  };
+};
+
+let TopBar = connect(mapStateToProps)(UnconnectedTopBar);
 
 export default TopBar;
