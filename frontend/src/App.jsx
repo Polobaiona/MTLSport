@@ -15,8 +15,8 @@ class UnconnectedApp extends Component {
   renderRoot = () => {
     return (
       <div>
-        <div className="description">Description</div>
         <div className="description">Image placeholder</div>
+        <div className="description">Description</div>
         <MainForum />
         <div>Buy/Sell</div>
         <div>Talk Sport</div>
