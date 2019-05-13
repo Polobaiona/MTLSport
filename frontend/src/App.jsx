@@ -42,11 +42,13 @@ class UnconnectedApp extends Component {
     );
   };
 
-  login = () => {
-    return <Login />;
-  };
-  signup = () => {
-    return <Signup />;
+  both = () => {
+    return (
+      <div>
+        <Signup />
+        <Login />
+      </div>
+    );
   };
 
   renderSport = routerData => {
