@@ -12,14 +12,34 @@ const store = createStore(
     location: undefined,
     threads: [
       {
-        username: "gene",
+        id: 1,
         category: "soccer",
-        msg: "looking for sport"
+        threadTitle: "Soccer at 10am - saturday",
+        location: "NDG",
+        replies: [
+          { user: "gene", msg: "looking for sport" },
+          { user: "paul", msg: "I can make it" }
+        ]
       },
       {
-        username: "paul",
+        id: 2,
         category: "hockey",
-        msg: "looking for hockey"
+        threadTitle: "hockey at 2pm - saturday",
+        location: "Plateau",
+        replies: [
+          { user: "gene", msg: "looking for hockey game" },
+          { user: "paul", msg: "I want to play hockey" }
+        ]
+      },
+      {
+        id: 3,
+        category: "soccer",
+        threadTitle: "soccer at 8am tomorrow",
+        location: "Verdun",
+        replies: [
+          { user: "soccerman", msg: "pls soccer" },
+          { user: "soccerman2", msg: "i am mr.soccer" }
+        ]
       }
     ]
   },

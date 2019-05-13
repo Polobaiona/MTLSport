@@ -9,22 +9,22 @@ class UnconnectedMainForum extends Component {
         <div>Choose a Sport</div>
         <ul>
           <li>
-            <Link to="Basketball">Basketball</Link>
+            <Link to="/Basketball">Basketball</Link>
           </li>
           <li>
-            <Link to="Hockey">Hockey</Link>
+            <Link to="/Hockey">Hockey</Link>
           </li>
           <li>
-            <Link to="RockClimbing">Rock Climbing</Link>
+            <Link to="/RockClimbing">Rock Climbing</Link>
           </li>
           <li>
-            <Link to="Soccer">Soccer</Link>
+            <Link to="/Soccer">Soccer</Link>
           </li>
           <li>
-            <Link to="Tennis">Tennis</Link>
+            <Link to="/Tennis">Tennis</Link>
           </li>
           <li>
-            <Link to="Misc">Misc.</Link>
+            <Link to="/Misc">Misc.</Link>
           </li>
         </ul>
       </div>
