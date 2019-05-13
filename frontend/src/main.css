@@ -6,3 +6,6 @@ body {
 .flex {
   display: flex;
 }
+.description {
+  text-align: center;
+}
