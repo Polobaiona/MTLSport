@@ -80,11 +80,12 @@ app.post("/user", upload.none(), (req, res) => {
   let username = sessions[sessionId];
   let picture = req.body.image;
   let msg = req.body.msg;
+  let destination = req.body.destinationUser;
   let db = dbs.db("Forum");
   db.collection("users").insert({
     name: username,
     image: picture,
-    dms: [{ from: username, to: username, messages: msg }]
+    dms: [{ from: username, to: destination, messages: msg }]
   });
 });
 app.listen(4000);
