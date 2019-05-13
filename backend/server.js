@@ -55,10 +55,37 @@ app.post("/check-login", upload.none(), (req, res) => {
   res.send(JSON.stringify({ success: false }));
 });
 app.post("/thread", upload.none(), (req, res) => {
+  let sessionId = req.cookies.sid;
+  let username = sessions[sessionId];
+  let msg = req.body.msg;
+  let sport = raq.body.sport;
   let db = dbs.db("Forum");
-  db.collection("user");
+  db.collection("threads").insert(
+    {
+      location: req.body.location,
+      category: sport,
+      thread: [
+        { user: username, message: msg },
+        { user: username, message: msg }
+      ]
+    },
+    (err, results) => {
+      console.log(err);
+      res.send(JSON.stringify({ success: true, results }));
+    }
+  );
 });
-app.post("user", upload.none(), (req, res) => {
+app.post("/user", upload.none(), (req, res) => {
+  let sessionId = req.cookies.sid;
+  let username = sessions[sessionId];
+  let picture = req.body.image;
+  let msg = req.body.msg;
+  let destination = req.body.destinationUser;
   let db = dbs.db("Forum");
+  db.collection("users").insert({
+    name: username,
+    image: picture,
+    dms: [{ from: username, to: destination, messages: msg }]
+  });
 });
 app.listen(4000);
