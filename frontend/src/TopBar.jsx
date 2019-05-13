@@ -6,7 +6,12 @@ class UnconnectedTopBar extends Component {
     return (
       <div>
         <div className="flex">
-          <div>MTLSport</div> <div>Login/Signup/MyAccount</div>{" "}
+          <div>
+            <Link to="/">MTLSport</Link>
+          </div>{" "}
+          <div>
+            <Link to="/myAccount">Login/Signup</Link>
+          </div>{" "}
         </div>
       </div>
     );
