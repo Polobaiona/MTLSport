@@ -54,3 +54,4 @@ app.post("/check-login", upload.none(), (req, res) => {
   }
   res.send(JSON.stringify({ success: false }));
 });
+app.listen(4000);
