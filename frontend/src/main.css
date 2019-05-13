@@ -7,3 +7,6 @@ body {
   display: flex;
   justify-content: space-between;
 }
+.description {
+  text-align: center;
+}

@@ -5,12 +5,21 @@ import TopBar from "./TopBar.jsx";
 import MainForum from "./MainForum.jsx";
 import Account from "./Account.jsx";
 import UserDetails from "./UserDetails.jsx";
+import Basketball from "./Basketball.jsx";
+import Hockey from "./Hockey.jsx";
+import Soccer from "./Soccer.jsx";
+import RockClimbing from "./RockClimbing.jsx";
+import Tennis from "./Tennis.jsx";
 
 class UnconnectedApp extends Component {
   renderRoot = () => {
     return (
       <div>
+        <div className="description">Image placeholder</div>
+        <div className="description">Description</div>
         <MainForum />
+        <div>Buy/Sell</div>
+        <div>Talk Sport</div>
       </div>
     );
   };
@@ -32,27 +41,51 @@ class UnconnectedApp extends Component {
   };
 
   renderBasketball = () => {
-    return <div>Basketball subforum</div>;
+    return (
+      <div>
+        <Basketball />
+      </div>
+    );
   };
 
   renderHockey = () => {
-    return <div>Hockey subforum</div>;
+    return (
+      <div>
+        <Hockey />
+      </div>
+    );
   };
 
   renderRockClimbing = () => {
-    return <div>Rock Climbing subforum</div>;
+    return (
+      <div>
+        <RockClimbing />
+      </div>
+    );
   };
 
   renderSoccer = () => {
-    return <div>Soccer subforum</div>;
+    return (
+      <div>
+        <Soccer />
+      </div>
+    );
   };
 
   renderTennis = () => {
-    return <div>Tennis subforum</div>;
+    return (
+      <div>
+        <Tennis />
+      </div>
+    );
   };
 
   renderMisc = () => {
-    return <div>Miscallenous sports subforum</div>;
+    return (
+      <div>
+        <Misc />
+      </div>
+    );
   };
   both = () => {
     return (
