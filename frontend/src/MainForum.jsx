@@ -5,7 +5,15 @@ class UnconnectedMainForum extends Component {
   render = () => {
     return (
       <div>
-        <div>This is where the main forum would be</div>
+        <div>Choose a Sport</div>
+        <ul>
+          <li>Basketball</li>
+          <li>Hockey</li>
+          <li>Rock Climbing</li>
+          <li>Soccer</li>
+          <li>Tennis</li>
+          <li>Misc.</li>
+        </ul>
       </div>
     );
   };
