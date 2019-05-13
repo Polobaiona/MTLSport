@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 class UnconnectedSignup extends Component {
   constructor(props) {
@@ -23,9 +24,10 @@ class UnconnectedSignup extends Component {
     let data = new FormData();
     data.append("username", this.state.username);
     data.append("password", this.state.password);
-    fetch("http://localhost:4000/signup", { method: "POST", body: data });
+    fetch("/signup", { method: "POST", body: data });
     alert("signup successful!");
     this.props.dispatch({ type: "login-success" });
+    this.props.history.push("/");
   };
 
   render = () => {
@@ -52,4 +54,4 @@ class UnconnectedSignup extends Component {
   };
 }
 let Signup = connect()(UnconnectedSignup);
-export default Signup;
+export default withRouter(Signup);
