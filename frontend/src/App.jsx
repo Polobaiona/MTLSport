@@ -10,6 +10,8 @@ import Hockey from "./Hockey.jsx";
 import Soccer from "./Soccer.jsx";
 import RockClimbing from "./RockClimbing.jsx";
 import Tennis from "./Tennis.jsx";
+import Login from "./Login.jsx";
+import Signup from "./Signup.jsx";
 
 class UnconnectedApp extends Component {
   renderRoot = () => {
@@ -99,8 +101,7 @@ class UnconnectedApp extends Component {
       <BrowserRouter>
         <div>
           <TopBar />
-          <Route exact={true} path="/Login" render={this.login} />
-          <Route exact={true} path="/Signup" render={this.signup} />
+          <Route exact={true} path="/both" render={this.both} />
         </div>
         <div>
           <Route exact={true} path="/" render={this.renderRoot} />

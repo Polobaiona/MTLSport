@@ -25,15 +25,6 @@ class UnconnectedSoccer extends Component {
     }); //returns the title
     console.log(messages[0].replies);
 
-    /*let replies = messages[0].replies.map(ele => {
-      return (
-        <div>
-          <div>
-            {ele.user} | {ele.msg}
-          </div>
-        </div>
-      );
-    });*/
     return (
       <div>
         <div>{titles}</div>
