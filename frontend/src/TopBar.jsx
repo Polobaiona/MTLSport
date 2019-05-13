@@ -12,7 +12,7 @@ class UnconnectedTopBar extends Component {
               <Link to="/">MTLSport</Link>
             </div>{" "}
             <div>
-              <Link to="/form">Login/Signup</Link>
+              <Link to="/">Login/Signup</Link>
             </div>{" "}
           </div>
         </div>
