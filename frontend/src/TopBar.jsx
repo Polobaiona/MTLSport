@@ -11,7 +11,7 @@ class UnconnectedTopBar extends Component {
             <div>
               <Link to="/">MTLSport</Link>
             </div>{" "}
-            <div>
+            <div className="form">
               <Link to="/">Login/Signup</Link>
             </div>{" "}
           </div>
@@ -24,7 +24,7 @@ class UnconnectedTopBar extends Component {
             <div>
               <Link to="/">MTLSport</Link>
             </div>{" "}
-            <div>
+            <div className="form">
               <Link to="/myAccount">My account</Link>
             </div>{" "}
           </div>
