@@ -54,4 +54,11 @@ app.post("/check-login", upload.none(), (req, res) => {
   }
   res.send(JSON.stringify({ success: false }));
 });
+app.post("/thread", upload.none(), (req, res) => {
+  let db = dbs.db("Forum");
+  db.collection("user");
+});
+app.post("user", upload.none(), (req, res) => {
+  let db = dbs.db("Forum");
+});
 app.listen(4000);
