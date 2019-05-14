@@ -113,13 +113,13 @@ app.post("/thread", upload.none(), (req, res) => {
 });
 app.get("/thread", (req, res) => {
   let db = dbs.db("Forum");
-  db.collection("threads").find(
-    {}.toArray((err, results) => {
+  db.collection("threads")
+    .find({})
+    .toArray((err, results) => {
       let id = results._id;
       console.log(err);
       res.send(JSON.stringify({ success: true, id }));
-    })
-  );
+    });
 });
 // app.post("/dms-sent", upload.none(), (req, res) => {
 //   let sessionId = req.cookies.sid;

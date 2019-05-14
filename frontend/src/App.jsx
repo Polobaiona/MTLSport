@@ -15,7 +15,7 @@ import Signup from "./Signup.jsx";
 
 class UnconnectedApp extends Component {
   componentDidMount = () => {
-    let threadArray = [];
+    let threadArray = ["hello"];
 
     fetch("http://localhost:4000/thread")
       .then(x => {
@@ -23,9 +23,9 @@ class UnconnectedApp extends Component {
       })
       .then(responseBody => {
         console.log("body: " + responseBody);
-
+        console.log("responseBody: " + responseBody);
         let body = JSON.parse(responseBody);
-
+        console.log("body: " + body);
         let threads = body.threads;
         console.log("threads: " + threads);
         threads.map(thread => {
