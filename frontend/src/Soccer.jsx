@@ -23,7 +23,6 @@ class UnconnectedSoccer extends Component {
         </div>
       );
     }); //returns the title
-    console.log(messages[0].replies);
 
     return (
       <div>

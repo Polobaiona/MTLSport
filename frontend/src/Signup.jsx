@@ -10,11 +10,9 @@ class UnconnectedSignup extends Component {
       password: ""
     };
   }
-
   handleUsernameChange = event => {
     this.setState({ username: event.target.value });
   };
-
   handlePasswordChange = event => {
     this.setState({ password: event.target.value });
   };
@@ -23,7 +21,6 @@ class UnconnectedSignup extends Component {
     let data = new FormData();
     data.append("username", this.state.username);
     data.append("password", this.state.password);
-    console.log("username");
     fetch("/signup", { method: "POST", body: data, credentials: "include" })
       .then(x => {
         return x.text();
@@ -31,13 +28,14 @@ class UnconnectedSignup extends Component {
       .then(responseBody => {
         console.log(responseBody);
         let body = JSON.parse(responseBody);
-        console.log(body);
-        return;
+        if (!body.success) {
+          alert("Username already used");
+          return;
+        }
+        alert("Signup successful!");
+        this.props.dispatch({ type: "login-success" });
+        this.props.history.push("/myAccount");
       });
-
-    alert("signup successful!");
-    this.props.dispatch({ type: "login-success" });
-    this.props.history.push("/myAccount");
   };
 
   render = () => {

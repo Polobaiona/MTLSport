@@ -10,14 +10,12 @@ class UnconnectedLogin extends Component {
       password: ""
     };
   }
-
   handleUsernameChange = event => {
     this.setState({ username: event.target.value });
   };
   handlePasswordChange = event => {
     this.setState({ password: event.target.value });
   };
-
   handleSubmit = evt => {
     evt.preventDefault();
     console.log("hit submit");

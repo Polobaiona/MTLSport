@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { withRouter, Route, Link } from "react-router-dom";
 import TopBar from "./TopBar.jsx";
 import MainForum from "./MainForum.jsx";
 import Myaccount from "./Myaccount.jsx";
@@ -27,8 +27,16 @@ class UnconnectedApp extends Component {
           threads: body.results
         });
       });
+    fetch("http://localhost:4000/check-login", { credentials: "include" })
+      .then(response => response.text())
+      .then(responseBody => {
+        let body = JSON.parse(responseBody);
+        if (body.success) {
+          this.props.dispatch({ type: "login-success" });
+          this.props.history.push("/");
+        }
+      });
   };
-
   renderRoot = () => {
     return (
       <div>
@@ -115,7 +123,7 @@ class UnconnectedApp extends Component {
   };
   render = () => {
     return (
-      <BrowserRouter>
+      <div>
         <div>
           <TopBar />
           <Route exact={true} path="/both" render={this.both} />
@@ -131,7 +139,7 @@ class UnconnectedApp extends Component {
           <Route exact={true} path="/:sport" render={this.renderSport} />
           <Route exact={true} path="/:sport/:id" render={this.renderThread} />
         </div>
-      </BrowserRouter>
+      </div>
     );
   };
 }
@@ -139,4 +147,4 @@ let mapStateToProps = state => {
   return { threads: state.threads };
 };
 let App = connect(mapStateToProps)(UnconnectedApp);
-export default App;
+export default withrouter(App);
