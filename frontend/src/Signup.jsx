@@ -21,18 +21,20 @@ class UnconnectedSignup extends Component {
     let data = new FormData();
     data.append("username", this.state.username);
     data.append("password", this.state.password);
-    fetch("/signup", { method: "POST", body: data, credentials: "include" })
+    fetch("http://localhost:4000/signup", {
+      method: "POST",
+      body: data,
+      credentials: "include"
+    })
       .then(x => {
         return x.text();
       })
       .then(responseBody => {
-        console.log(responseBody);
         let body = JSON.parse(responseBody);
         if (!body.success) {
           alert("Username already used");
           return;
         }
-        alert("Signup successful!");
         this.props.dispatch({ type: "login-success" });
         this.props.history.push("/myAccount");
       });

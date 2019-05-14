@@ -28,7 +28,7 @@ class UnconnectedApp extends Component {
         });
       });
     fetch("http://localhost:4000/check-login", { credentials: "include" })
-      .then(response => response.text())
+      .then(x => response.text())
       .then(responseBody => {
         let body = JSON.parse(responseBody);
         if (body.success) {
