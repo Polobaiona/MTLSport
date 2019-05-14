@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import TopBar from "./TopBar.jsx";
 import MainForum from "./MainForum.jsx";
-import Account from "./Account.jsx";
+import Myaccount from "./Myaccount.jsx";
 import UserDetails from "./UserDetails.jsx";
 import Basketball from "./Basketball.jsx";
 import Hockey from "./Hockey.jsx";
@@ -54,7 +54,7 @@ class UnconnectedApp extends Component {
   renderAccount = () => {
     return (
       <div>
-        <Account />
+        <Myaccount />
       </div>
     );
   };
@@ -132,7 +132,7 @@ class UnconnectedApp extends Component {
         </div>
         <div>
           <Route exact={true} path="/" render={this.renderRoot} />
-          <Route exact={true} path="/Account" render={this.renderAccount} />
+          <Route exact={true} path="/myAccount" render={this.renderAccount} />
           <Route
             exact={true}
             path="/UserDetails"
