@@ -79,12 +79,11 @@ app.get("/check-login", (req, res) => {
 
 app.get("/logout", (req, res) => {
   let sessionId = req.cookies.sid;
-  db.collection("sessions").findOne({ sessionId }, (err, results) => {
-    delete username;
-    res.send(JSON.stringify({ success: true }));
-  });
-});
+  let db = dbs.db("Forum");
+  db.collection("sessions").remove(req.body.username);
 
+  res.send(JSON.stringify({ success: true }));
+});
 app.post("/thread", upload.none(), (req, res) => {
   let db = dbs.db("Forum");
   let sport = req.body.sport;

@@ -13,6 +13,12 @@ class UnconnectedSignup extends Component {
   handleUsernameChange = event => {
     this.setState({ username: event.target.value });
   };
+  handleFirstNameChange = event => {
+    this.setState({ firstName: event.target.value });
+  };
+  handleLastNameChange = event => {
+    this.setState({ lastName: event.target.value });
+  };
   handlePasswordChange = event => {
     this.setState({ password: event.target.value });
   };
@@ -21,6 +27,8 @@ class UnconnectedSignup extends Component {
     let data = new FormData();
     data.append("username", this.state.username);
     data.append("password", this.state.password);
+    data.append("first name", this.state.firstName);
+    data.append("last name", this.state.lastName);
     fetch("http://localhost:4000/signup", {
       method: "POST",
       body: data,

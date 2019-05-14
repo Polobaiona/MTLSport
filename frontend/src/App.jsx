@@ -39,6 +39,7 @@ class UnconnectedApp extends Component {
     //   });
   };
   renderRoot = () => {
+    console.log("inrenderroot");
     return (
       <div>
         <div className="description">Image placeholder</div>
