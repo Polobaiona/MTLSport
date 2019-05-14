@@ -22,12 +22,14 @@ class UnconnectedSignup extends Component {
     evt.preventDefault();
     console.log("hit signup");
     let data = new FormData();
+
+    fetch("/signup", { method: "POST", body: data, credentials: "include" });
     data.append("username", this.state.username);
     data.append("password", this.state.password);
-    fetch("/signup", { method: "POST", body: data });
+
     alert("signup successful!");
     this.props.dispatch({ type: "login-success" });
-    this.props.history.push("/");
+    this.props.history.push("/myAccount");
   };
 
   render = () => {

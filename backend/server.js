@@ -79,6 +79,7 @@ app.get("/logout", (req, res) => {
   delete username;
   res.send(JSON.stringify({ success: true }));
 });
+
 app.post("/thread", upload.none(), (req, res) => {
   let sessionId = req.cookies.sid;
   let username = sessions[sessionId];
