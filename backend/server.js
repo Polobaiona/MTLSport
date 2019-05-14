@@ -8,7 +8,6 @@ let bodyParser = require("body-parser");
 app.use(bodyParser());
 app.use(cookieParser());
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
-let sessions = {};
 let generateId = () => {
   return "" + Math.floor(Math.random() * 10000000);
 };
@@ -70,6 +69,7 @@ app.post("/login", upload.none(), (req, res) => {
 
 app.get("/check-login", (req, res) => {
   let sessionId = req.cookies.sid;
+  let db = dbs.db("Forum");
   db.collection("sessions").findOne({ sessionId }, (err, results) => {
     let username = results.username;
     if (username !== undefined) {
@@ -88,22 +88,29 @@ app.get("/logout", (req, res) => {
 });
 
 app.post("/thread", upload.none(), (req, res) => {
-  let sessionId = req.cookies.sid;
+  let db = dbs.db("Forum");
+  let sport = req.body.sport;
+  db.collection("threads").insert(
+    {
+      title: req.body.threadTitle,
+      location: req.body.location,
+      category: sport,
+      replies: [],
+      id: generateId()
+    },
+    (err, results) => {
+      console.log(err);
+      res.send(JSON.stringify({ success: true, results }));
+    }
+  );
+});
+app.post("/replies", upload.none(), (req, res) => {
+  let db = dbs.db("Forum");
   db.collection("sessions").findOne({ sessionId }, (err, results) => {
     let username = results.username;
-    let sport = req.body.sport;
-    let db = dbs.db("Forum");
-    db.collection("threads").insert(
-      {
-        title: req.body.threadTitle,
-        location: req.body.location,
-        category: sport,
-        replies: [{ user: username, msg: req.body.msg }]
-      },
-      (err, results) => {
-        console.log(err);
-        res.send(JSON.stringify({ success: true, results }));
-      }
+    db.collection("threads").updateOne(
+      { id: req.body.id },
+      { $push: { user: username, msg: msg } }
     );
   });
 });
