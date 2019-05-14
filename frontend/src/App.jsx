@@ -12,6 +12,7 @@ import RockClimbing from "./RockClimbing.jsx";
 import Tennis from "./Tennis.jsx";
 import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
+import Thread from "./Thread.jsx";
 
 class UnconnectedApp extends Component {
   componentDidMount = () => {
@@ -113,14 +114,11 @@ class UnconnectedApp extends Component {
       );
   };
   renderThread = routerData => {
-    if (routerData.match.params.id === "1") {
-      return <div>test replies</div>;
-    }
-    //<Thread props={this.obj} />
-    if (routerData.match.params.id === "3") {
-      return <div>test replies 2</div>;
-    }
+    let path = routerData.match.params.id;
+    console.log("path: " + path);
+    return <Thread path={path} />;
   };
+
   render = () => {
     return (
       <div>
