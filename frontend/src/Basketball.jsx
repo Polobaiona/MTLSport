@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class UnconnectedBasketball extends Component {
   constructor(props) {
@@ -14,7 +15,8 @@ class UnconnectedBasketball extends Component {
     console.log("threads: " + JSON.stringify(messages));
 
     let titles = messages.map(ele => {
-      return <div>{ele.threadTitle}</div>;
+      let linkTo = "/Basketball/" + ele.id;
+      return <Link to={linkTo}>{ele.threadTitle} </Link>;
     }); //returns the title
     console.log(messages[0].replies);
 

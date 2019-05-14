@@ -6,7 +6,9 @@ class UnconnectedThread extends Component {
     super(props);
   }
 
-  render = () => {};
+  render = () => {
+    return <div>test</div>;
+  };
 }
 
 let mapStateToProps = state => {
