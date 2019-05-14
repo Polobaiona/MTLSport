@@ -147,4 +147,4 @@ let mapStateToProps = state => {
   return { threads: state.threads };
 };
 let App = connect(mapStateToProps)(UnconnectedApp);
-export default withrouter(App);
+export default withRouter(App);
