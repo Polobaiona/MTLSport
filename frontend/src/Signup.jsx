@@ -19,11 +19,14 @@ class UnconnectedSignup extends Component {
   };
   handleSubmit = evt => {
     evt.preventDefault();
-    console.log("hit signup");
     let data = new FormData();
     data.append("username", this.state.username);
     data.append("password", this.state.password);
-    fetch("http://localhost:4000/signup", { method: "POST", body: data });
+    fetch("http://localhost:4000/signup", {
+      method: "POST",
+      body: data,
+      credentials: "include"
+    });
     alert("signup successful!");
     this.props.dispatch({ type: "login-success" });
   };
