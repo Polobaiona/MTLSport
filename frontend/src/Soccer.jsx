@@ -16,7 +16,7 @@ class UnconnectedSoccer extends Component {
 
     let titles = messages.map(ele => {
       let linkTo = "/Soccer/" + ele._id;
-
+      console.log(linkTo);
       return (
         <div>
           <Link to={linkTo}>{ele.threadTitle} </Link>

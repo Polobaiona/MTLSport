@@ -15,14 +15,13 @@ class UnconnectedHockey extends Component {
     console.log("threads: " + JSON.stringify(messages));
 
     let titles = messages.map(ele => {
-      let linkTo = "/Hockey/" + ele.id;
+      let linkTo = "/Hockey/" + ele._id;
       return (
         <div>
           <Link to={linkTo}>{ele.threadTitle} </Link>
         </div>
       );
     }); //returns the title
-    console.log(messages[0].replies);
 
     /*let replies = messages[0].replies.map(ele => {
       return (

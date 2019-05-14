@@ -15,20 +15,14 @@ class UnconnectedBasketball extends Component {
     console.log("threads: " + JSON.stringify(messages));
 
     let titles = messages.map(ele => {
-      let linkTo = "/Basketball/" + ele.id;
-      return <Link to={linkTo}>{ele.threadTitle} </Link>;
-    }); //returns the title
-    console.log(messages[0].replies);
-
-    /*let replies = messages[0].replies.map(ele => {
+      let linkTo = "/Basketball/" + ele._id;
+      console.log(linkTo);
       return (
         <div>
-          <div>
-            {ele.user} | {ele.msg}
-          </div>
+          <Link to={linkTo}>{ele.threadTitle} </Link>
         </div>
       );
-    });*/
+    }); //returns the title
 
     return (
       <div>

@@ -13,6 +13,7 @@ import Tennis from "./Tennis.jsx";
 import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
 import Thread from "./Thread.jsx";
+import Misc from "./Misc.jsx";
 
 class UnconnectedApp extends Component {
   componentDidMount = () => {
