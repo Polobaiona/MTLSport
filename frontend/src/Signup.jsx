@@ -30,13 +30,11 @@ class UnconnectedSignup extends Component {
         return x.text();
       })
       .then(responseBody => {
-        console.log(responseBody);
         let body = JSON.parse(responseBody);
         if (!body.success) {
           alert("Username already used");
           return;
         }
-        alert("Signup successful!");
         this.props.dispatch({ type: "login-success" });
         this.props.history.push("/myAccount");
       });

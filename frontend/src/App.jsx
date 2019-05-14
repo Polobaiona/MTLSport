@@ -22,21 +22,20 @@ class UnconnectedApp extends Component {
       })
       .then(responseBody => {
         let body = JSON.parse(responseBody);
-        console.log(body);
         this.props.dispatch({
           type: "get-threads",
           threads: body.results
         });
       });
-    fetch("http://localhost:4000/check-login", { credentials: "include" })
-      .then(response => response.text())
-      .then(responseBody => {
-        let body = JSON.parse(responseBody);
-        if (body.success) {
-          this.props.dispatch({ type: "login-success" });
-          this.props.history.push("/");
-        }
-      });
+    // fetch("http://localhost:4000/check-login", { credentials: "include" })
+    //   .then(x => x.text())
+    //   .then(responseBody => {
+    //     let body = JSON.parse(responseBody);
+    //     if (body.success) {
+    //       this.props.dispatch({ type: "login-success" });
+    //       this.props.history.push("/");
+    //     }
+    //   });
   };
   renderRoot = () => {
     return (
