@@ -1,35 +1,40 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class UnconnectedSoccer extends Component {
   constructor(props) {
     super(props);
   }
   render = () => {
-    console.log(this.props.thread);
-    let messages = this.props.thread.filter(ele => {
+    console.log(this.props.threads);
+    let messages = this.props.threads.filter(ele => {
       return ele.category === "soccer";
-    });
+    }); //takes the threads in the soccer category
 
-    let message = messages.map(ele => {
-      return ele.msg;
-    });
+    console.log("threads: " + JSON.stringify(messages));
 
-    let user = messages.map(ele => {
-      return ele.username;
-    });
+    let titles = messages.map(ele => {
+      let linkTo = "/Soccer/" + ele.id;
+
+      return (
+        <div>
+          <Link to={linkTo}>{ele.threadTitle} </Link>
+        </div>
+      );
+    }); //returns the title
+    console.log(messages[0].replies);
 
     return (
       <div>
-        <div>{message}</div>
-        <div>{user}</div>
+        <div>{titles}</div>
       </div>
     );
   };
 }
 
 let mapStateToProps = state => {
-  return { thread: state.threads };
+  return { threads: state.threads };
 };
 
 let Soccer = connect(mapStateToProps)(UnconnectedSoccer);

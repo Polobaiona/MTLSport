@@ -33,5 +33,13 @@ class UnconnectedTopBar extends Component {
     }
   };
 }
-let TopBar = connect()(UnconnectedTopBar);
+
+let mapStateToProps = state => {
+  return {
+    loggedIn: state.loggedIn
+  };
+};
+
+let TopBar = connect(mapStateToProps)(UnconnectedTopBar);
+
 export default TopBar;

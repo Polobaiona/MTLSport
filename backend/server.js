@@ -87,6 +87,7 @@ app.get("/logout", (req, res) => {
     res.send(JSON.stringify({ success: true }));
   });
 });
+
 app.post("/thread", upload.none(), (req, res) => {
   let sessionId = req.cookies.sid;
   db.collection("sessions").findOne({ sessionId }, (err, results) => {
