@@ -4,6 +4,8 @@ let cors = require("cors");
 let multer = require("multer");
 let upload = multer();
 let cookieParser = require("cookie-parser");
+let bodyParser = require("body-parser");
+app.use(bodyParser());
 app.use(cookieParser());
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 let sessions = {};
@@ -21,16 +23,18 @@ MongoClient.connect(url, (err, allDbs) => {
 app.post("/signup", upload.none(), (req, res) => {
   let username = req.body.username;
   let enteredPassword = req.body.password;
+  let picture = req.body.image;
   let db = dbs.db("Forum");
   db.collection("users").findOne({ user: username }, (err, results) => {
     console.log(err);
     if (results === null) {
       let sessionId = generateId();
-      sessions[sessionId] = username;
+      db.collection("sessions").insertOne({ sessionId, username });
       db.collection("users").insert({
         user: username,
         password: enteredPassword,
-        userId: generateId()
+        userId: generateId(),
+        image: picture
       });
       res.cookie("sid", sessionId);
       res.send(JSON.stringify({ success: true }));
@@ -54,7 +58,7 @@ app.post("/login", upload.none(), (req, res) => {
           expectedUsername === username
         ) {
           let sessionId = generateId();
-          sessions[sessionId] = expectedUsername;
+          db.collection("sessions").insertOne({ sessionId, username });
           res.cookie("sid", sessionId);
           res.send(JSON.stringify({ success: true }));
           return;
@@ -67,91 +71,84 @@ app.post("/login", upload.none(), (req, res) => {
 
 app.get("/check-login", (req, res) => {
   let sessionId = req.cookies.sid;
-  let username = sessions[sessionId];
-  if (username !== undefined) {
-    res.send(JSON.stringify({ success: true }));
-  }
-  res.send(JSON.stringify({ success: false }));
+  db.collection("sessions").findOne({ sessionId }, (err, results) => {
+    let username = results.username;
+    if (username !== undefined) {
+      res.send(JSON.stringify({ success: true }));
+    }
+    res.send(JSON.stringify({ success: false }));
+  });
 });
+
 app.get("/logout", (req, res) => {
   let sessionId = req.cookies.sid;
-  let username = sessions[sessionId];
-  delete username;
-  res.send(JSON.stringify({ success: true }));
+  db.collection("sessions").findOne({ sessionId }, (err, results) => {
+    delete username;
+    res.send(JSON.stringify({ success: true }));
+  });
 });
 app.post("/thread", upload.none(), (req, res) => {
   let sessionId = req.cookies.sid;
-  let username = sessions[sessionId];
-  console.log("username", username);
-  let msg = req.body.msg;
-  let sport = req.body.sport;
-  let db = dbs.db("Forum");
-  db.collection("threads").insert(
-    {
-      location: req.body.location,
-      category: sport,
-      thread: [{ user: username, message: msg }]
-    },
-    (err, results) => {
-      console.log(err);
-      res.send(JSON.stringify({ success: true, results }));
-    }
-  );
+  db.collection("sessions").findOne({ sessionId }, (err, results) => {
+    let username = results.username;
+    let sport = req.body.sport;
+    let db = dbs.db("Forum");
+    db.collection("threads").insert(
+      {
+        title: req.body.threadTitle,
+        location: req.body.location,
+        category: sport,
+        replies: [{ user: username, msg: req.body.msg }]
+      },
+      (err, results) => {
+        console.log(err);
+        res.send(JSON.stringify({ success: true, results }));
+      }
+    );
+  });
 });
-app.post("/dms-sent", upload.none(), (req, res) => {
-  let sessionId = req.cookies.sid;
-  let username = sessions[sessionId];
-  let picture = req.body.image;
-  let msg = req.body.msg;
-  let destination = req.body.destinationUser;
+app.get("/thread", (req, res) => {
   let db = dbs.db("Forum");
-  db.collection("dms").insert(
-    {
-      name: username,
-      image: picture,
-      dms: [{ from: username, to: destination, messages: msg }]
-    },
-    (err, results) => {
-      console.log(err);
-      res.send(JSON.stringify({ success: true, results }));
-    }
-  );
+  db.collection("threads").findOne({ _id: ObjectId }, (err, results) => {
+    let id = results._id;
+    console.log(err);
+    res.send(JSON.stringify({ success: true, id }));
+  });
 });
-app.post("/dms-recieved", upload.none(), (req, res) => {
-  let sessionId = req.cookies.sid;
-  let username = sessions[sessionId];
-  let picture = req.body.image;
-  let msg = req.body.msg;
-  let destination = req.body.destinationUser;
-  let db = dbs.db("Forum");
-  db.collection("dms").insert(
-    {
-      name: username,
-      image: picture,
-      dms: [{ from: destination, messages: msg }]
-    },
-    (err, results) => {
-      console.log(err);
-      res.send(JSON.stringify({ success: true, results }));
-    }
-  );
-});
-app.post("/dms", upload.none(), (req, res) => {
-  let sessionId = req.cookies.sid;
-  let username = sessions[sessionId];
-  let msg = req.body.msg;
-  let destination = req.body.destinationUser;
-  let db = dbs.db("Forum");
-  db.collection("dms").insert(
-    {
-      from: username,
-      to: destination,
-      messages: msg
-    },
-    (err, results) => {
-      console.log(err);
-      res.send(JSON.stringify({ success: true, results }));
-    }
-  );
-});
+// app.post("/dms-sent", upload.none(), (req, res) => {
+//   let sessionId = req.cookies.sid;
+//   let db = dbs.db("Forum");
+//   db.collection("sessions").findOne({ sessionId }, (err, results) => {
+//     let username = results.username;
+//     let msg = req.body.msg;
+//     let destination = req.body.destinationUser;
+//     let db = dbs.db("Forum");
+//     db.collection("dms").insertOne(
+//       {
+//         from: username,
+//         to: destination,
+//         messages: [username + ": " + msg]
+//       },
+//       (err, results) => {
+//         console.log(err);
+//         res.send(JSON.stringify({ success: true, results }));
+//       }
+//     );
+//   });
+// });
+// app.post("/dms", upload.none(), (req, res) => {
+//   let sessionId = req.cookies.sid;
+//   db.collection("sessions").findOne({ sessionId }, (err, results) => {
+//     let username = results.username;
+//     let msg = req.body.msg;
+//     let destination = req.body.destinationUser;
+//     let db = dbs.db("Forum");
+//     db.collection("dms")
+//       .find({ to: expectedUsername })
+//       .toArray((err, results) => {
+//         console.log(err);
+//         res.send(JSON.stringify({ success: true, results }));
+//       });
+//   });
+// });
 app.listen(4000);
