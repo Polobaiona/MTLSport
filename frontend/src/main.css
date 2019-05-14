@@ -11,4 +11,7 @@ body {
   text-align: center;
 }
 .pass {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100 px;
 }
