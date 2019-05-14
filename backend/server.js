@@ -30,9 +30,7 @@ app.post("/signup", upload.none(), (req, res) => {
       db.collection("sessions").insertOne({ sessionId, username });
       db.collection("users").insert({
         user: username,
-        password: enteredPassword,
-        userId: generateId(),
-        image: picture
+        password: enteredPassword
       });
       res.cookie("sid", sessionId);
       res.send(JSON.stringify({ success: true }));
@@ -43,7 +41,9 @@ app.post("/signup", upload.none(), (req, res) => {
 });
 app.post("/login", upload.none(), (req, res) => {
   let username = req.body.username;
+  console.log("username", username);
   let enteredPassword = req.body.password;
+  console.log("password", enteredPassword);
   let db = dbs.db("Forum");
   db.collection("users").findOne(
     { user: username, password: enteredPassword },
@@ -59,12 +59,10 @@ app.post("/login", upload.none(), (req, res) => {
           db.collection("sessions").insertOne({ sessionId, username });
           res.cookie("sid", sessionId);
           res.send(JSON.stringify({ success: true }));
-          return;
-        }
-      }
+        } else res.send(JSON.stringify({ success: false }));
+      } else res.send(JSON.stringify({ success: false }));
     }
   );
-  res.send(JSON.stringify({ success: false }));
 });
 
 app.get("/check-login", (req, res) => {
