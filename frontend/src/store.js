@@ -4,6 +4,9 @@ let reducer = (state, action) => {
   if (action.type === "login-success") {
     return { ...state, loggedIn: true };
   }
+  if (action.type === "get-threads") {
+    return { ...state, threads: threadArray };
+  }
   return state;
 };
 

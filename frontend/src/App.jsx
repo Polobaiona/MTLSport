@@ -14,6 +14,26 @@ import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
 
 class UnconnectedApp extends Component {
+  componentDidMount = () => {
+    let threadArray = [];
+    fetch("http://localhost:4000/getthread")
+      .then(x => {
+        return x.text();
+      })
+      .then(responseBody => {
+        let body = JSON.parse(responseBody);
+        let threads = body.threads;
+
+        threads.map(thread => {
+          threadArray.push(thread);
+        });
+      });
+    this.props.dispatch({
+      type: "get-threads",
+      threads: threadArray
+    });
+  };
+
   renderRoot = () => {
     return (
       <div>
@@ -120,6 +140,8 @@ class UnconnectedApp extends Component {
     );
   };
 }
-
-let App = connect()(UnconnectedApp);
+let mapStateToProps = state => {
+  return { threads: state.threads };
+};
+let App = connect(mapStateToProps)(UnconnectedApp);
 export default App;
