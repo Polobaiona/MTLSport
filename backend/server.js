@@ -78,19 +78,16 @@ app.get("/check-login", (req, res) => {
 });
 
 app.get("/logout", (req, res) => {
-  let sessionId = req.cookies.sid;
-  db.collection("sessions").findOne({ sessionId }, (err, results) => {
-    delete username;
-    res.send(JSON.stringify({ success: true }));
-  });
+  let item = db.collection("sessions").findOne({ username: req.body.username });
+  db.collection("sessions").remove({ _id: item._id });
+  res.send(JSON.stringify({ success: true }));
 });
-
 app.post("/thread", upload.none(), (req, res) => {
   let db = dbs.db("Forum");
   let sport = req.body.sport;
   db.collection("threads").insert(
     {
-      title: req.body.threadTitle,
+      threadTitle: req.body.threadTitle,
       location: req.body.location,
       category: sport,
       replies: [],
@@ -121,6 +118,23 @@ app.get("/thread", (req, res) => {
       res.send(JSON.stringify({ success: true, results }));
     });
 });
+// app.post("/allItems", upload.none(), (req, res) => {
+//   let db = dbs.db("Forum");
+//   db.collection("items")
+//     .find({})
+//     .toArray((err, results) => {
+//       return res.send(JSON.stringify({ results }));
+//     });
+// });
+// app.post("/new-item", upload.none(), (req, res) => {
+//   let newItem = req.body;
+//   let db = dbs.db("Forum");
+//   newItem.id = generateItemId();
+//   db.collection("items").insert(newItem, (err, results) => {
+//     console.log(err);
+//     return res.send(JSON.stringify({ succes: true, results }));
+//   });
+// });
 // app.post("/dms-sent", upload.none(), (req, res) => {
 //   let sessionId = req.cookies.sid;
 //   let db = dbs.db("Forum");
