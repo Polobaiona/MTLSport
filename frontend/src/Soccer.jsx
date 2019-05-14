@@ -15,7 +15,7 @@ class UnconnectedSoccer extends Component {
     console.log("threads: " + JSON.stringify(messages));
 
     let titles = messages.map(ele => {
-      let linkTo = "/Soccer/" + ele.id;
+      let linkTo = "/Soccer/" + ele._id;
 
       return (
         <div>

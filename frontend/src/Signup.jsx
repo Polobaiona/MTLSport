@@ -21,7 +21,11 @@ class UnconnectedSignup extends Component {
     let data = new FormData();
     data.append("username", this.state.username);
     data.append("password", this.state.password);
-    fetch("/signup", { method: "POST", body: data, credentials: "include" })
+    fetch("http://localhost:4000/signup", {
+      method: "POST",
+      body: data,
+      credentials: "include"
+    })
       .then(x => {
         return x.text();
       })

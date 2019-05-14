@@ -115,7 +115,7 @@ class UnconnectedApp extends Component {
   };
   renderThread = routerData => {
     let path = routerData.match.params.id;
-    console.log("path: " + path);
+
     return <Thread path={path} />;
   };
 
