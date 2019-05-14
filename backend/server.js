@@ -29,6 +29,8 @@ app.post("/signup", upload.none(), (req, res) => {
       let sessionId = generateId();
       db.collection("sessions").insertOne({ sessionId, username });
       db.collection("users").insert({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         user: username,
         password: enteredPassword
       });
@@ -79,27 +81,26 @@ app.get("/check-login", (req, res) => {
 
 app.get("/logout", (req, res) => {
   let db = dbs.db("Forum");
-
   db.collection("sessions").remove({ sessionId: req.cookies.sid });
   res.send(JSON.stringify({ success: true }));
 });
-app.post("/thread", upload.none(), (req, res) => {
-  let db = dbs.db("Forum");
-  let sport = req.body.sport;
-  db.collection("threads").insert(
-    {
-      threadTitle: req.body.threadTitle,
-      location: req.body.location,
-      category: sport,
-      replies: [],
-      id: generateId()
-    },
-    (err, results) => {
-      console.log(err);
-      res.send(JSON.stringify({ success: true, results }));
-    }
-  );
-});
+// app.post("/thread", upload.none(), (req, res) => {
+//   let db = dbs.db("Forum");
+//   let sport = req.body.sport;
+//   db.collection("threads").insert(
+//     {
+//       threadTitle: req.body.threadTitle,
+//       location: req.body.location,
+//       category: sport,
+//       replies: [],
+//       id: generateId()
+//     },
+//     (err, results) => {
+//       console.log(err);
+//       res.send(JSON.stringify({ success: true, results }));
+//     }
+//   );
+// });
 app.post("/replies", upload.none(), (req, res) => {
   let db = dbs.db("Forum");
   db.collection("sessions").findOne({ sessionId }, (err, results) => {
@@ -108,6 +109,7 @@ app.post("/replies", upload.none(), (req, res) => {
       { id: req.body.id },
       { $push: { user: username, msg: msg } }
     );
+    res.send(JSON.stringify({ success: true }));
   });
 });
 app.get("/thread", (req, res) => {
@@ -119,7 +121,29 @@ app.get("/thread", (req, res) => {
       res.send(JSON.stringify({ success: true, results }));
     });
 });
-app.post("");
+app.post("/new-thread", upload.none(), (req, res) => {
+  let newThread = req.body;
+  let db = dbs.db("Forum");
+  newThread.id = generateId();
+  newThread.replies = [];
+  db.collection("threads").insertOne(newThread);
+  return res.send(JSON.stringify({ success: true }));
+});
+app.get("/category", (req, res) => {
+  let db = dbs.db("Forum");
+  db.collection("categories")
+    .find({})
+    .toArray((err, results) => {
+      res.send(JSON.stringify({ success: true, results }));
+    });
+});
+app.post("new-category", upload.none(), (req, res) => {
+  let newCategory = req.body;
+  let db = dbs.db("Forum");
+  db.collection("categories").insert(newCategory, (err, results) => {
+    res.send(JSON.stringify({ success: true, results }));
+  });
+});
 // app.post("/allItems", upload.none(), (req, res) => {
 //   let db = dbs.db("Forum");
 //   db.collection("items")
