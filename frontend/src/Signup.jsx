@@ -20,7 +20,6 @@ class UnconnectedSignup extends Component {
   };
   handleSubmit = evt => {
     evt.preventDefault();
-    console.log("hit signup");
     let data = new FormData();
     data.append("username", this.state.username);
     data.append("password", this.state.password);

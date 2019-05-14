@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
 class UnconnectedTopBar extends Component {
   render = () => {
@@ -10,10 +10,10 @@ class UnconnectedTopBar extends Component {
           <div className="flex">
             <div>
               <Link to="/">MTLSport</Link>
-            </div>{" "}
+            </div>
             <div className="form">
-              <Link to="/both">Login/Signup</Link>
-            </div>{" "}
+              <Link to="/Login">Login</Link>/<Link to="/Signup">Signup</Link>
+            </div>
           </div>
         </div>
       );
@@ -23,10 +23,10 @@ class UnconnectedTopBar extends Component {
           <div className="flex">
             <div>
               <Link to="/">MTLSport</Link>
-            </div>{" "}
+            </div>
             <div className="form">
               <Link to="/myAccount">My account</Link>
-            </div>{" "}
+            </div>
           </div>
         </div>
       );
