@@ -22,11 +22,14 @@ MongoClient.connect(url, (err, allDbs) => {
 });
 app.post("/signup", upload.none(), (req, res) => {
   let username = req.body.username;
+  console.log("username", username);
   let enteredPassword = req.body.password;
   let picture = req.body.image;
   let db = dbs.db("Forum");
+  console.log("bacon");
   db.collection("users").findOne({ user: username }, (err, results) => {
-    console.log(err);
+    console.log("error", err);
+    console.log("results", results);
     if (results === null) {
       let sessionId = generateId();
       db.collection("sessions").insertOne({ sessionId, username });
@@ -110,11 +113,13 @@ app.post("/thread", upload.none(), (req, res) => {
 });
 app.get("/thread", (req, res) => {
   let db = dbs.db("Forum");
-  db.collection("threads").findOne({ _id: ObjectId }, (err, results) => {
-    let id = results._id;
-    console.log(err);
-    res.send(JSON.stringify({ success: true, id }));
-  });
+  db.collection("threads").find(
+    {}.toArray((err, results) => {
+      let id = results._id;
+      console.log(err);
+      res.send(JSON.stringify({ success: true, id }));
+    })
+  );
 });
 // app.post("/dms-sent", upload.none(), (req, res) => {
 //   let sessionId = req.cookies.sid;
