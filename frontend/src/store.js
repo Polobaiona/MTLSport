@@ -7,6 +7,10 @@ let reducer = (state, action) => {
   if (action.type === "get-threads") {
     return { ...state, threads: action.threads };
   }
+  if (action.type === "logout") {
+    return { ...state, loggedIn: false };
+  }
+
   return state;
 };
 

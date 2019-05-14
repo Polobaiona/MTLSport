@@ -118,6 +118,7 @@ app.get("/thread", (req, res) => {
       res.send(JSON.stringify({ success: true, results }));
     });
 });
+app.post("");
 // app.post("/allItems", upload.none(), (req, res) => {
 //   let db = dbs.db("Forum");
 //   db.collection("items")
