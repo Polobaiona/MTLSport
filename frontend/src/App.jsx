@@ -15,26 +15,18 @@ import Signup from "./Signup.jsx";
 
 class UnconnectedApp extends Component {
   componentDidMount = () => {
-    let threadArray = ["hello"];
-
     fetch("http://localhost:4000/thread")
       .then(x => {
         return x.text();
       })
       .then(responseBody => {
         let body = JSON.parse(responseBody);
-
-        let threads = body.threads;
-
-        threads.map(thread => {
-          threadArray.push(thread);
+        console.log(body);
+        this.props.dispatch({
+          type: "get-threads",
+          threads: body.results
         });
       });
-
-    this.props.dispatch({
-      type: "get-threads",
-      threads: threadArray
-    });
   };
 
   renderRoot = () => {
