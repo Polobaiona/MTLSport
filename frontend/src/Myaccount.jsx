@@ -7,6 +7,6 @@ class UnconnectedAccount extends Component {
   };
 }
 
-let Account = connect()(UnconnectedAccount);
+let Myaccount = connect()(UnconnectedAccount);
 
-export default Account;
+export default Myaccount;

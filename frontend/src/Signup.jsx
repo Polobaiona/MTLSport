@@ -22,10 +22,19 @@ class UnconnectedSignup extends Component {
     evt.preventDefault();
     console.log("hit signup");
     let data = new FormData();
-
-    fetch("/signup", { method: "POST", body: data, credentials: "include" });
     data.append("username", this.state.username);
     data.append("password", this.state.password);
+    console.log("username");
+    fetch("/signup", { method: "POST", body: data, credentials: "include" })
+      .then(x => {
+        return x.text();
+      })
+      .then(responseBody => {
+        console.log(responseBody);
+        let body = JSON.parse(responseBody);
+        console.log(body);
+        return;
+      });
 
     alert("signup successful!");
     this.props.dispatch({ type: "login-success" });
@@ -37,6 +46,18 @@ class UnconnectedSignup extends Component {
       <div className="signup">
         <h3>Sign-up</h3>
         <form onSubmit={this.handleSubmit}>
+          <input
+            className="pass"
+            type="text"
+            onChange={this.handlePasswordChange}
+            placeholder="First name"
+          />
+          <input
+            className="pass"
+            type="text"
+            onChange={this.handlePasswordChange}
+            placeholder="Last name"
+          />
           <input
             className="pass"
             type="text"
