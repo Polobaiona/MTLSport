@@ -9,12 +9,9 @@ class UnconnectedAccount extends Component {
         return header.text();
       })
       .then(responseBody => {
-        console.log(responseBody);
         let body = JSON.parse(responseBody);
         if (body.success) {
-          console.log("logged out ");
           this.props.dispatch({ type: "logout" });
-          console.log("log in" + this.props.loggedIn);
           this.props.history.push("/");
         }
       });
