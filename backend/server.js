@@ -78,8 +78,9 @@ app.get("/check-login", (req, res) => {
 });
 
 app.get("/logout", (req, res) => {
-  let item = db.collection("sessions").findOne({ username: req.body.username });
-  db.collection("sessions").remove({ _id: item._id });
+  let db = dbs.db("Forum");
+
+  db.collection("sessions").remove({ sessionId: req.cookies.sid });
   res.send(JSON.stringify({ success: true }));
 });
 app.post("/thread", upload.none(), (req, res) => {
