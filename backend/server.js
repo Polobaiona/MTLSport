@@ -22,7 +22,6 @@ MongoClient.connect(url, (err, allDbs) => {
 app.post("/signup", upload.none(), (req, res) => {
   let username = req.body.username;
   let enteredPassword = req.body.password;
-  let picture = req.body.image;
   let db = dbs.db("Forum");
   db.collection("users").findOne({ user: username }, (err, results) => {
     if (results === null) {
@@ -66,15 +65,17 @@ app.post("/login", upload.none(), (req, res) => {
 });
 
 app.get("/check-login", (req, res) => {
-  let sessionId = req.cookies.sid;
   let db = dbs.db("Forum");
-  db.collection("sessions").findOne({ sessionId }, (err, results) => {
-    let username = results.username;
-    if (username !== undefined) {
-      res.send(JSON.stringify({ success: true }));
+  db.collection("sessions").findOne(
+    { sessionId: req.cookies.sid },
+    (err, results) => {
+      let username = results.username;
+      if (username !== undefined) {
+        res.send(JSON.stringify({ success: true }));
+      }
+      res.send(JSON.stringify({ success: false }));
     }
-    res.send(JSON.stringify({ success: false }));
-  });
+  );
 });
 
 app.get("/logout", (req, res) => {
@@ -82,30 +83,17 @@ app.get("/logout", (req, res) => {
   db.collection("sessions").remove({ sessionId: req.cookies.sid });
   res.send(JSON.stringify({ success: true }));
 });
-// app.post("/thread", upload.none(), (req, res) => {
-//   let db = dbs.db("Forum");
-//   let sport = req.body.sport;
-//   db.collection("threads").insert(
-//     {
-//       threadTitle: req.body.threadTitle,
-//       location: req.body.location,
-//       category: sport,
-//       replies: [],
-//       id: generateId()
-//     },
-//     (err, results) => {
-//       console.log(err);
-//       res.send(JSON.stringify({ success: true, results }));
-//     }
-//   );
-// });
 app.post("/new-thread", upload.none(), (req, res) => {
   let newThread = req.body;
+  let sessionId = req.cookies.sid;
   let db = dbs.db("Forum");
-  // newThread.id = generateId();
-  newThread.replies = [];
-  db.collection("threads").insertOne(newThread);
-  return res.send(JSON.stringify({ success: true }));
+  db.collection("sessions").findOne({ sessionId }, (err, results) => {
+    let username = results.username;
+    newThread.replies = [];
+    newThread.user = username;
+    db.collection("threads").insertOne(newThread);
+    return res.send(JSON.stringify({ newThread, success: true }));
+  });
 });
 app.post("/replies", upload.none(), (req, res) => {
   let db = dbs.db("Forum");
