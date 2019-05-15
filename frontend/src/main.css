@@ -23,3 +23,7 @@ body {
   display: flex;
   justify-content: flex-end;
 }
+.img {
+  width: 10;
+  height: 10;
+}
