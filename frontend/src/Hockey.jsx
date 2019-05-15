@@ -9,9 +9,11 @@ class UnconnectedHockey extends Component {
   }
   render = () => {
     console.log(this.props.threads);
-    let messages = this.props.threads.filter(ele => {
-      return ele.category === "hockey";
-    }); //takes the threads in the soccer category
+    let messages = this.props.threads
+      .filter(ele => {
+        return ele.category === "hockey";
+      })
+      .reverse(); //takes the threads in the soccer category
 
     console.log("threads: " + JSON.stringify(messages));
 

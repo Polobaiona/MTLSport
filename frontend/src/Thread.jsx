@@ -30,7 +30,12 @@ class UnconnectedThread extends Component {
 
     // console.log("replies: ", replies);
 
-    return <div>{replies2}</div>;
+    return (
+      <div>
+        {/* <div>msg</div> */}
+        <div>{replies2}</div>
+      </div>
+    );
   };
 }
 

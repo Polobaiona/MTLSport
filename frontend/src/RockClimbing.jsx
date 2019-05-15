@@ -9,9 +9,11 @@ class UnconnectedRockClimbing extends Component {
   }
   render = () => {
     console.log(this.props.threads);
-    let messages = this.props.threads.filter(ele => {
-      return ele.category === "rockclimbing";
-    }); //takes the threads in the soccer category
+    let messages = this.props.threads
+      .filter(ele => {
+        return ele.category === "rockclimbing";
+      })
+      .reverse(); //takes the threads in the soccer category
 
     console.log("threads: " + JSON.stringify(messages));
 
