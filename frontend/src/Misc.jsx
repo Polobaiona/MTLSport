@@ -16,7 +16,11 @@ class UnconnectedMisc extends Component {
 
     let titles = messages.map(ele => {
       let linkTo = "/Misc/" + ele._id;
-      return <Link to={linkTo}>{ele.threadTitle} </Link>;
+      return (
+        <div>
+          <Link to={linkTo}>{ele.threadTitle} </Link>
+        </div>
+      );
     }); //returns the title
 
     /*let replies = messages[0].replies.map(ele => {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
+import NewThread from "./NewThread.jsx";
 class UnconnectedBasketball extends Component {
   constructor(props) {
     super(props);
@@ -11,9 +11,7 @@ class UnconnectedBasketball extends Component {
     let messages = this.props.threads.filter(ele => {
       return ele.category === "basketball";
     }); //takes the threads in the soccer category
-
     console.log("threads: " + JSON.stringify(messages));
-
     let titles = messages.map(ele => {
       let linkTo = "/Basketball/" + ele._id;
       console.log(linkTo);
@@ -23,10 +21,10 @@ class UnconnectedBasketball extends Component {
         </div>
       );
     }); //returns the title
-
     return (
       <div>
         <div>{titles}</div>
+        <NewThread />
       </div>
     );
   };

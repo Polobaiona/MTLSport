@@ -10,7 +10,9 @@ let reducer = (state, action) => {
   if (action.type === "logout") {
     return { ...state, loggedIn: false };
   }
-
+  if (action.type === "set-newThred") {
+    return { ...state, newThread: [] };
+  }
   return state;
 };
 
@@ -18,9 +20,17 @@ const store = createStore(
   reducer,
   {
     loggedIn: false,
-    category: undefined,
+    categories: [
+      "soccer",
+      "basketball",
+      "tennis",
+      "misc",
+      "rockclimbing",
+      "hockey"
+    ],
     location: undefined,
-    threads: []
+    threads: [],
+    newThread: []
   },
 
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
