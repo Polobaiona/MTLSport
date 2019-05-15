@@ -7,6 +7,10 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
+.flex2 {
+  display: flex;
+}
 .description {
   text-align: center;
 }
@@ -14,4 +18,12 @@ body {
   display: flex;
   flex-wrap: wrap;
   width: 100 px;
+}
+.logout {
+  display: flex;
+  justify-content: flex-end;
+}
+.img {
+  width: 10;
+  height: 10;
 }

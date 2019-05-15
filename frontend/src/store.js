@@ -16,8 +16,9 @@ let reducer = (state, action) => {
   if (action.type === "show-form") {
     return { ...state, showAddThread: action.showAddThread };
   }
-  if (action.type === "set-replies") {
-    return { ...state, threads: [] };
+  if (action.type === "location-change") {
+    console.log("changed state location to: ", action.value);
+    return { ...state, location: action.value };
   }
   return state;
 };

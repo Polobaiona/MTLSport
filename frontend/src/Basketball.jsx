@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import NewThread from "./NewThread.jsx";
+import FilterLocation from "./FilterLocation.jsx";
 class UnconnectedBasketball extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +23,10 @@ class UnconnectedBasketball extends Component {
       );
     }); //returns the title
     return (
-      <div>
+      <div className="flex2">
+        <div>
+          <FilterLocation />
+        </div>
         <div>{titles}</div>
       </div>
     );

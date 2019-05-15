@@ -19,8 +19,12 @@ class UnconnectedAccount extends Component {
   render = () => {
     return (
       <div>
-        Test Account
-        <button onClick={this.logout}>log out!</button>
+        <div className="img">
+          <img src="http://simpleicon.com/wp-content/uploads/account.png" />
+        </div>
+        <div className="logout">
+          <button onClick={this.logout}>log out!</button>
+        </div>
       </div>
     );
   };

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import FilterLocation from "./FilterLocation.jsx";
 
 class UnconnectedSoccer extends Component {
   constructor(props) {
@@ -14,6 +15,24 @@ class UnconnectedSoccer extends Component {
 
     console.log("threads: " + JSON.stringify(messages));
 
+    // filter again by location
+    console.log("location: ", this.props.location);
+
+    if (this.props.location !== undefined) {
+      messages = messages.filter(ele => {
+        console.log(
+          "ele location: ",
+          ele.location,
+          " props: ",
+          this.props.location
+        );
+        return ele.location === this.props.location;
+      });
+    }
+
+    console.log("threads: " + JSON.stringify(messages));
+
+    // ----------------------------------
     let titles = messages.map(ele => {
       let linkTo = "/Soccer/" + ele._id;
       console.log(linkTo);
@@ -25,7 +44,10 @@ class UnconnectedSoccer extends Component {
     }); //returns the title
 
     return (
-      <div>
+      <div className="flex2">
+        <div>
+          <FilterLocation />
+        </div>
         <div>{titles}</div>
       </div>
     );
@@ -33,7 +55,7 @@ class UnconnectedSoccer extends Component {
 }
 
 let mapStateToProps = state => {
-  return { threads: state.threads };
+  return { threads: state.threads, location: state.location };
 };
 
 let Soccer = connect(mapStateToProps)(UnconnectedSoccer);
