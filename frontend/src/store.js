@@ -17,7 +17,6 @@ let reducer = (state, action) => {
     return { ...state, showAddThread: action.showAddThread };
   }
   if (action.type === "location-change") {
-    console.log("changed state location to: ", action.value);
     return { ...state, location: action.value };
   }
   return state;

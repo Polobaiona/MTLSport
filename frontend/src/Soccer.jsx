@@ -14,12 +14,9 @@ class UnconnectedSoccer extends Component {
         return ele.category === "soccer";
       })
       .reverse(); //takes the threads in the soccer category
-
     console.log("threads: " + JSON.stringify(messages));
-
     // filter again by location
     console.log("location: ", this.props.location);
-
     if (this.props.location !== undefined) {
       messages = messages.filter(ele => {
         console.log(

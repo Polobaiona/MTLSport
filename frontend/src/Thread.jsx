@@ -5,16 +5,14 @@ class UnconnectedThread extends Component {
   constructor(props) {
     super(props);
   }
-
   render = () => {
     let path = this.props.path;
-
     console.log(this.props.threads);
     let thread = this.props.threads.filter(ele => {
       console.log("comparing", ele._id, path);
       return ele._id === path;
     });
-    console.log("tread", thread);
+    console.log("thread", thread);
     let replies2 = thread[0].replies.map(ele => {
       console.log(ele.user, ele.msg);
       return (
@@ -38,7 +36,6 @@ class UnconnectedThread extends Component {
     );
   };
 }
-
 let mapStateToProps = state => {
   return { threads: state.threads };
 };
