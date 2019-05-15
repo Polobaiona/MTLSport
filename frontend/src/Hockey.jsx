@@ -34,9 +34,11 @@ class UnconnectedHockey extends Component {
       );
     });*/
     return (
-      <div>
+      <div className="flex2">
+        <div>
+          <FilterLocation />
+        </div>
         <div>{titles}</div>
-        <FilterLocation />
       </div>
     );
   };

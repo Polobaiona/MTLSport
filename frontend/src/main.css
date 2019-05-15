@@ -7,6 +7,10 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
+.flex2 {
+  display: flex;
+}
 .description {
   text-align: center;
 }

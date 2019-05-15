@@ -30,9 +30,11 @@ class UnconnectedTennis extends Component {
       );
     });*/
     return (
-      <div>
+      <div className="flex">
+        <div>
+          <FilterLocation />
+        </div>
         <div>{titles}</div>
-        <FilterLocation />
       </div>
     );
   };

@@ -23,10 +23,12 @@ class UnconnectedBasketball extends Component {
       );
     }); //returns the title
     return (
-      <div>
+      <div className="flex2">
+        <div>
+          <FilterLocation />
+        </div>
         <div>{titles}</div>
         {/* <NewThread /> */}
-        <FilterLocation />
       </div>
     );
   };
