@@ -3,7 +3,12 @@ import { connect } from "react-redux";
 class UnconnectedNewThread extends Component {
   constructor(props) {
     super(props);
-    this.state = { location: "", threadTitle: "", category: "" };
+    this.state = {
+      location: "",
+      threadTitle: "",
+      category: "",
+      msg: ""
+    };
   }
   handleLocation = event => {
     this.setState({ location: event.target.value });
@@ -14,12 +19,16 @@ class UnconnectedNewThread extends Component {
   handleSport = event => {
     this.setState({ category: event.target.value });
   };
+  handleMessage = event => {
+    this.setState({ message: event.target.value });
+  };
   handleSubmit = event => {
     event.preventDefault();
     let data = new FormData();
     data.append("location", this.state.location);
     data.append("threadTitle", this.state.threadTitle);
     data.append("category", this.state.category);
+    data.append("msg", this.state.message);
     fetch("http://localhost:4000/new-thread", { method: "POST", body: data })
       .then(response => response.text())
       .then(responseBody => {
@@ -30,7 +39,15 @@ class UnconnectedNewThread extends Component {
             type: "set-newThread",
             newThread: body.results
           });
+          this.props.dispatch({ type: "show-form", showAddThread: false });
         }
+        fetch("http://localhost:4000/thread")
+          .then(x => x.text())
+          .then(responseBody => {
+            let body = JSON.parse(responseBody);
+            this.props.dispatch({ type: "get-threads", threads: body.results });
+            this.props.history("/");
+          });
       });
   };
   render = () => {
@@ -45,7 +62,7 @@ class UnconnectedNewThread extends Component {
           <div>
             {this.props.categories.map(category => {
               return (
-                <div>
+                <p>
                   <input
                     type="radio"
                     value={category}
@@ -53,15 +70,22 @@ class UnconnectedNewThread extends Component {
                     onChange={this.handleSport}
                   />
                   {category}
-                </div>
+                </p>
               );
             })}
           </div>
           <input
             type="text"
             onChange={this.handleThreadTitle}
-            placeholder="Message"
+            placeholder="Title"
           />
+          <p>
+            <input
+              type="text"
+              onChange={this.handleMessage}
+              placeholder="Message"
+            />
+          </p>
           <input type="submit" />
         </form>
       </div>

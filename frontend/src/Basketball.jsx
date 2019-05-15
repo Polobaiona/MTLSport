@@ -24,7 +24,6 @@ class UnconnectedBasketball extends Component {
     return (
       <div>
         <div>{titles}</div>
-        <NewThread />
       </div>
     );
   };
