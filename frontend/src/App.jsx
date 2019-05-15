@@ -41,8 +41,16 @@ class UnconnectedApp extends Component {
   renderRoot = () => {
     return (
       <div>
-        <div className="description">Image placeholder</div>
-        <div className="description">Description</div>
+        <div className="description flex2">
+          <img
+            className="imageResize"
+            src="https://www.theflagshop.co.nz/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/m/o/montreal_2.gif"
+          />
+          <div className="description">
+            MTLSport is a site dedicated to finding friendly local sports games
+          </div>
+        </div>
+
         <MainForum />
         <div>Buy/Sell</div>
         <div>Talk Sport</div>

@@ -1,5 +1,5 @@
 body {
-  background-color: #bbb;
+  background-color: rgb(207, 205, 205);
   margin: 0;
 }
 
@@ -26,4 +26,9 @@ body {
 .img {
   width: 10;
   height: 10;
+}
+
+.imageResize {
+  width: 270px;
+  height: 260px;
 }
