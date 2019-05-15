@@ -15,3 +15,7 @@ body {
   flex-wrap: wrap;
   width: 100 px;
 }
+.logout {
+  display: flex;
+  justify-content: flex-end;
+}
