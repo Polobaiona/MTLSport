@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import NewThread from "./NewThread.jsx";
+import FilterLocation from "./FilterLocation.jsx";
 class UnconnectedBasketball extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +25,8 @@ class UnconnectedBasketball extends Component {
     return (
       <div>
         <div>{titles}</div>
-        <NewThread />
+        {/* <NewThread /> */}
+        <FilterLocation />
       </div>
     );
   };
