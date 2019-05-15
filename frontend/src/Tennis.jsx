@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import FilterLocation from "./FilterLocation.jsx";
 
 class UnconnectedTennis extends Component {
   constructor(props) {
@@ -31,6 +32,7 @@ class UnconnectedTennis extends Component {
     return (
       <div>
         <div>{titles}</div>
+        <FilterLocation />
       </div>
     );
   };

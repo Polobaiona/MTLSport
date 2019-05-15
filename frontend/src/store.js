@@ -13,6 +13,10 @@ let reducer = (state, action) => {
   if (action.type === "set-newThred") {
     return { ...state, newThread: [] };
   }
+  if (action.type === "location-change") {
+    console.log("changed state location to: ", action.value);
+    return { ...state, location: action.value };
+  }
   return state;
 };
 
