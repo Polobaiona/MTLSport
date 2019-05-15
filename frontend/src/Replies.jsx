@@ -20,7 +20,11 @@ class UnconnectedReplies extends Component {
     let data = new FormData();
     data.append("user", this.state.user);
     data.append("message", this.state.message);
-    fetch("http://localhost:4000/replies", { method: "POST", body: data })
+    fetch("http://localhost:4000/replies", {
+      method: "POST",
+      body: data,
+      credentials: "include"
+    })
       .then(response => response.text())
       .then(responseBody => {
         let body = JSON.parse(responseBody);
