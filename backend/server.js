@@ -72,6 +72,7 @@ app.get("/check-login", (req, res) => {
       let username = results.username;
       if (username !== undefined) {
         res.send(JSON.stringify({ success: true }));
+        return;
       }
       res.send(JSON.stringify({ success: false }));
     }
@@ -88,6 +89,7 @@ app.post("/new-thread", upload.none(), (req, res) => {
   let sessionId = req.cookies.sid;
   let db = dbs.db("Forum");
   db.collection("sessions").findOne({ sessionId }, (err, results) => {
+    console.log(err);
     let username = results.username;
     newThread.replies = [];
     newThread.user = username;
@@ -98,10 +100,11 @@ app.post("/new-thread", upload.none(), (req, res) => {
 app.post("/replies", upload.none(), (req, res) => {
   let db = dbs.db("Forum");
   db.collection("sessions").findOne({ sessionId }, (err, results) => {
+    console.log(err);
     let username = results.username;
     db.collection("threads").updateOne(
       { _id: ObjectId(req.body._id) },
-      { $push: { user: username, msg: req.body.msg } }
+      { $push: { replies: { user: username, msg: req.body.msg } } }
     );
     res.send(JSON.stringify({ success: true }));
   });
@@ -115,38 +118,39 @@ app.get("/thread", (req, res) => {
       res.send(JSON.stringify({ success: true, results }));
     });
 });
-app.get("/category", (req, res) => {
-  let db = dbs.db("Forum");
-  db.collection("categories")
-    .find({})
-    .toArray((err, results) => {
-      res.send(JSON.stringify({ success: true, results }));
-    });
-});
-app.post("new-category", upload.none(), (req, res) => {
-  let newCategory = req.body;
-  let db = dbs.db("Forum");
-  db.collection("categories").insert(newCategory, (err, results) => {
-    res.send(JSON.stringify({ success: true, results }));
-  });
-});
-// app.post("/allItems", upload.none(), (req, res) => {
+// app.get("/category", (req, res) => {
 //   let db = dbs.db("Forum");
-//   db.collection("items")
+//   db.collection("categories")
 //     .find({})
 //     .toArray((err, results) => {
-//       return res.send(JSON.stringify({ results }));
+//       res.send(JSON.stringify({ success: true, results }));
 //     });
 // });
-// app.post("/new-item", upload.none(), (req, res) => {
-//   let newItem = req.body;
+// app.post("new-category", upload.none(), (req, res) => {
+//   let newCategory = req.body;
 //   let db = dbs.db("Forum");
-//   newItem.id = generateItemId();
-//   db.collection("items").insert(newItem, (err, results) => {
-//     console.log(err);
-//     return res.send(JSON.stringify({ succes: true, results }));
+//   db.collection("categories").insert(newCategory, (err, results) => {
+//     res.send(JSON.stringify({ success: true, results }));
 //   });
 // });
+app.post("/allItems", upload.none(), (req, res) => {
+  let db = dbs.db("Forum");
+  db.collection("items")
+    .find({})
+    .toArray((err, results) => {
+      console.log(err);
+      return res.send(JSON.stringify({ results }));
+    });
+});
+app.post("/new-item", upload.none(), (req, res) => {
+  let newItem = req.body;
+  let db = dbs.db("Forum");
+  newItem.id = generateId();
+  db.collection("items").insert(newItem, (err, results) => {
+    console.log(err);
+    return res.send(JSON.stringify({ succes: true, results }));
+  });
+});
 // app.post("/dms-sent", upload.none(), (req, res) => {
 //   let sessionId = req.cookies.sid;
 //   let db = dbs.db("Forum");

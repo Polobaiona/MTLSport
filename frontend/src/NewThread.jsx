@@ -29,7 +29,11 @@ class UnconnectedNewThread extends Component {
     data.append("threadTitle", this.state.threadTitle);
     data.append("category", this.state.category);
     data.append("msg", this.state.message);
-    fetch("http://localhost:4000/new-thread", { method: "POST", body: data })
+    fetch("http://localhost:4000/new-thread", {
+      method: "POST",
+      body: data,
+      credentials: "include"
+    })
       .then(response => response.text())
       .then(responseBody => {
         let body = JSON.parse(responseBody);
@@ -53,12 +57,25 @@ class UnconnectedNewThread extends Component {
   render = () => {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            onChange={this.handleLocation}
-            placeholder="Location"
-          />
+        <form id="new-thread" onSubmit={this.handleSubmit}>
+          <div>
+            <div>Select your location</div>
+            <select name="Location" onChange={this.handleLocation}>
+              <option value="undefined">-------</option>
+              <option value="Ahuntsic">Ahuntsic</option>
+              <option value="Anjou">Anjou</option>
+              <option value="Cote-Des-Neiges">Cote-Des-Neiges</option>
+              <option value="Central Montreal">Central Montreal</option>
+              <option value="East-Montreal">East-Montreal</option>
+              <option value="Lachine">Lachine</option>
+              <option value="Lasalle">Lasalle</option>
+              <option value="Hochelaga">Hochelaga</option>
+              <option value="Mount-Royal">Mount-Royal</option>
+              <option value="Verdun">Verdun</option>
+              <option value="West-Island">West-Island</option>
+              <option value="Westmount">Westmount</option>
+            </select>
+          </div>
           <div>
             {this.props.categories.map(category => {
               return (
@@ -74,16 +91,29 @@ class UnconnectedNewThread extends Component {
               );
             })}
           </div>
-          <input
-            type="text"
-            onChange={this.handleThreadTitle}
-            placeholder="Title"
-          />
           <p>
+            <textarea
+              onChange={this.handleThreadTitle}
+              placeholder="Title"
+              rows="4"
+              cols="50"
+              form="new-thread"
+            />
+          </p>
+          {/* <p>
             <input
               type="text"
               onChange={this.handleMessage}
               placeholder="Message"
+            />
+          </p> */}
+          <p>
+            <textarea
+              onChange={this.handleMessage}
+              placeholder="Message"
+              rows="4"
+              cols="50"
+              form="new-thread"
             />
           </p>
           <input type="submit" />
