@@ -15,6 +15,7 @@ import Signup from "./Signup.jsx";
 import Thread from "./Thread.jsx";
 import Misc from "./Misc.jsx";
 import NewThread from "./NewThread.jsx";
+
 class UnconnectedApp extends Component {
   componentDidMount = () => {
     fetch("http://localhost:4000/thread")

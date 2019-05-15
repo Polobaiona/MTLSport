@@ -1,10 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Replies from "./Replies.jsx";
+import { withRouter } from "react-router-dom";
 
 class UnconnectedThread extends Component {
   constructor(props) {
     super(props);
   }
+  showReplySubmission = () => {
+    this.props.dispatch({
+      type: "show-form2",
+      showAddReply: !this.props.showAddReply
+    });
+  };
 
   render = () => {
     let path = this.props.path;
@@ -23,6 +31,7 @@ class UnconnectedThread extends Component {
         </div>
       );
     });
+
     console.log("replies 2: ", replies2);
     // let replies2 = replies.map(ele => {
     //   return ele.replies;
@@ -34,15 +43,25 @@ class UnconnectedThread extends Component {
       <div>
         {/* <div>msg</div> */}
         <div>{replies2}</div>
+        <div>
+          {this.props.loggedIn && (
+            <button onClick={this.showReplySubmission}>Reply</button>
+          )}
+          {this.props.showAddReply && <Replies />}
+        </div>
       </div>
     );
   };
 }
 
 let mapStateToProps = state => {
-  return { threads: state.threads };
+  return {
+    threads: state.threads,
+    loggedIn: state.loggedIn,
+    showAddReply: state.showAddReply
+  };
 };
 
 let Thread = connect(mapStateToProps)(UnconnectedThread);
 
-export default Thread;
+export default withRouter(Thread);
