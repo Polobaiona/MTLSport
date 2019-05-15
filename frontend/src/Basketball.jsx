@@ -30,7 +30,6 @@ class UnconnectedBasketball extends Component {
           <FilterLocation />
         </div>
         <div>{titles}</div>
-        {/* <NewThread /> */}
       </div>
     );
   };

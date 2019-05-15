@@ -10,8 +10,11 @@ let reducer = (state, action) => {
   if (action.type === "logout") {
     return { ...state, loggedIn: false };
   }
-  if (action.type === "set-newThred") {
+  if (action.type === "set-newThread") {
     return { ...state, newThread: [] };
+  }
+  if (action.type === "show-form") {
+    return { ...state, showAddThread: action.showAddThread };
   }
   if (action.type === "location-change") {
     console.log("changed state location to: ", action.value);
@@ -19,7 +22,6 @@ let reducer = (state, action) => {
   }
   return state;
 };
-
 const store = createStore(
   reducer,
   {
@@ -34,7 +36,8 @@ const store = createStore(
     ],
     location: undefined,
     threads: [],
-    newThread: []
+    newThread: [],
+    showAddThread: false
   },
 
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

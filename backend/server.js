@@ -43,9 +43,7 @@ app.post("/signup", upload.none(), (req, res) => {
 });
 app.post("/login", upload.none(), (req, res) => {
   let username = req.body.username;
-  console.log("username", username);
   let enteredPassword = req.body.password;
-  console.log("password", enteredPassword);
   let db = dbs.db("Forum");
   db.collection("users").findOne(
     { user: username, password: enteredPassword },
@@ -101,13 +99,21 @@ app.get("/logout", (req, res) => {
 //     }
 //   );
 // });
+app.post("/new-thread", upload.none(), (req, res) => {
+  let newThread = req.body;
+  let db = dbs.db("Forum");
+  // newThread.id = generateId();
+  newThread.replies = [];
+  db.collection("threads").insertOne(newThread);
+  return res.send(JSON.stringify({ success: true }));
+});
 app.post("/replies", upload.none(), (req, res) => {
   let db = dbs.db("Forum");
   db.collection("sessions").findOne({ sessionId }, (err, results) => {
     let username = results.username;
     db.collection("threads").updateOne(
-      { id: req.body.id },
-      { $push: { user: username, msg: msg } }
+      { _id: ObjectId(req.body._id) },
+      { $push: { user: username, msg: req.body.msg } }
     );
     res.send(JSON.stringify({ success: true }));
   });
@@ -120,14 +126,6 @@ app.get("/thread", (req, res) => {
       console.log(err);
       res.send(JSON.stringify({ success: true, results }));
     });
-});
-app.post("/new-thread", upload.none(), (req, res) => {
-  let newThread = req.body;
-  let db = dbs.db("Forum");
-  newThread.id = generateId();
-  newThread.replies = [];
-  db.collection("threads").insertOne(newThread);
-  return res.send(JSON.stringify({ success: true }));
 });
 app.get("/category", (req, res) => {
   let db = dbs.db("Forum");

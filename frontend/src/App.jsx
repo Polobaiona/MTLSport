@@ -14,7 +14,7 @@ import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
 import Thread from "./Thread.jsx";
 import Misc from "./Misc.jsx";
-
+import NewThread from "./NewThread.jsx";
 class UnconnectedApp extends Component {
   componentDidMount = () => {
     fetch("http://localhost:4000/thread")
@@ -82,7 +82,6 @@ class UnconnectedApp extends Component {
       </div>
     );
   };
-
   renderSport = routerData => {
     if (routerData.match.params.sport === "Basketball")
       return (
@@ -126,13 +125,24 @@ class UnconnectedApp extends Component {
 
     return <Thread path={path} />;
   };
-
+  showSubmission = () => {
+    this.props.dispatch({
+      type: "show-form",
+      showAddThread: !this.props.showAddThread
+    });
+  };
   render = () => {
     return (
       <div>
         <div>
           <TopBar />
           <Route exact={true} path="/both" render={this.both} />
+        </div>
+        <div>
+          {this.props.loggedIn && (
+            <button onClick={this.showSubmission}>Add new thread</button>
+          )}
+          {this.props.showAddThread && <NewThread />}
         </div>
         <div>
           <Route exact={true} path="/" render={this.renderRoot} />
@@ -150,7 +160,11 @@ class UnconnectedApp extends Component {
   };
 }
 let mapStateToProps = state => {
-  return { threads: state.threads };
+  return {
+    threads: state.threads,
+    showAddThread: state.showAddThread,
+    loggedIn: state.loggedIn
+  };
 };
 let App = connect(mapStateToProps)(UnconnectedApp);
 export default withRouter(App);
