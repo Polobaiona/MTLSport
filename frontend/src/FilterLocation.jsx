@@ -29,6 +29,7 @@ class UnconnectedFilterLocation extends Component {
           <option value="Lasalle">Lasalle</option>
           <option value="Hochelaga">Hochelaga</option>
           <option value="Mount-Royal">Mount-Royal</option>
+          <option value="Verdun">Verdun</option>
           <option value="West-Island">West-Island</option>
           <option value="Westmount">Westmount</option>
         </select>
@@ -36,10 +37,6 @@ class UnconnectedFilterLocation extends Component {
     );
   };
 }
-
-let mapStateToProps = state => {
-  return { location: state.location };
-};
 
 let FilterLocation = connect()(UnconnectedFilterLocation);
 
