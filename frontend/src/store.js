@@ -22,6 +22,12 @@ let reducer = (state, action) => {
   if (action.type === "show-form2") {
     return { ...state, showAddReply: action.showAddReply };
   }
+  if (action.type === "show-sell") {
+    return { ...state, showSellItem: action.showSellItem };
+  }
+  if (action.type === "set-items") {
+    return { ...state, sellItem: [] };
+  }
   // if (action.type === "set-newReply") {
   //   let threads = state.threads.map(thread => {
   //     if (threadId === this.state.threadId) return;
@@ -33,7 +39,7 @@ const store = createStore(
   reducer,
   {
     loggedIn: false,
-    categories: [
+    threadCategories: [
       "soccer",
       "basketball",
       "tennis",
@@ -41,11 +47,21 @@ const store = createStore(
       "rockclimbing",
       "hockey"
     ],
+    sellCategories: [
+      "sellBasketball",
+      "sellHockey",
+      "sellTennis",
+      "sellSoccer",
+      "sellRockClimbing",
+      "sellMisc"
+    ],
     location: undefined,
     threads: [],
     newThread: [],
     showAddThread: false,
-    showAddReply: false
+    showAddReply: false,
+    showSellItem: false,
+    sellItem: []
   },
 
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

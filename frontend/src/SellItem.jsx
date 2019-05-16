@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-class UnconnectedNewThread extends Component {
+class UnconnectedSellItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
       location: "",
       threadTitle: "",
       category: "",
-      msg: ""
+      msg: "",
+      image: ""
     };
   }
   handleLocation = event => {
@@ -17,34 +18,37 @@ class UnconnectedNewThread extends Component {
   handleThreadTitle = event => {
     this.setState({ threadTitle: event.target.value });
   };
-  handleSport = event => {
+  handleCategory = event => {
     this.setState({ category: event.target.value });
   };
   handleMessage = event => {
     this.setState({ message: event.target.value });
   };
-  handleSubmit = event => {
+  handleSumbit = event => {
     event.preventDefault();
     let data = new FormData();
     data.append("location", this.state.location);
     data.append("threadTitle", this.state.threadTitle);
     data.append("category", this.state.category);
     data.append("msg", this.state.message);
-    fetch("http://localhost:4000/new-thread", {
+    data.append("image", this.state.image);
+    fetch("http://localhost:4000/sell-item", {
       method: "POST",
       body: data,
       credentials: "include"
     })
       .then(response => response.text())
       .then(responseBody => {
+        console.log("bacon");
         let body = JSON.parse(responseBody);
+        console.log("body", body);
         if (body.success) {
-          alert("New thread added");
+          alert("New item added");
           this.props.dispatch({
-            type: "set-newThread",
-            newThread: body.results
+            type: "set-items",
+            sellItem: body.results
           });
-          this.props.dispatch({ type: "show-form", showAddThread: false });
+          this.props.dispatch({ type: "show-sell", showSellItem: false });
         }
         fetch("http://localhost:4000/thread")
           .then(x => x.text())
@@ -58,7 +62,7 @@ class UnconnectedNewThread extends Component {
   render = () => {
     return (
       <div>
-        <form id="new-thread" onSubmit={this.handleSubmit}>
+        <form id="sell-item" onSubmit={this.handleSubmit}>
           <div>
             <div>Select your location</div>
             <select name="Location" onChange={this.handleLocation}>
@@ -85,7 +89,7 @@ class UnconnectedNewThread extends Component {
                     type="radio"
                     value={category}
                     checked={this.state.category === category}
-                    onChange={this.handleSport}
+                    onChange={this.handleCategory}
                   />
                   {category}
                 </p>
@@ -96,17 +100,26 @@ class UnconnectedNewThread extends Component {
             <textarea
               onChange={this.handleThreadTitle}
               placeholder="Title"
-              rows="4"
-              cols="50"
-              form="new-thread"
+              rows="2"
+              cols="30"
+              form="sell-item"
             />
           </p>
           <p>
             <textarea
               onChange={this.handleMessage}
               placeholder="Message"
-              rows="4"
-              cols="50"
+              rows="2"
+              cols="30"
+              form="new-thread"
+            />
+          </p>
+          <p>
+            <textarea
+              onChange={this.handleImage}
+              placeholder="Image url"
+              rows="2"
+              cols="30"
               form="new-thread"
             />
           </p>
@@ -117,7 +130,7 @@ class UnconnectedNewThread extends Component {
   };
 }
 let mapStateToProps = state => {
-  return { categories: state.threadCategories };
+  return { categories: state.sellCategories };
 };
-let NewThread = connect(mapStateToProps)(UnconnectedNewThread);
-export default withRouter(NewThread);
+let SellItem = connect(mapStateToProps)(UnconnectedSellItem);
+export default withRouter(SellItem);

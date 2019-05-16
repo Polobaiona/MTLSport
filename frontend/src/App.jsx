@@ -22,7 +22,7 @@ import SellRockClimbing from "./SellRockClimbing.jsx";
 import SellSoccer from "./SellSoccer.jsx";
 import SellTennis from "./SellTennis.jsx";
 import SellMisc from "./SellMisc.jsx";
-
+import SellItem from "./SellItem.jsx";
 class UnconnectedApp extends Component {
   componentDidMount = () => {
     fetch("http://localhost:4000/thread")
@@ -180,6 +180,12 @@ class UnconnectedApp extends Component {
       showAddThread: !this.props.showAddThread
     });
   };
+  showAddItem = () => {
+    this.props.dispatch({
+      type: "show-sell",
+      showSellItem: !this.props.showSellItem
+    });
+  };
   render = () => {
     return (
       <div>
@@ -192,6 +198,12 @@ class UnconnectedApp extends Component {
             <button onClick={this.showSubmission}>Add new thread</button>
           )}
           {this.props.showAddThread && <NewThread />}
+        </div>
+        <div>
+          {this.props.loggedIn && (
+            <button onClick={this.showAddItem}>Sell Item</button>
+          )}
+          {this.props.showSellItem && <SellItem />}
         </div>
         <div>
           <Route exact={true} path="/" render={this.renderRoot} />
@@ -218,7 +230,8 @@ let mapStateToProps = state => {
   return {
     threads: state.threads,
     showAddThread: state.showAddThread,
-    loggedIn: state.loggedIn
+    loggedIn: state.loggedIn,
+    showSellItem: state.showSellItem
   };
 };
 let App = connect(mapStateToProps)(UnconnectedApp);
