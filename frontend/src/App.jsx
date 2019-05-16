@@ -149,12 +149,6 @@ class UnconnectedApp extends Component {
     return <Thread path={path} />;
   };
 
-  renderSellThread = routerData => {
-    let path = routerData.match.params.id;
-
-    return <div>sellItemThread</div>;
-  };
-
   showSubmission = () => {
     this.props.dispatch({
       type: "show-form",
@@ -185,11 +179,11 @@ class UnconnectedApp extends Component {
           <Route exact={true} path="/:sport" render={this.renderSport} />
           <Route exact={true} path="/:sport/:id" render={this.renderThread} />
           {/*<Route exact={true} path="/:sell" render={this.renderSell} />*/}
-          <Route
+          {/*<Route
             exact={true}
             path="/:sell/:sellId"
             render={this.renderSellThread}
-          />
+          />*/}
         </div>
       </div>
     );
