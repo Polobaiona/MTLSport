@@ -101,15 +101,18 @@ app.post("/new-thread", upload.none(), (req, res) => {
 });
 app.post("/replies", upload.none(), (req, res) => {
   let db = dbs.db("Forum");
-  db.collection("sessions").findOne({ sessionId }, (err, results) => {
-    console.log(err);
-    let username = results.username;
-    db.collection("threads").updateOne(
-      { _id: ObjectId(req.body._id) },
-      { $push: { replies: { user: username, msg: req.body.msg } } }
-    );
-    res.send(JSON.stringify({ success: true }));
-  });
+  db.collection("sessions").findOne(
+    { sessionId: req.cookies.sid },
+    (err, results) => {
+      console.log(err);
+      let username = results.username;
+      db.collection("threads").updateOne(
+        { _id: ObjectId(req.body._id) },
+        { $push: { replies: { user: username, msg: req.body.msg } } }
+      );
+      res.send(JSON.stringify({ success: true }));
+    }
+  );
 });
 app.get("/thread", (req, res) => {
   let db = dbs.db("Forum");
