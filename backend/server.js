@@ -142,6 +142,19 @@ app.post("/myAccount", (req, res) => {
     }
   );
 });
+app.post("/sell-item", (req, res) => {
+  let sellItem = req.body;
+  let sessionId = req.cookies.sid;
+  let db = dbs.db("Forum");
+  db.collection("sessions").findOne({ sessionId }, (err, results) => {
+    console.log(err);
+    let username = results.username;
+    sellItem.replies = [];
+    sellItem.user = username;
+    db.collection("threads").insertOne(sellItem);
+    return res.send(JSON.stringify({ sellItem, success: true }));
+  });
+});
 // app.post("/allItems", upload.none(), (req, res) => {
 //   let db = dbs.db("Forum");
 //   db.collection("items")
