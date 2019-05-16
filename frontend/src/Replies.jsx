@@ -47,7 +47,7 @@ class UnconnectedReplies extends Component {
                 // threadId: this.state.threadId,
                 // reply: this.state.message
               });
-              // this.props.history("/");
+              // this.props.history.push("/");
             });
         }
       });
