@@ -8,12 +8,24 @@ class UnconnectedSellForum extends Component {
       <div>
         <div>Find an item for sale</div>
         <ul>
-          <li>link to basketball equipment</li>
-          <li>link to hockey equipment</li>
-          <li>link to rock climbing equipment</li>
-          <li>link to soccer equipment</li>
-          <li>link to tennis equipment</li>
-          <li>link to misc equipment</li>
+          <li>
+            <Link to="/SellBasketball">Basketball equipment</Link>
+          </li>
+          <li>
+            <Link to="/SellHockey">Hockey equipment</Link>
+          </li>
+          <li>
+            <Link to="/SellRockClimbing">Rock Climbing equipment</Link>
+          </li>
+          <li>
+            <Link to="/SellSoccer">Soccer equipment</Link>
+          </li>
+          <li>
+            <Link to="/SellTennis">Tennis equipment</Link>
+          </li>
+          <li>
+            <Link to="/SellMisc">Misc equipment</Link>
+          </li>
         </ul>
       </div>
     );
