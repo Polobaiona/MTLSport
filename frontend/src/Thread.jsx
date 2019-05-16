@@ -43,6 +43,7 @@ class UnconnectedThread extends Component {
       <div>
         <div>
           {threads[0].user} | {threads[0].msg}
+          {threads[0].img && <img src={threads[0].img} />}
         </div>
         <div>{replies2}</div>
         <div>

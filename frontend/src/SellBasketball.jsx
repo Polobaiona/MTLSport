@@ -4,10 +4,24 @@ import { Link } from "react-router-dom";
 
 class UnconnectedSellBasketball extends Component {
   render = () => {
+    let messages = this.props.threads
+      .filter(ele => {
+        return ele.category === "sellBasketball";
+      })
+      .reverse();
+
+    let titles = messages.map(ele => {
+      let linkTo = "/SellBasketball/" + ele._id;
+      return (
+        <div>
+          <Link to={linkTo}>{ele.threadTitle}</Link>
+        </div>
+      );
+    });
+
     return (
       <div>
-        <div>Basketball items for sale</div>
-        <div>link to each thread</div>
+        <div>{titles}</div>
       </div>
     );
   };
