@@ -24,7 +24,7 @@ class UnconnectedSellItem extends Component {
   handleMessage = event => {
     this.setState({ message: event.target.value });
   };
-  handleSumbit = event => {
+  handleSubmit = event => {
     event.preventDefault();
     let data = new FormData();
     data.append("location", this.state.location);
@@ -55,7 +55,7 @@ class UnconnectedSellItem extends Component {
           .then(responseBody => {
             let body = JSON.parse(responseBody);
             this.props.dispatch({ type: "get-threads", threads: body.results });
-            this.props.history("/");
+            //this.props.history("/");
           });
       });
   };
