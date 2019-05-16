@@ -28,14 +28,8 @@ class UnconnectedBasketball extends Component {
       );
     }); //returns the title
     return (
-<<<<<<< HEAD
-      <div className="flex2">
-        <div>{this.props.loggedIn && <ThreadModal />}</div>
-=======
       <div className="fuckOffPaul">
-        <div>New thread test</div>
-        <NewThread />
->>>>>>> fdfc730386586a1413208324882ae476d16060a0
+        <div>{this.props.loggedIn && <ThreadModal />}</div>
         <div>
           <FilterLocation />
         </div>
