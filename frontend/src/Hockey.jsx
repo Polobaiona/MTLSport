@@ -49,8 +49,12 @@ class UnconnectedHockey extends Component {
       );
     });*/
     return (
+<<<<<<< HEAD
       <div className="flex2">
         <div>{this.props.loggedIn && <ThreadModal />}</div>
+=======
+      <div className="fuckOffPaul">
+>>>>>>> fdfc730386586a1413208324882ae476d16060a0
         <div>
           <FilterLocation />
         </div>

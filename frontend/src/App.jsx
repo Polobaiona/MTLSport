@@ -49,7 +49,7 @@ class UnconnectedApp extends Component {
   renderRoot = () => {
     return (
       <div>
-        <div className="description flex2">
+        <div className="description fuckOffPaul">
           <img
             className="imageResize"
             src="https://www.theflagshop.co.nz/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/m/o/montreal_2.gif"

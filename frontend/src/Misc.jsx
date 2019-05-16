@@ -49,8 +49,7 @@ class UnconnectedMisc extends Component {
         );
       });*/
     return (
-      <div className="flex2">
-        <div>{this.props.loggedIn && <ThreadModal />}</div>
+      <div className="fuckOffPaul">
         <FilterLocation />
         <div>{titles}</div>
       </div>

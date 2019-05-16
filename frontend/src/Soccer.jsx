@@ -28,8 +28,7 @@ class UnconnectedSoccer extends Component {
     }); //returns the title
 
     return (
-      <div className="flex2">
-        <div>{this.props.loggedIn && <ThreadModal />}</div>
+      <div className="fuckOffPaul">
         <div>
           <FilterLocation />
         </div>
