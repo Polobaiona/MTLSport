@@ -26,6 +26,7 @@ class UnconnectedApp extends Component {
       })
       .then(responseBody => {
         let body = JSON.parse(responseBody);
+        console.log(body.results);
         this.props.dispatch({
           type: "get-threads",
           threads: body.results

@@ -22,9 +22,11 @@ let reducer = (state, action) => {
   if (action.type === "show-form2") {
     return { ...state, showAddReply: action.showAddReply };
   }
-  if (action.type === "set-newReply") {
-    return { ...state, Thread: [] };
-  }
+  // if (action.type === "set-newReply") {
+  //   let threads = state.threads.map(thread => {
+  //     if (threadId === this.state.threadId) return;
+  //   });
+
   return state;
 };
 const store = createStore(

@@ -19,7 +19,9 @@ class UnconnectedReplies extends Component {
     event.preventDefault();
     let data = new FormData();
     data.append("user", this.state.user);
-    data.append("message", this.state.message);
+    data.append("msg", this.state.message);
+    data.append("threadId", this.props.thread._id);
+    console.log("replies.jsx", this.props.thread);
     fetch("http://localhost:4000/replies", {
       method: "POST",
       body: data,
@@ -28,21 +30,29 @@ class UnconnectedReplies extends Component {
       .then(response => response.text())
       .then(responseBody => {
         let body = JSON.parse(responseBody);
+        console.log("BODY", body);
         if (body.success) {
-          alert("New reply");
-          this.props.dispatch({
-            type: "set-newReply",
-            thread: body.results
-          });
-          this.props.dispatch({ type: "show-form2", showAddReply: false });
+          //   alert("New reply");
+          //   console.log("threads", this.state.message);
+          //   this.props.dispatch({
+          //     type: "set-newReply",
+          //     threads: this.state.message
+          //   });
+          //   this.props.dispatch({ type: "show-form2", showAddReply: false });
+
+          fetch("http://localhost:4000/thread")
+            .then(x => x.text())
+            .then(responseBody => {
+              let body = JSON.parse(responseBody);
+              this.props.dispatch({
+                type: "get-threads",
+                threads: body.results
+                // threadId: this.state.threadId,
+                // reply: this.state.message
+              });
+              // this.props.history("/");
+            });
         }
-        fetch("http://localhost:4000/thread")
-          .then(x => x.text())
-          .then(responseBody => {
-            let body = JSON.parse(responseBody);
-            this.props.dispatch({ type: "get-threads", threads: body.results });
-            this.props.history("/");
-          });
       });
   };
   render = () => {
