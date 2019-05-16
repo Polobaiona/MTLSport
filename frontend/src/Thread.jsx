@@ -37,10 +37,13 @@ class UnconnectedThread extends Component {
     // });
 
     // console.log("replies: ", replies);
-
+    console.log("threads 0", threads[0]);
+    console.log("user + message : ", threads[0].msg, threads[0].user);
     return (
       <div>
-        {/* <div>msg</div> */}
+        <div>
+          {threads[0].user} | {threads[0].msg}
+        </div>
         <div>{replies2}</div>
         <div>
           {this.props.loggedIn && (
