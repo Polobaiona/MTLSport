@@ -17,12 +17,12 @@ class UnconnectedThread extends Component {
   render = () => {
     let path = this.props.path;
     console.log(this.props.threads);
-    let thread = this.props.threads.filter(ele => {
+    let threads = this.props.threads.filter(ele => {
       console.log("comparing", ele._id, path);
       return ele._id === path;
     });
-    console.log("thread", thread);
-    let replies2 = thread[0].replies.map(ele => {
+    console.log("thread.jsx", threads);
+    let replies2 = threads[0].replies.map(ele => {
       console.log(ele.user, ele.msg);
       return (
         <div>
@@ -46,7 +46,7 @@ class UnconnectedThread extends Component {
           {this.props.loggedIn && (
             <button onClick={this.showReplySubmission}>Reply</button>
           )}
-          {this.props.showAddReply && <Replies />}
+          {this.props.showAddReply && <Replies thread={threads[0]} />}
         </div>
       </div>
     );

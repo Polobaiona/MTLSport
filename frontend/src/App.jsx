@@ -15,6 +15,13 @@ import Signup from "./Signup.jsx";
 import Thread from "./Thread.jsx";
 import Misc from "./Misc.jsx";
 import NewThread from "./NewThread.jsx";
+import SellForum from "./SellForum.jsx";
+import SellBasketball from "./SellBasketball.jsx";
+import SellHockey from "./SellHockey.jsx";
+import SellRockClimbing from "./SellRockClimbing.jsx";
+import SellSoccer from "./SellSoccer.jsx";
+import SellTennis from "./SellTennis.jsx";
+import SellMisc from "./SellMisc.jsx";
 
 class UnconnectedApp extends Component {
   componentDidMount = () => {
@@ -24,6 +31,7 @@ class UnconnectedApp extends Component {
       })
       .then(responseBody => {
         let body = JSON.parse(responseBody);
+        console.log(body.results);
         this.props.dispatch({
           type: "get-threads",
           threads: body.results
@@ -53,8 +61,9 @@ class UnconnectedApp extends Component {
         </div>
 
         <MainForum />
-        <div>Buy/Sell</div>
-        <div>Talk Sport</div>
+        <div>
+          <SellForum />
+        </div>
       </div>
     );
   };
@@ -120,12 +129,51 @@ class UnconnectedApp extends Component {
           <Misc />
         </div>
       );
+    if (routerData.match.params.sport === "SellBasketball")
+      return (
+        <div>
+          <SellBasketball />
+        </div>
+      );
+
+    if (routerData.match.params.sport === "SellHockey")
+      return (
+        <div>
+          <SellHockey />{" "}
+        </div>
+      );
+    if (routerData.match.params.sport === "SellRockClimbing")
+      return (
+        <div>
+          <SellRockClimbing />
+        </div>
+      );
+    if (routerData.match.params.sport === "SellSoccer")
+      return (
+        <div>
+          <SellSoccer />
+        </div>
+      );
+    if (routerData.match.params.sport === "SellTennis")
+      return (
+        <div>
+          <SellTennis />
+        </div>
+      );
+    if (routerData.match.params.sport === "SellMisc")
+      return (
+        <div>
+          <SellMisc />
+        </div>
+      );
   };
+
   renderThread = routerData => {
     let path = routerData.match.params.id;
 
     return <Thread path={path} />;
   };
+
   showSubmission = () => {
     this.props.dispatch({
       type: "show-form",
@@ -155,6 +203,12 @@ class UnconnectedApp extends Component {
           />
           <Route exact={true} path="/:sport" render={this.renderSport} />
           <Route exact={true} path="/:sport/:id" render={this.renderThread} />
+          {/*<Route exact={true} path="/:sell" render={this.renderSell} />*/}
+          {/*<Route
+            exact={true}
+            path="/:sell/:sellId"
+            render={this.renderSellThread}
+          />*/}
         </div>
       </div>
     );

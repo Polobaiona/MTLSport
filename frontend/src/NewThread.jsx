@@ -57,7 +57,7 @@ class UnconnectedNewThread extends Component {
   render = () => {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form id="new-thread" onSubmit={this.handleSubmit}>
           <div>
             <div>Select your location</div>
             <select name="Location" onChange={this.handleLocation}>
@@ -100,13 +100,6 @@ class UnconnectedNewThread extends Component {
               form="new-thread"
             />
           </p>
-          {/* <p>
-            <input
-              type="text"
-              onChange={this.handleMessage}
-              placeholder="Message"
-            />
-          </p> */}
           <p>
             <textarea
               onChange={this.handleMessage}

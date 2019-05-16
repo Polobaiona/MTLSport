@@ -11,7 +11,9 @@ app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 let generateId = () => {
   return "" + Math.floor(Math.random() * 10000000);
 };
-let MongoClient = require("mongoDb").MongoClient;
+let Mongo = require("mongodb");
+let MongoClient = Mongo.MongoClient;
+let ObjectId = Mongo.ObjectId;
 let url =
   "mongodb+srv:fatou2:ilovejack@cluster0-31ytq.mongodb.net/test?retryWrites=true";
 let dbs = undefined;
@@ -69,13 +71,15 @@ app.get("/check-login", (req, res) => {
   db.collection("sessions").findOne(
     { sessionId: req.cookies.sid },
     (err, results) => {
-      if (results !== null) {
+      if (results) {
         let username = results.username;
         if (username !== undefined) {
           res.send(JSON.stringify({ success: true }));
           return;
         }
         res.send(JSON.stringify({ success: false }));
+      } else {
+        res.json({ success: false });
       }
     }
   );
@@ -100,19 +104,20 @@ app.post("/new-thread", upload.none(), (req, res) => {
   });
 });
 app.post("/replies", upload.none(), (req, res) => {
+  let sessionId = req.cookies.sid;
+  console.log("req.body", req.body);
   let db = dbs.db("Forum");
-  db.collection("sessions").findOne(
-    { sessionId: req.cookies.sid },
-    (err, results) => {
-      console.log(err);
-      let username = results.username;
-      db.collection("threads").updateOne(
-        { _id: ObjectId(req.body._id) },
-        { $push: { replies: { user: username, msg: req.body.msg } } }
-      );
-      res.send(JSON.stringify({ success: true }));
-    }
-  );
+  let threadId = req.body.threadId;
+  console.log("threadId", threadId);
+  db.collection("sessions").findOne({ sessionId }, (err, results) => {
+    console.log(err);
+    let username = results.username;
+    db.collection("threads").updateOne(
+      { _id: ObjectId(threadId) },
+      { $push: { replies: { user: username, msg: req.body.msg } } }
+    );
+    res.send(JSON.stringify({ success: true }));
+  });
 });
 app.get("/thread", (req, res) => {
   let db = dbs.db("Forum");
@@ -153,7 +158,7 @@ app.post("/new-item", upload.none(), (req, res) => {
   newItem.id = generateId();
   db.collection("items").insert(newItem, (err, results) => {
     console.log(err);
-    return res.send(JSON.stringify({ succes: true, results }));
+    return res.send(JSON.stringify({ success: true, results }));
   });
 });
 // app.post("/dms-sent", upload.none(), (req, res) => {
