@@ -29,7 +29,11 @@ class UnconnectedNewThread extends Component {
     data.append("threadTitle", this.state.threadTitle);
     data.append("category", this.state.category);
     data.append("msg", this.state.message);
-    fetch("http://localhost:4000/new-thread", { method: "POST", body: data })
+    fetch("http://localhost:4000/new-thread", {
+      method: "POST",
+      body: data,
+      credentials: "include"
+    })
       .then(response => response.text())
       .then(responseBody => {
         let body = JSON.parse(responseBody);
@@ -53,7 +57,11 @@ class UnconnectedNewThread extends Component {
   render = () => {
     return (
       <div>
+<<<<<<< HEAD
         <form onSubmit={this.handleSubmit}>
+=======
+        <form id="new-thread" onSubmit={this.handleSubmit}>
+>>>>>>> d95254c82bf767b0d2262f473bc88fbab4ee2d96
           <div>
             <div>Select your location</div>
             <select name="Location" onChange={this.handleLocation}>
@@ -87,16 +95,29 @@ class UnconnectedNewThread extends Component {
               );
             })}
           </div>
-          <input
-            type="text"
-            onChange={this.handleThreadTitle}
-            placeholder="Title"
-          />
           <p>
+            <textarea
+              onChange={this.handleThreadTitle}
+              placeholder="Title"
+              rows="4"
+              cols="50"
+              form="new-thread"
+            />
+          </p>
+          {/* <p>
             <input
               type="text"
               onChange={this.handleMessage}
               placeholder="Message"
+            />
+          </p> */}
+          <p>
+            <textarea
+              onChange={this.handleMessage}
+              placeholder="Message"
+              rows="4"
+              cols="50"
+              form="new-thread"
             />
           </p>
           <input type="submit" />

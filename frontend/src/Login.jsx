@@ -32,7 +32,7 @@ class UnconnectedLogin extends Component {
       .then(responseBody => {
         let body = JSON.parse(responseBody);
         if (!body.success) {
-          alert("login failed");
+          alert("Login failed");
           return;
         }
         this.props.dispatch({ type: "login-success" });

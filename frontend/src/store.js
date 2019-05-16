@@ -17,8 +17,13 @@ let reducer = (state, action) => {
     return { ...state, showAddThread: action.showAddThread };
   }
   if (action.type === "location-change") {
-    console.log("changed state location to: ", action.value);
     return { ...state, location: action.value };
+  }
+  if (action.type === "show-form2") {
+    return { ...state, showAddReply: action.showAddReply };
+  }
+  if (action.type === "set-newReply") {
+    return { ...state, Thread: [] };
   }
   return state;
 };
@@ -37,7 +42,8 @@ const store = createStore(
     location: undefined,
     threads: [],
     newThread: [],
-    showAddThread: false
+    showAddThread: false,
+    showAddReply: false
   },
 
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
