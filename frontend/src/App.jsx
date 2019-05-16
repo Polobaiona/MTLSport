@@ -15,6 +15,7 @@ import Signup from "./Signup.jsx";
 import Thread from "./Thread.jsx";
 import Misc from "./Misc.jsx";
 import NewThread from "./NewThread.jsx";
+import SellForum from "./SellForum.jsx";
 
 class UnconnectedApp extends Component {
   componentDidMount = () => {
@@ -54,8 +55,9 @@ class UnconnectedApp extends Component {
         </div>
 
         <MainForum />
-        <div>Buy/Sell</div>
-        <div>Talk Sport</div>
+        <div>
+          <SellForum />
+        </div>
       </div>
     );
   };
@@ -122,11 +124,34 @@ class UnconnectedApp extends Component {
         </div>
       );
   };
+
+  renderSell = routerData => {
+    if (routerData.match.params.sport === "Basketball")
+      return <div>sell basketball equipment react element</div>;
+    if (routerData.match.params.sport === "Hockey")
+      return <div>sell hockey equipment react element</div>;
+    if (routerData.match.params.sport === "RockClimbing")
+      return <div>sell rock climbing equipment react element</div>;
+    if (routerData.match.params.sport === "Soccer")
+      return <div>sell soccer equipment react element</div>;
+    if (routerData.match.params.sport === "Tennis")
+      return <div>sell tennis equipment react element</div>;
+    if (routerData.match.params.sport === "Misc")
+      return <div>sell misc equipment react element</div>;
+  };
+
   renderThread = routerData => {
     let path = routerData.match.params.id;
 
     return <Thread path={path} />;
   };
+
+  renderSellThread = routerData => {
+    let path = routerData.match.params.id;
+
+    return <div>sellItemThread</div>;
+  };
+
   showSubmission = () => {
     this.props.dispatch({
       type: "show-form",
@@ -156,6 +181,12 @@ class UnconnectedApp extends Component {
           />
           <Route exact={true} path="/:sport" render={this.renderSport} />
           <Route exact={true} path="/:sport/:id" render={this.renderThread} />
+          <Route exact={true} path="/:sell" render={this.renderSell} />
+          <Route
+            exact={true}
+            path="/:sell/:sellId"
+            render={this.renderSellThread}
+          />
         </div>
       </div>
     );

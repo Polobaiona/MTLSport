@@ -17,6 +17,19 @@ class UnconnectedTennis extends Component {
 
     console.log("threads: " + JSON.stringify(messages));
 
+    if (this.props.location !== undefined) {
+      messages = messages.filter(ele => {
+        console.log(
+          "ele location: ",
+          ele.location,
+          " props: ",
+          this.props.location
+        );
+
+        return ele.location === this.props.location;
+      });
+    }
+
     let titles = messages.map(ele => {
       let linkTo = "/Tennis/" + ele._id;
       return <Link to={linkTo}>{ele.threadTitle} </Link>;
@@ -42,7 +55,7 @@ class UnconnectedTennis extends Component {
   };
 }
 let mapStateToProps = state => {
-  return { threads: state.threads };
+  return { threads: state.threads, location: state.location };
 };
 let Tennis = connect(mapStateToProps)(UnconnectedTennis);
 export default Tennis;

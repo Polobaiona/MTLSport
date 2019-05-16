@@ -17,6 +17,19 @@ class UnconnectedHockey extends Component {
 
     console.log("threads: " + JSON.stringify(messages));
 
+    if (this.props.location !== undefined) {
+      messages = messages.filter(ele => {
+        console.log(
+          "ele location: ",
+          ele.location,
+          " props: ",
+          this.props.location
+        );
+
+        return ele.location === this.props.location;
+      });
+    }
+
     let titles = messages.map(ele => {
       let linkTo = "/Hockey/" + ele._id;
       return (
@@ -47,7 +60,7 @@ class UnconnectedHockey extends Component {
 }
 
 let mapStateToProps = state => {
-  return { threads: state.threads };
+  return { threads: state.threads, location: state.location };
 };
 let Hockey = connect(mapStateToProps)(UnconnectedHockey);
 
