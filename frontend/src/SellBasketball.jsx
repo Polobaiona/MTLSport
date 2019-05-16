@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
+import SellModal from "./SellModal.jsx";
 class UnconnectedSellBasketball extends Component {
   render = () => {
     let messages = this.props.threads
@@ -21,6 +21,7 @@ class UnconnectedSellBasketball extends Component {
 
     return (
       <div>
+        <div>{this.props.loggedIn && <SellModal />}</div>
         <div>{titles}</div>
       </div>
     );

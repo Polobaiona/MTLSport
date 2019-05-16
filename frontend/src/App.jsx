@@ -14,7 +14,7 @@ import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
 import Thread from "./Thread.jsx";
 import Misc from "./Misc.jsx";
-import NewThread from "./NewThread.jsx";
+import ThreadModal from "./ThreadModal.jsx";
 import SellForum from "./SellForum.jsx";
 import SellBasketball from "./SellBasketball.jsx";
 import SellHockey from "./SellHockey.jsx";
@@ -22,7 +22,7 @@ import SellRockClimbing from "./SellRockClimbing.jsx";
 import SellSoccer from "./SellSoccer.jsx";
 import SellTennis from "./SellTennis.jsx";
 import SellMisc from "./SellMisc.jsx";
-import SellItem from "./SellItem.jsx";
+import SellModal from "./SellModal.jsx";
 class UnconnectedApp extends Component {
   componentDidMount = () => {
     fetch("http://localhost:4000/thread")
@@ -31,7 +31,6 @@ class UnconnectedApp extends Component {
       })
       .then(responseBody => {
         let body = JSON.parse(responseBody);
-        console.log(body.results);
         this.props.dispatch({
           type: "get-threads",
           threads: body.results
@@ -192,18 +191,6 @@ class UnconnectedApp extends Component {
         <div>
           <TopBar />
           <Route exact={true} path="/both" render={this.both} />
-        </div>
-        <div>
-          {this.props.loggedIn && (
-            <button onClick={this.showSubmission}>Add new thread</button>
-          )}
-          {this.props.showAddThread && <NewThread />}
-        </div>
-        <div>
-          {this.props.loggedIn && (
-            <button onClick={this.showAddItem}>Sell Item</button>
-          )}
-          {this.props.showSellItem && <SellItem />}
         </div>
         <div>
           <Route exact={true} path="/" render={this.renderRoot} />

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import FilterLocation from "./FilterLocation.jsx";
-
+import ThreadModal from "./ThreadModal.jsx";
 class UnconnectedRockClimbing extends Component {
   constructor(props) {
     super(props);
@@ -46,6 +46,7 @@ class UnconnectedRockClimbing extends Component {
       });*/
     return (
       <div className="flex2">
+        <div>{this.props.loggedIn && <ThreadModal />}</div>
         <div>
           <FilterLocation />
         </div>

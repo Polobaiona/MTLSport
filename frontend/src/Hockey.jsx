@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import FilterLocation from "./FilterLocation.jsx";
-
+import ThreadModal from "./ThreadModal.jsx";
 class UnconnectedHockey extends Component {
   constructor(props) {
     super(props);
@@ -50,6 +50,7 @@ class UnconnectedHockey extends Component {
     });*/
     return (
       <div className="flex2">
+        <div>{this.props.loggedIn && <ThreadModal />}</div>
         <div>
           <FilterLocation />
         </div>

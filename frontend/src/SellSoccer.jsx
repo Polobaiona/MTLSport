@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
+import SellModal from "./SellModal.jsx";
 class UnconnectedSellSoccer extends Component {
   render = () => {
     let messages = this.props.threads
@@ -9,10 +9,8 @@ class UnconnectedSellSoccer extends Component {
         return ele.category === "sellSoccer";
       })
       .reverse();
-
     let titles = messages.map(ele => {
       let linkTo = "/SellSoccer/" + ele._id;
-
       return (
         <div>
           <Link to={linkTo}>{ele.threadTitle}</Link>
@@ -21,6 +19,7 @@ class UnconnectedSellSoccer extends Component {
     });
     return (
       <div>
+        <div>{this.props.loggedIn && <SellModal />}</div>
         <div>{titles}</div>
       </div>
     );

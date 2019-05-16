@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import NewThread from "./NewThread.jsx";
+import ThreadModal from "./ThreadModal.jsx";
 import FilterLocation from "./FilterLocation.jsx";
 class UnconnectedBasketball extends Component {
   constructor(props) {
@@ -14,24 +14,13 @@ class UnconnectedBasketball extends Component {
         return ele.category === "basketball";
       })
       .reverse(); //takes the threads in the soccer category
-    console.log("threads: " + JSON.stringify(messages));
-
     if (this.props.location !== undefined) {
       messages = messages.filter(ele => {
-        console.log(
-          "ele location: ",
-          ele.location,
-          " props: ",
-          this.props.location
-        );
-
         return ele.location === this.props.location;
       });
     }
-
     let titles = messages.map(ele => {
       let linkTo = "/Basketball/" + ele._id;
-      console.log(linkTo);
       return (
         <div>
           <Link to={linkTo}>{ele.threadTitle} </Link>
@@ -40,8 +29,7 @@ class UnconnectedBasketball extends Component {
     }); //returns the title
     return (
       <div className="flex2">
-        <div>New thread test</div>
-        <NewThread />
+        <div>{this.props.loggedIn && <ThreadModal />}</div>
         <div>
           <FilterLocation />
         </div>

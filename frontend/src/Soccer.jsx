@@ -2,40 +2,24 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import FilterLocation from "./FilterLocation.jsx";
-
+import ThreadModal from "./ThreadModal.jsx";
 class UnconnectedSoccer extends Component {
   constructor(props) {
     super(props);
   }
   render = () => {
-    console.log(this.props.threads);
     let messages = this.props.threads
       .filter(ele => {
         return ele.category === "soccer";
       })
       .reverse(); //takes the threads in the soccer category
-    console.log("threads: " + JSON.stringify(messages));
-    // filter again by location
-    console.log("location: ", this.props.location);
     if (this.props.location !== undefined) {
       messages = messages.filter(ele => {
-        console.log(
-          "ele location: ",
-          ele.location,
-          " props: ",
-          this.props.location
-        );
-
         return ele.location === this.props.location;
       });
     }
-
-    console.log("threads: " + JSON.stringify(messages));
-
-    // ----------------------------------
     let titles = messages.map(ele => {
       let linkTo = "/Soccer/" + ele._id;
-      console.log(linkTo);
       return (
         <div>
           <Link to={linkTo}>{ele.threadTitle} </Link>
@@ -45,6 +29,7 @@ class UnconnectedSoccer extends Component {
 
     return (
       <div className="flex2">
+        <div>{this.props.loggedIn && <ThreadModal />}</div>
         <div>
           <FilterLocation />
         </div>

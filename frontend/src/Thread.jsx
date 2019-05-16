@@ -13,32 +13,18 @@ class UnconnectedThread extends Component {
       showAddReply: !this.props.showAddReply
     });
   };
-
   render = () => {
     let path = this.props.path;
-    console.log(this.props.threads);
     let threads = this.props.threads.filter(ele => {
-      console.log("comparing", ele._id, path);
       return ele._id === path;
     });
-    console.log("thread.jsx", threads);
     let replies2 = threads[0].replies.map(ele => {
-      console.log(ele.user, ele.msg);
       return (
         <div>
           {ele.user} | {ele.msg}
         </div>
       );
     });
-
-    console.log("replies 2: ", replies2);
-    // let replies2 = replies.map(ele => {
-    //   return ele.replies;
-    // });
-
-    // console.log("replies: ", replies);
-
-    console.log("image: ", threads[0]);
     return (
       <div>
         <div>
