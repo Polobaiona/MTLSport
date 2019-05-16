@@ -55,7 +55,11 @@ class UnconnectedTennis extends Component {
   };
 }
 let mapStateToProps = state => {
-  return { threads: state.threads, location: state.location };
+  return {
+    threads: state.threads,
+    location: state.location,
+    loggedIn: state.loggedIn
+  };
 };
 let Tennis = connect(mapStateToProps)(UnconnectedTennis);
 export default Tennis;

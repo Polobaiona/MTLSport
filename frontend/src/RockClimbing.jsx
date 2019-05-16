@@ -55,7 +55,11 @@ class UnconnectedRockClimbing extends Component {
   };
 }
 let mapStateToProps = state => {
-  return { threads: state.threads, location: state.location };
+  return {
+    threads: state.threads,
+    location: state.location,
+    loggedIn: state.loggedIn
+  };
 };
 let RockClimbing = connect(mapStateToProps)(UnconnectedRockClimbing);
 

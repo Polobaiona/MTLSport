@@ -28,7 +28,7 @@ class UnconnectedSellBasketball extends Component {
 }
 
 let mapStateToProps = state => {
-  return { threads: state.threads };
+  return { threads: state.threads, loggedIn: state.loggedIn };
 };
 
 let SellBasketball = connect(mapStateToProps)(UnconnectedSellBasketball);

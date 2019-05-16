@@ -65,6 +65,7 @@ class UnconnectedSellItem extends Component {
       <div>
         <form id="sell-item" onSubmit={this.handleSubmit}>
           <div>
+            <div>Sell your item here</div>
             <div>Select your location</div>
             <select name="Location" onChange={this.handleLocation}>
               <option value="undefined">-------</option>
@@ -83,6 +84,7 @@ class UnconnectedSellItem extends Component {
             </select>
           </div>
           <div>
+            }
             {this.props.categories.map(category => {
               return (
                 <p>

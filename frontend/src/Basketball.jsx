@@ -51,7 +51,11 @@ class UnconnectedBasketball extends Component {
   };
 }
 let mapStateToProps = state => {
-  return { threads: state.threads, location: state.location };
+  return {
+    threads: state.threads,
+    location: state.location,
+    loggedIn: state.loggedIn
+  };
 };
 let Basketball = connect(mapStateToProps)(UnconnectedBasketball);
 

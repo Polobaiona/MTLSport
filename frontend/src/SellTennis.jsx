@@ -29,7 +29,7 @@ class UnconnectedSellTennis extends Component {
 }
 
 let mapStateToProps = state => {
-  return { threads: state.threads };
+  return { threads: state.threads, loggedIn: state.loggedIn };
 };
 
 let SellTennis = connect(mapStateToProps)(UnconnectedSellTennis);
