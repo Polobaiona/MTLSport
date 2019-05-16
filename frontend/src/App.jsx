@@ -17,6 +17,11 @@ import Misc from "./Misc.jsx";
 import NewThread from "./NewThread.jsx";
 import SellForum from "./SellForum.jsx";
 import SellBasketball from "./SellBasketball.jsx";
+import SellHockey from "./SellHockey.jsx";
+import SellRockClimbing from "./SellRockClimbing.jsx";
+import SellSoccer from "./SellSoccer.jsx";
+import SellTennis from "./SellTennis.jsx";
+import SellMisc from "./SellMisc.jsx";
 
 class UnconnectedApp extends Component {
   componentDidMount = () => {
@@ -132,15 +137,35 @@ class UnconnectedApp extends Component {
       );
 
     if (routerData.match.params.sport === "SellHockey")
-      return <div>sell hockey equipment react element</div>;
+      return (
+        <div>
+          <SellHockey />{" "}
+        </div>
+      );
     if (routerData.match.params.sport === "SellRockClimbing")
-      return <div>sell rock climbing equipment react element</div>;
+      return (
+        <div>
+          <SellRockClimbing />
+        </div>
+      );
     if (routerData.match.params.sport === "SellSoccer")
-      return <div>sell soccer equipment react element</div>;
+      return (
+        <div>
+          <SellSoccer />
+        </div>
+      );
     if (routerData.match.params.sport === "SellTennis")
-      return <div>sell tennis equipment react element</div>;
+      return (
+        <div>
+          <SellTennis />
+        </div>
+      );
     if (routerData.match.params.sport === "SellMisc")
-      return <div>sell misc equipment react element</div>;
+      return (
+        <div>
+          <SellMisc />
+        </div>
+      );
   };
 
   renderThread = routerData => {
