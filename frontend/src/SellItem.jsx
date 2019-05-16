@@ -24,7 +24,10 @@ class UnconnectedSellItem extends Component {
   handleMessage = event => {
     this.setState({ message: event.target.value });
   };
-  handleSumbit = event => {
+  handleImage = event => {
+    this.setState({ image: event.target.value });
+  };
+  handleSubmit = event => {
     event.preventDefault();
     let data = new FormData();
     data.append("location", this.state.location);
@@ -39,9 +42,7 @@ class UnconnectedSellItem extends Component {
     })
       .then(response => response.text())
       .then(responseBody => {
-        console.log("bacon");
         let body = JSON.parse(responseBody);
-        console.log("body", body);
         if (body.success) {
           alert("New item added");
           this.props.dispatch({
@@ -55,7 +56,7 @@ class UnconnectedSellItem extends Component {
           .then(responseBody => {
             let body = JSON.parse(responseBody);
             this.props.dispatch({ type: "get-threads", threads: body.results });
-            this.props.history("/");
+            this.props.history.push("/");
           });
       });
   };
