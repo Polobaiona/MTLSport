@@ -37,13 +37,13 @@ class UnconnectedThread extends Component {
     // });
 
     // console.log("replies: ", replies);
-    console.log("threads 0", threads[0]);
-    console.log("user + message : ", threads[0].msg, threads[0].user);
+
+    console.log("image: ", threads[0]);
     return (
       <div>
         <div>
           {threads[0].user} | {threads[0].msg}
-          {threads[0].img && <img src={threads[0].img} />}
+          {threads[0].image && <img src={threads[0].image} />}
         </div>
         <div>{replies2}</div>
         <div>
