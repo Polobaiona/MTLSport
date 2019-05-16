@@ -29,8 +29,12 @@ class UnconnectedBasketball extends Component {
     }); //returns the title
     return (
       <div className="fuckOffPaul">
+<<<<<<< HEAD
         <div>New thread test</div>
         <NewThread />
+=======
+        <div>{this.props.loggedIn && <ThreadModal />}</div>
+>>>>>>> ccc09ff080b4ada00acc5bb8a3f0299c125c039c
         <div>
           <FilterLocation />
         </div>

@@ -50,6 +50,7 @@ class UnconnectedMisc extends Component {
       });*/
     return (
       <div className="fuckOffPaul">
+        <div>{this.props.loggedIn && <SellModal />}</div>
         <FilterLocation />
         <div>{titles}</div>
       </div>

@@ -47,6 +47,7 @@ class UnconnectedRockClimbing extends Component {
     return (
       <div className="fuckOffPaul">
         <div>
+          <div>{this.props.loggedIn && <SellModal />}</div>
           <FilterLocation />
         </div>
         <div>{titles}</div>

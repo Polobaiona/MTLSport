@@ -50,6 +50,7 @@ class UnconnectedHockey extends Component {
     });*/
     return (
       <div className="fuckOffPaul">
+        <div>{this.props.loggedIn && <ThreadModal />}</div>
         <div>
           <FilterLocation />
         </div>
