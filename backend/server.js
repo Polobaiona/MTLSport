@@ -71,6 +71,7 @@ app.get("/check-login", (req, res) => {
   db.collection("sessions").findOne(
     { sessionId: req.cookies.sid },
     (err, results) => {
+      console.log(err);
       if (results) {
         let username = results.username;
         if (username !== undefined) {
@@ -128,39 +129,37 @@ app.get("/thread", (req, res) => {
       res.send(JSON.stringify({ success: true, results }));
     });
 });
-// app.get("/category", (req, res) => {
+app.post("/myAccount", (req, res) => {
+  let myAccount = req.body;
+  let db = dbs.db("Forum");
+  db.collection("sessions").findOne(
+    { sessionId: req.cookies.sid },
+    (err, results) => {
+      myAccount.firstName = results.firstName;
+      myAccount.lastName = results.lastName;
+      db.collection("account").insertOne(myAccount);
+      return res.send(JSON.stringify({ success: true, myAccount }));
+    }
+  );
+});
+// app.post("/allItems", upload.none(), (req, res) => {
 //   let db = dbs.db("Forum");
-//   db.collection("categories")
+//   db.collection("items")
 //     .find({})
 //     .toArray((err, results) => {
-//       res.send(JSON.stringify({ success: true, results }));
+//       console.log(err);
+//       return res.send(JSON.stringify({ results }));
 //     });
 // });
-// app.post("new-category", upload.none(), (req, res) => {
-//   let newCategory = req.body;
+// app.post("/new-item", upload.none(), (req, res) => {
+//   let newItem = req.body;
 //   let db = dbs.db("Forum");
-//   db.collection("categories").insert(newCategory, (err, results) => {
-//     res.send(JSON.stringify({ success: true, results }));
+//   newItem.id = generateId();
+//   db.collection("items").insert(newItem, (err, results) => {
+//     console.log(err);
+//     return res.send(JSON.stringify({ success: true, results }));
 //   });
 // });
-app.post("/allItems", upload.none(), (req, res) => {
-  let db = dbs.db("Forum");
-  db.collection("items")
-    .find({})
-    .toArray((err, results) => {
-      console.log(err);
-      return res.send(JSON.stringify({ results }));
-    });
-});
-app.post("/new-item", upload.none(), (req, res) => {
-  let newItem = req.body;
-  let db = dbs.db("Forum");
-  newItem.id = generateId();
-  db.collection("items").insert(newItem, (err, results) => {
-    console.log(err);
-    return res.send(JSON.stringify({ success: true, results }));
-  });
-});
 // app.post("/dms-sent", upload.none(), (req, res) => {
 //   let sessionId = req.cookies.sid;
 //   let db = dbs.db("Forum");
