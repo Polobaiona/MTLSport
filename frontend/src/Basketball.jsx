@@ -39,7 +39,7 @@ class UnconnectedBasketball extends Component {
       );
     }); //returns the title
     return (
-      <div className="flex2">
+      <div className="fuckOffPaul">
         <div>New thread test</div>
         <NewThread />
         <div>

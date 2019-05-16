@@ -49,7 +49,7 @@ class UnconnectedMisc extends Component {
         );
       });*/
     return (
-      <div className="flex2">
+      <div className="fuckOffPaul">
         <FilterLocation />
         <div>{titles}</div>
       </div>

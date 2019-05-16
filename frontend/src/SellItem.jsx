@@ -84,8 +84,18 @@ class UnconnectedSellItem extends Component {
             </select>
           </div>
           <div>
-            }
-            {this.props.categories.map(category => {
+            <div>Select your item's category</div>
+            <select name="Category" onChange={this.handleCategory}>
+              <option value="undefined">------</option>
+              <option value="sellBasketball">Basketball</option>
+              <option value="sellHockey">Hockey</option>
+              <option value="sellTennis">Tennis</option>
+              <option value="sellSoccer">Soccer</option>
+              <option value="sellRockClimbing">RockClimbing</option>
+              <option value="sellMisc">Misc</option>
+            </select>
+
+            {/*} {this.props.categories.map(category => {
               return (
                 <p>
                   <input
@@ -97,7 +107,7 @@ class UnconnectedSellItem extends Component {
                   {category}
                 </p>
               );
-            })}
+            })}*/}
           </div>
           <p>
             <textarea

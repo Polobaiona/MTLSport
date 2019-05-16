@@ -44,7 +44,7 @@ class UnconnectedSoccer extends Component {
     }); //returns the title
 
     return (
-      <div className="flex2">
+      <div className="fuckOffPaul">
         <div>
           <FilterLocation />
         </div>

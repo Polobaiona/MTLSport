@@ -45,7 +45,7 @@ class UnconnectedRockClimbing extends Component {
         );
       });*/
     return (
-      <div className="flex2">
+      <div className="fuckOffPaul">
         <div>
           <FilterLocation />
         </div>
