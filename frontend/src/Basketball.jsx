@@ -15,6 +15,20 @@ class UnconnectedBasketball extends Component {
       })
       .reverse(); //takes the threads in the soccer category
     console.log("threads: " + JSON.stringify(messages));
+
+    if (this.props.location !== undefined) {
+      messages = messages.filter(ele => {
+        console.log(
+          "ele location: ",
+          ele.location,
+          " props: ",
+          this.props.location
+        );
+
+        return ele.location === this.props.location;
+      });
+    }
+
     let titles = messages.map(ele => {
       let linkTo = "/Basketball/" + ele._id;
       console.log(linkTo);
@@ -35,7 +49,7 @@ class UnconnectedBasketball extends Component {
   };
 }
 let mapStateToProps = state => {
-  return { threads: state.threads };
+  return { threads: state.threads, location: state.location };
 };
 let Basketball = connect(mapStateToProps)(UnconnectedBasketball);
 

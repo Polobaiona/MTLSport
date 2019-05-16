@@ -54,11 +54,24 @@ class UnconnectedNewThread extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            onChange={this.handleLocation}
-            placeholder="Location"
-          />
+          <div>
+            <div>Select your location</div>
+            <select name="Location" onChange={this.handleLocation}>
+              <option value="undefined">-------</option>
+              <option value="Ahuntsic">Ahuntsic</option>
+              <option value="Anjou">Anjou</option>
+              <option value="Cote-Des-Neiges">Cote-Des-Neiges</option>
+              <option value="Central Montreal">Central Montreal</option>
+              <option value="East-Montreal">East-Montreal</option>
+              <option value="Lachine">Lachine</option>
+              <option value="Lasalle">Lasalle</option>
+              <option value="Hochelaga">Hochelaga</option>
+              <option value="Mount-Royal">Mount-Royal</option>
+              <option value="Verdun">Verdun</option>
+              <option value="West-Island">West-Island</option>
+              <option value="Westmount">Westmount</option>
+            </select>
+          </div>
           <div>
             {this.props.categories.map(category => {
               return (

@@ -2,25 +2,22 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class UnconnectedFilterLocation extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      location: undefined
-    };
-  }
   handleLocationChange = evt => {
     evt.preventDefault();
     console.log(event.target.value);
-    this.setState({ location: event.target.value });
-    this.props.dispatch({ type: "location-change", value: event.target.value });
+    let val = event.target.value;
+    if (val === "undefined") val = undefined;
+
+    this.props.dispatch({ type: "location-change", value: val });
   };
+
   render = () => {
     return (
       <div>
         <div>Select your location</div>
         <select name="Location" onChange={this.handleLocationChange}>
-          <option value="undefined">-------</option>
-          <option value="Ahuntsic">Ahuntsic</option>
+          <option value="undefined">All Locations</option>
+          <option value="Ahuntsic">Ahuntsic test</option>
           <option value="Anjou">Anjou</option>
           <option value="Cote-Des-Neiges">Cote-Des-Neiges</option>
           <option value="Central Montreal">Central Montreal</option>
