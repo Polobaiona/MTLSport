@@ -69,12 +69,14 @@ app.get("/check-login", (req, res) => {
   db.collection("sessions").findOne(
     { sessionId: req.cookies.sid },
     (err, results) => {
-      let username = results.username;
-      if (username !== undefined) {
-        res.send(JSON.stringify({ success: true }));
-        return;
+      if (results !== null) {
+        let username = results.username;
+        if (username !== undefined) {
+          res.send(JSON.stringify({ success: true }));
+          return;
+        }
+        res.send(JSON.stringify({ success: false }));
       }
-      res.send(JSON.stringify({ success: false }));
     }
   );
 });
