@@ -42,9 +42,17 @@ class UnconnectedApp extends Component {
     fetch("http://localhost:4000/check-login", { credentials: "include" })
       .then(x => x.text())
       .then(responseBody => {
+        console.log("responsebody", responseBody);
         let body = JSON.parse(responseBody);
         if (body.success) {
-          this.props.dispatch({ type: "login-success" });
+          console.log("dispatching");
+          console.log("firstname", body.firstName);
+          this.props.dispatch({
+            type: "login-success",
+            username: body.username,
+            firstName: body.firstName,
+            lastName: body.lastName
+          });
           this.props.history.push("/");
         }
       });

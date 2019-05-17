@@ -80,7 +80,7 @@ class UnconnectedSignup extends Component {
           />
           <input
             className="pass"
-            type="text"
+            type="password"
             onChange={this.handlePasswordChange}
             placeholder="Password"
           />
