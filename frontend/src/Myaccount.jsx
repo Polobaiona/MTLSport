@@ -1,8 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import Login from "./Login.jsx";
+import Signup from "./Signup.jsx";
 
 class UnconnectedAccount extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      firstName: "",
+      lastName: ""
+    };
+  }
   logout = () => {
     fetch("http://localhost:4000/logout", { credentials: "include" })
       .then(header => {
@@ -20,8 +30,18 @@ class UnconnectedAccount extends Component {
   render = () => {
     return (
       <div>
-        <div className="img">
-          <img src="http://simpleicon.com/wp-content/uploads/account.png" />
+        <div>
+          <img
+            className="img"
+            src="http://simpleicon.com/wp-content/uploads/account.png"
+          />
+        </div>
+        <div className="accountinfos">
+          <p>Your personal informations</p>
+          <p>{this.props.username}</p>
+          <p>{this.props.firstName}</p>
+          <p>{this.props.lastName}</p>
+          <input type="date" />
         </div>
         <div className="logout">
           <button onClick={this.logout}>log out!</button>
@@ -31,6 +51,13 @@ class UnconnectedAccount extends Component {
   };
 }
 
-let Myaccount = connect()(UnconnectedAccount);
+let mapStateToProps = state => {
+  return {
+    username: state.username,
+    firstName: state.firstName,
+    lastName: state.lastName
+  };
+};
+let Myaccount = connect(mapStateToProps)(UnconnectedAccount);
 
 export default withRouter(Myaccount);
