@@ -10,8 +10,9 @@ class UnconnectedFrontPageItems extends Component {
   render = () => {
     if (this.props.threads.length === 0) return "loading";
 
-    let messages = this.props.threads.reverse();
-
+    //let messages = this.props.threads.reverse();
+    let messages = [];
+    this.props.threads.forEach(ele => messages.unshift(ele));
     console.log("messages: ", messages);
     let threadTitles = [];
 
@@ -37,11 +38,7 @@ class UnconnectedFrontPageItems extends Component {
 
       return (
         <Link to={linkTo}>
-<<<<<<< HEAD
-          <img className="imageResize" src={ele.image} />
-=======
           <img height="150px" src={ele.image} />
->>>>>>> 791f2e08428993a70bb1701e2c2eecea685d3747
         </Link>
       );
     });
