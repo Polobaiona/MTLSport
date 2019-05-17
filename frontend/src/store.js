@@ -8,7 +8,8 @@ let reducer = (state, action) => {
       loggedIn: true,
       username: action.username,
       firstName: action.firstName,
-      lastName: action.lastName
+      lastName: action.lastName,
+      age: action.age
     };
   }
   if (action.type === "get-threads") {

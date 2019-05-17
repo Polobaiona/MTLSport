@@ -26,6 +26,7 @@ app.post("/signup", upload.none(), (req, res) => {
   let enteredPassword = req.body.password;
   let firstName = req.body.firstName;
   let lastName = req.body.lastName;
+  let age = req.body.age;
   let db = dbs.db("Forum");
   db.collection("users").findOne({ user: username }, (err, results) => {
     if (results === null) {
@@ -34,7 +35,8 @@ app.post("/signup", upload.none(), (req, res) => {
         sessionId,
         username,
         firstName,
-        lastName
+        lastName,
+        age
       });
       db.collection("users").insert({
         firstName: firstName,
@@ -58,7 +60,8 @@ app.post("/login", upload.none(), (req, res) => {
       user: username,
       password: enteredPassword,
       firstName: firstName,
-      LastName: lastName
+      LastName: lastName,
+      age: age
     },
     (err, results) => {
       console.log("userinfos", results);

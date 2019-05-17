@@ -28,9 +28,6 @@ class UnconnectedAccount extends Component {
       });
   };
   render = () => {
-    console.log("username: ", this.props.username);
-    console.log("first: ", this.props.firstName);
-    console.log("last: ", this.props.lastName);
     return (
       <div>
         <div>
@@ -47,8 +44,8 @@ class UnconnectedAccount extends Component {
           <p id="user">{this.props.firstName}</p>
           <p>Your last name: </p>
           <p id="user">{this.props.lastName}</p>
-          <p>Your birthday: </p>
-          <input type="date" />
+          <p>Your are: </p>
+          <p id="user">{this.props.age} years old</p>
         </div>
         <div className="logout">
           <button onClick={this.logout}>log out!</button>
@@ -62,7 +59,8 @@ let mapStateToProps = state => {
   return {
     username: state.username,
     firstName: state.firstName,
-    lastName: state.lastName
+    lastName: state.lastName,
+    age: state.age
   };
 };
 let Myaccount = connect(mapStateToProps)(UnconnectedAccount);

@@ -9,7 +9,8 @@ class UnconnectedSignup extends Component {
       username: "",
       password: "",
       firstName: "",
-      lastName: ""
+      lastName: "",
+      age: ""
     };
   }
   handleUsernameChange = event => {
@@ -24,6 +25,9 @@ class UnconnectedSignup extends Component {
   handlePasswordChange = event => {
     this.setState({ password: event.target.value });
   };
+  handleAgeChange = event => {
+    this.setState({ age: event.target.value });
+  };
   handleSubmit = evt => {
     evt.preventDefault();
     let data = new FormData();
@@ -31,6 +35,7 @@ class UnconnectedSignup extends Component {
     data.append("password", this.state.password);
     data.append("firstName", this.state.firstName);
     data.append("lastName", this.state.lastName);
+    data.append("age", this.state.age);
     fetch("http://localhost:4000/signup", {
       method: "POST",
       body: data,
@@ -49,7 +54,8 @@ class UnconnectedSignup extends Component {
           type: "login-success",
           username: this.state.username,
           firstName: this.state.firstName,
-          lastName: this.state.lastName
+          lastName: this.state.lastName,
+          age: this.state.age
         });
         this.props.history.push("/myAccount");
       });
@@ -84,11 +90,18 @@ class UnconnectedSignup extends Component {
             onChange={this.handlePasswordChange}
             placeholder="Password"
           />
+          <input
+            className="pass"
+            type="number"
+            onChange={this.handleAgeChange}
+            placeholder="How old are you?"
+          />
           <input className="submit" type="submit" />
         </form>
       </div>
     );
   };
 }
+
 let Signup = connect()(UnconnectedSignup);
 export default withRouter(Signup);
