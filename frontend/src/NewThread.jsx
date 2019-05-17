@@ -17,7 +17,7 @@ class UnconnectedNewThread extends Component {
   handleThreadTitle = event => {
     this.setState({ threadTitle: event.target.value });
   };
-  handleSport = event => {
+  handleCategory = event => {
     this.setState({ category: event.target.value });
   };
   handleMessage = event => {
@@ -81,12 +81,12 @@ class UnconnectedNewThread extends Component {
             <div>Select your sport</div>
             <select name="Category" onChange={this.handleCategory}>
               <option value="undefined">------</option>
-              <option value="Basketball">Basketball</option>
-              <option value="Hockey">Hockey</option>
-              <option value="Tennis">Tennis</option>
-              <option value="Soccer">Soccer</option>
-              <option value="RockClimbing">RockClimbing</option>
-              <option value="Misc">Misc</option>
+              <option value="basketball">Basketball</option>
+              <option value="hockey">Hockey</option>
+              <option value="tennis">Tennis</option>
+              <option value="soccer">Soccer</option>
+              <option value="rockclimbing">RockClimbing</option>
+              <option value="misc">Misc</option>
             </select>
 
             {/* {this.props.categories.map(category => {

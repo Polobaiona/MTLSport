@@ -52,7 +52,8 @@ class UnconnectedApp extends Component {
             type: "login-success",
             username: body.results.username,
             firstName: body.results.firstName,
-            lastName: body.results.lastName
+            lastName: body.results.lastName,
+            age: body.results.age
           });
           this.props.history.push("/");
         }
@@ -71,6 +72,10 @@ class UnconnectedApp extends Component {
             <br />
             Voted #1 website by Gene's Mom
           </div>
+          <img
+            className="imageResize"
+            src="https://www.theflagshop.co.nz/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/m/o/montreal_2.gif"
+          />
         </div>
         <div className="fuckOffPaul">
           <MainForum />
@@ -79,7 +84,9 @@ class UnconnectedApp extends Component {
         Most Recent Threads
         <FrontPageThreads />
         Most Recent Items For Sale
-        <FrontPageItems />
+        <div className="fuckOffPaul">
+          <FrontPageItems />
+        </div>
         <div />
       </div>
     );

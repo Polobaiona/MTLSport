@@ -10,8 +10,9 @@ class UnconnectedFrontPageItems extends Component {
   render = () => {
     if (this.props.threads.length === 0) return "loading";
 
-    let messages = this.props.threads.reverse();
-
+    //let messages = this.props.threads.reverse();
+    let messages = [];
+    this.props.threads.forEach(ele => messages.unshift(ele));
     console.log("messages: ", messages);
     let threadTitles = [];
 
