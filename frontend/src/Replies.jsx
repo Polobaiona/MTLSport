@@ -32,27 +32,18 @@ class UnconnectedReplies extends Component {
       .then(responseBody => {
         let body = JSON.parse(responseBody);
         if (body.success) {
-          //   alert("New reply");
-          //   console.log("threads", this.state.message);
-          //   this.props.dispatch({
-          //     type: "set-newReply",
-          //     threads: this.state.message
-          //   });
-          //   this.props.dispatch({ type: "show-form2", showAddReply: false });
-
-          fetch("http://localhost:4000/thread")
-            .then(x => x.text())
-            .then(responseBody => {
-              let body = JSON.parse(responseBody);
-              this.props.dispatch({
-                type: "get-threads",
-                threads: body.results
-                // threadId: this.state.threadId,
-                // reply: this.state.message
-              });
-              // this.props.history.push("/");
-            });
+          alert("New reply");
         }
+        fetch("http://localhost:4000/thread")
+          .then(x => x.text())
+          .then(responseBody => {
+            let body = JSON.parse(responseBody);
+            this.props.dispatch({
+              type: "get-threads",
+              threads: body.results
+            });
+            // this.props.history.push("/");
+          });
       });
   };
   render = () => {
@@ -63,6 +54,7 @@ class UnconnectedReplies extends Component {
             type="text"
             onChange={this.handleMessage}
             placeholder="Message"
+            value={this.state.message}
           />
           <input type="submit" />
         </form>
