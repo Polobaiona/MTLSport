@@ -2,7 +2,13 @@ import { createStore } from "redux";
 
 let reducer = (state, action) => {
   if (action.type === "login-success") {
-    return { ...state, loggedIn: true };
+    return {
+      ...state,
+      loggedIn: true,
+      username: action.username,
+      firstName: action.firstName,
+      lastName: action.lastName
+    };
   }
   if (action.type === "get-threads") {
     return { ...state, threads: action.threads };
@@ -38,6 +44,9 @@ let reducer = (state, action) => {
 const store = createStore(
   reducer,
   {
+    username: "",
+    firstName: "",
+    lastName: "",
     loggedIn: false,
     threadCategories: [
       "soccer",

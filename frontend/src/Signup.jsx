@@ -43,7 +43,12 @@ class UnconnectedSignup extends Component {
           alert("Username already used");
           return;
         }
-        this.props.dispatch({ type: "login-success" });
+        this.props.dispatch({
+          type: "login-success",
+          username: this.state.username,
+          firstName: this.state.firstName,
+          lastName: this.state.lastName
+        });
         this.props.history.push("/myAccount");
       });
   };

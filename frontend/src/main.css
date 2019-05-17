@@ -24,8 +24,8 @@ body {
   justify-content: flex-end;
 }
 .img {
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
 }
 
 .imageResize {
@@ -44,4 +44,8 @@ body {
 .modal-container {
   padding: 100px;
   background-color: white;
+}
+.accountinfos {
+  display: flex;
+  justify-content: center;
 }
