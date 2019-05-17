@@ -17,10 +17,26 @@ class UnconnectedThread extends Component {
   flipToggle = () => {
     this.setState({ toggle: !this.state.toggle });
   };
+  deleteMessage = () => {
+    let data = new FormData();
+    data.append("threadId", this.props.path);
+    console.log("thread", this.props.threads);
+    fetch("http://localhost:4000/delete-message", {
+      method: "POST",
+      body: data,
+      credentials: "include"
+    })
+      .then(response => response.text())
+      .then(responseBody => {
+        let body = JSON.parse(responseBody);
+        if (body.success) {
+          alert("thread deleted");
+        }
+      });
+  };
   render = () => {
     if (this.props.threads.length === 0) {
-      alert("loading...");
-      return;
+      return "loading...";
     }
     let path = this.props.path;
     let threads = this.props.threads.filter(ele => {
@@ -57,6 +73,9 @@ class UnconnectedThread extends Component {
             <button onClick={this.showReplySubmission}>Reply</button>
           )}
           {this.props.showAddReply && <Replies thread={threads[0]} />}
+          {this.props.loggedIn && (
+            <button onClick={this.deleteMessage}>Delete message</button>
+          )}
         </div>
       </div>
     );

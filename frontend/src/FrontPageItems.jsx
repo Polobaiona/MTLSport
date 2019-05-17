@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
+import "./main.css";
 class UnconnectedFrontPageItems extends Component {
   constructor(props) {
     super(props);
@@ -36,11 +36,9 @@ class UnconnectedFrontPageItems extends Component {
       let linkTo = "/" + ele.category + "/" + ele._id;
 
       return (
-        <div>
-          <Link to={linkTo}>
-            <img src={ele.image} />
-          </Link>
-        </div>
+        <Link to={linkTo}>
+          <img height="150px" src={ele.image} />
+        </Link>
       );
     });
 
