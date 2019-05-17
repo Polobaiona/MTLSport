@@ -24,14 +24,21 @@ MongoClient.connect(url, (err, allDbs) => {
 app.post("/signup", upload.none(), (req, res) => {
   let username = req.body.username;
   let enteredPassword = req.body.password;
+  let firstName = req.body.firstName;
+  let lastName = req.body.lastName;
   let db = dbs.db("Forum");
   db.collection("users").findOne({ user: username }, (err, results) => {
     if (results === null) {
       let sessionId = generateId();
-      db.collection("sessions").insertOne({ sessionId, username });
+      db.collection("sessions").insertOne({
+        sessionId,
+        username,
+        firstName,
+        lastName
+      });
       db.collection("users").insert({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
+        firstName: firstName,
+        lastName: lastName,
         user: username,
         password: enteredPassword
       });
@@ -47,8 +54,14 @@ app.post("/login", upload.none(), (req, res) => {
   let enteredPassword = req.body.password;
   let db = dbs.db("Forum");
   db.collection("users").findOne(
-    { user: username, password: enteredPassword },
+    {
+      user: username,
+      password: enteredPassword,
+      firstName: firstName,
+      LastName: lastName
+    },
     (err, results) => {
+      console.log("userinfos", results);
       if (results !== null) {
         let expectedPassword = results.password;
         let expectedUsername = results.user;
@@ -57,7 +70,10 @@ app.post("/login", upload.none(), (req, res) => {
           expectedUsername === username
         ) {
           let sessionId = generateId();
-          db.collection("sessions").insertOne({ sessionId, username });
+          db.collection("sessions").insertOne({
+            sessionId,
+            username
+          });
           res.cookie("sid", sessionId);
           res.send(JSON.stringify({ success: true }));
         } else res.send(JSON.stringify({ success: false }));
@@ -68,16 +84,21 @@ app.post("/login", upload.none(), (req, res) => {
 
 app.get("/check-login", (req, res) => {
   let db = dbs.db("Forum");
+  console.log("cookies", req.cookies.sid);
   db.collection("sessions").findOne(
     { sessionId: req.cookies.sid },
     (err, results) => {
+      console.log("results", results);
       console.log(err);
       if (results) {
+        console.log("check-login results", results);
         let username = results.username;
         if (username !== undefined) {
-          res.send(JSON.stringify({ success: true }));
+          console.log("sending back succes");
+          res.send(JSON.stringify({ success: true, results }));
           return;
         }
+        console.log("sending back error");
         res.send(JSON.stringify({ success: false }));
       } else {
         res.json({ success: false });

@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-class UnconnectedFrontPageThreads extends Component {
+class UnconnectedFrontPageItems extends Component {
   constructor(props) {
     super(props);
   }
 
   render = () => {
     if (this.props.threads.length === 0) return "loading";
-    console.log(this.props.threads);
+
     let messages = this.props.threads.reverse();
 
     console.log("messages: ", messages);
@@ -17,31 +17,29 @@ class UnconnectedFrontPageThreads extends Component {
 
     let i = 0;
     while (threadTitles.length < 5 && i < messages.length) {
-      //for (let i = 0; /*i < 5 &&*/ i < this.props.threads.length; i++) {
-      console.log("i =", i);
-      console.log("messages[i] category: ", messages[i].category);
+      console.log("message category: ", messages[i].category);
       if (
-        messages[i].category === "basketball" ||
-        messages[i].category === "hockey" ||
-        messages[i].category === "rockclimbing" ||
-        messages[i].category === "soccer" ||
-        messages[i].category === "tennis" ||
-        messages[i].category === "misc"
+        messages[i].category === "sellBasketball" ||
+        messages[i].category === "sellHockey" ||
+        messages[i].category === "sellRockClimbing" ||
+        messages[i].category === "sellSoccer" ||
+        messages[i].category === "sellTennis" ||
+        messages[i].category === "sellMisc"
       ) {
         threadTitles.push(messages[i]);
       }
       i++;
-      // }
     }
 
-    console.log("thread titles = ", threadTitles);
-
+    console.log("threadTitles: ", threadTitles);
     let titles = threadTitles.map(ele => {
       let linkTo = "/" + ele.category + "/" + ele._id;
 
       return (
         <div>
-          <Link to={linkTo}>{ele.threadTitle}</Link>
+          <Link to={linkTo}>
+            <img src={ele.image} />
+          </Link>
         </div>
       );
     });
@@ -58,6 +56,6 @@ let mapStateToProps = state => {
   };
 };
 
-let FrontPageThreads = connect(mapStateToProps)(UnconnectedFrontPageThreads);
+let FrontPageItems = connect(mapStateToProps)(UnconnectedFrontPageItems);
 
-export default FrontPageThreads;
+export default FrontPageItems;

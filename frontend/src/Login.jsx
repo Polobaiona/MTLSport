@@ -7,7 +7,9 @@ class UnconnectedLogin extends Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      firstName: "",
+      lastName: ""
     };
   }
   handleUsernameChange = event => {
@@ -56,7 +58,7 @@ class UnconnectedLogin extends Component {
             placeholder="Username"
           />
           <input
-            type="text"
+            type="password"
             onChange={this.handlePasswordChange}
             placeholder="Password"
           />

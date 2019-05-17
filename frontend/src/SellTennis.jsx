@@ -15,7 +15,7 @@ class UnconnectedSellTennis extends Component {
 
       return (
         <div>
-          <Link to={linkTo}>{ele.threadTitle}</Link>
+          <Link to={linkTo}>{ele.threadTitle}</Link>| Location: {ele.location}
         </div>
       );
     });

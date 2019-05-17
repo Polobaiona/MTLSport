@@ -40,10 +40,10 @@ class UnconnectedAccount extends Component {
           />
         </div>
         <div className="accountinfos">
-          <p>Your personal informations</p>
-          <p>{this.props.username}</p>
-          <p>{this.props.firstName}</p>
-          <p>{this.props.lastName}</p>
+          <p>Your personal informations:</p>
+          <p id="user">{this.props.username}</p>
+          <p id="user">{this.props.firstName}</p>
+          <p id="user">{this.props.lastName}</p>
           <input type="date" />
         </div>
         <div className="logout">

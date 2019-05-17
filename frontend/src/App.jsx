@@ -24,6 +24,7 @@ import SellTennis from "./SellTennis.jsx";
 import SellMisc from "./SellMisc.jsx";
 import SellModal from "./SellModal.jsx";
 import FrontPageThreads from "./FrontPageThreads.jsx";
+import FrontPageItems from "./FrontPageItems.jsx";
 
 class UnconnectedApp extends Component {
   componentDidMount = () => {
@@ -41,9 +42,17 @@ class UnconnectedApp extends Component {
     fetch("http://localhost:4000/check-login", { credentials: "include" })
       .then(x => x.text())
       .then(responseBody => {
+        console.log("responsebody", responseBody);
         let body = JSON.parse(responseBody);
         if (body.success) {
-          this.props.dispatch({ type: "login-success" });
+          console.log("dispatching");
+          console.log("firstname", body.firstName);
+          this.props.dispatch({
+            type: "login-success",
+            username: body.username,
+            firstName: body.firstName,
+            lastName: body.lastName
+          });
           this.props.history.push("/");
         }
       });
@@ -57,14 +66,19 @@ class UnconnectedApp extends Component {
             src="https://www.theflagshop.co.nz/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/m/o/montreal_2.gif"
           />
           <div className="description">
-            MTLSport is a site dedicated to finding friendly local sports games
+            MTLSport is a site dedicated to finding friendly local sports games{" "}
+            <br />
+            Voted #1 website by Gene's Mom
           </div>
         </div>
-
         <div className="fuckOffPaul">
           <MainForum />
           <SellForum />
         </div>
+        Most Recent Threads
+        <FrontPageThreads />
+        Most Recent Items For Sale
+        <FrontPageItems />
         <div />
       </div>
     );
