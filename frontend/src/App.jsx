@@ -52,7 +52,8 @@ class UnconnectedApp extends Component {
             type: "login-success",
             username: body.results.username,
             firstName: body.results.firstName,
-            lastName: body.results.lastName
+            lastName: body.results.lastName,
+            age: body.results.age
           });
           this.props.history.push("/");
         }

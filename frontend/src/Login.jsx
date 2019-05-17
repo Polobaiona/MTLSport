@@ -9,7 +9,8 @@ class UnconnectedLogin extends Component {
       username: "",
       password: "",
       firstName: "",
-      lastName: ""
+      lastName: "",
+      age: ""
     };
   }
   handleUsernameChange = event => {
@@ -41,7 +42,8 @@ class UnconnectedLogin extends Component {
           type: "login-success",
           username: this.state.username,
           firstName: this.state.firstName,
-          lastName: this.state.lastName
+          lastName: this.state.lastName,
+          age: this.state.age
         });
         this.props.history.push("/");
       });
