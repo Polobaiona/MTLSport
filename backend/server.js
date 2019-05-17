@@ -112,7 +112,7 @@ app.get("/check-login", (req, res) => {
 
 app.get("/logout", (req, res) => {
   let db = dbs.db("Forum");
-  db.collection("sessions").remove({ sessionId: req.cookies.sid });
+  db.collection("sessions").deleteOne({ sessionId: req.cookies.sid });
   res.send(JSON.stringify({ success: true }));
 });
 app.post("/new-thread", upload.none(), (req, res) => {
@@ -166,8 +166,9 @@ app.post("/myAccount", (req, res) => {
     }
   );
 });
-app.post("/sell-item", (req, res) => {
+app.post("/sell-item", upload.none(), (req, res) => {
   let sellItem = req.body;
+  console.log("sells", sellItem);
   let sessionId = req.cookies.sid;
   let db = dbs.db("Forum");
   db.collection("sessions").findOne({ sessionId }, (err, results) => {
@@ -179,58 +180,16 @@ app.post("/sell-item", (req, res) => {
     return res.send(JSON.stringify({ sellItem, success: true }));
   });
 });
-// app.post("/allItems", upload.none(), (req, res) => {
-//   let db = dbs.db("Forum");
-//   db.collection("items")
-//     .find({})
-//     .toArray((err, results) => {
-//       console.log(err);
-//       return res.send(JSON.stringify({ results }));
-//     });
-// });
-// app.post("/new-item", upload.none(), (req, res) => {
-//   let newItem = req.body;
-//   let db = dbs.db("Forum");
-//   newItem.id = generateId();
-//   db.collection("items").insert(newItem, (err, results) => {
-//     console.log(err);
-//     return res.send(JSON.stringify({ success: true, results }));
-//   });
-// });
-// app.post("/dms-sent", upload.none(), (req, res) => {
-//   let sessionId = req.cookies.sid;
-//   let db = dbs.db("Forum");
-//   db.collection("sessions").findOne({ sessionId }, (err, results) => {
-//     let username = results.username;
-//     let msg = req.body.msg;
-//     let destination = req.body.destinationUser;
-//     let db = dbs.db("Forum");
-//     db.collection("dms").insertOne(
-//       {
-//         from: username,
-//         to: destination,
-//         messages: [username + ": " + msg]
-//       },
-//       (err, results) => {
-//         console.log(err);
-//         res.send(JSON.stringify({ success: true, results }));
-//       }
-//     );
-//   });
-// });
-// app.post("/dms", upload.none(), (req, res) => {
-//   let sessionId = req.cookies.sid;
-//   db.collection("sessions").findOne({ sessionId }, (err, results) => {
-//     let username = results.username;
-//     let msg = req.body.msg;
-//     let destination = req.body.destinationUser;
-//     let db = dbs.db("Forum");
-//     db.collection("dms")
-//       .find({ to: expectedUsername })
-//       .toArray((err, results) => {
-//         console.log(err);
-//         res.send(JSON.stringify({ success: true, results }));
-//       });
-//   });
-// });
+app.get("/delete-lastReply", (req, res) => {
+  let sessionId = req.cookies.sid;
+  let db = dbs.db("Forum");
+  db.collection("sessions").findOne({ sessionId }, (err, results) => {
+    console.log(err);
+    let username = results.username;
+    db.collection("threads").updateOne(
+      { _id: ObjectId(threadId) },
+      { $pop: { replies: { user: username, msg: req.body.msg } } }
+    );
+  });
+});
 app.listen(4000);

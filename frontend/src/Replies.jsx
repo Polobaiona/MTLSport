@@ -14,11 +14,15 @@ class UnconnectedReplies extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
+    if (this.state.message === "") {
+      alert("Type your message");
+      return;
+    }
+    this.setState({ message: "" });
     let data = new FormData();
     data.append("user", this.state.user);
     data.append("msg", this.state.message);
     data.append("threadId", this.props.thread._id);
-    console.log("replies.jsx", this.props.thread);
     fetch("http://localhost:4000/replies", {
       method: "POST",
       body: data,
@@ -27,7 +31,6 @@ class UnconnectedReplies extends Component {
       .then(response => response.text())
       .then(responseBody => {
         let body = JSON.parse(responseBody);
-        console.log("BODY", body);
         if (body.success) {
           //   alert("New reply");
           //   console.log("threads", this.state.message);
@@ -53,7 +56,6 @@ class UnconnectedReplies extends Component {
       });
   };
   render = () => {
-    console.log("hello");
     return (
       <div>
         <form onSubmit={this.handleSubmit}>

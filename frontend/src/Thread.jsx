@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Replies from "./Replies.jsx";
 import { withRouter } from "react-router-dom";
-
+import "./main.css";
 class UnconnectedThread extends Component {
   constructor(props) {
     super(props);
+    this.state = { toggle: false };
   }
   showReplySubmission = () => {
     this.props.dispatch({
@@ -13,7 +14,30 @@ class UnconnectedThread extends Component {
       showAddReply: !this.props.showAddReply
     });
   };
+  flipToggle = () => {
+    this.setState({ toggle: !this.state.toggle });
+  };
+  deleteMessage = () => {
+    let data = new FormData();
+    data.append("threadId", this.props.path);
+    console.log("thread", this.props.threads);
+    fetch("http://localhost:4000/delete-message", {
+      method: "POST",
+      body: data,
+      credentials: "include"
+    })
+      .then(response => response.text())
+      .then(responseBody => {
+        let body = JSON.parse(responseBody);
+        if (body.success) {
+          alert("thread deleted");
+        }
+      });
+  };
   render = () => {
+    if (this.props.threads.length === 0) {
+      return "loading...";
+    }
     let path = this.props.path;
     let threads = this.props.threads.filter(ele => {
       return ele._id === path;
@@ -25,11 +49,23 @@ class UnconnectedThread extends Component {
         </div>
       );
     });
+    let s = {
+      height: "100px",
+      width: "100px"
+    };
+    if (this.state.toggle) {
+      s = {
+        height: "300px",
+        width: "300px"
+      };
+    }
     return (
       <div>
         <div>
           {threads[0].user} | {threads[0].msg}
-          {threads[0].image && <img src={threads[0].image} />}
+          {threads[0].image && (
+            <img src={threads[0].image} style={s} onClick={this.flipToggle} />
+          )}
         </div>
         <div>{replies2}</div>
         <div>
@@ -37,6 +73,9 @@ class UnconnectedThread extends Component {
             <button onClick={this.showReplySubmission}>Reply</button>
           )}
           {this.props.showAddReply && <Replies thread={threads[0]} />}
+          {this.props.loggedIn && (
+            <button onClick={this.deleteMessage}>Delete message</button>
+          )}
         </div>
       </div>
     );
