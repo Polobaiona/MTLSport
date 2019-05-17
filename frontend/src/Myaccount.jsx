@@ -7,11 +7,11 @@ import Signup from "./Signup.jsx";
 class UnconnectedAccount extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      username: "",
-      firstName: "",
-      lastName: ""
-    };
+    // this.state = {
+    //   // username: "",
+    //   // firstName: "",
+    //   // lastName: ""
+    // };
   }
   logout = () => {
     fetch("http://localhost:4000/logout", { credentials: "include" })
@@ -28,6 +28,9 @@ class UnconnectedAccount extends Component {
       });
   };
   render = () => {
+    console.log("username: ", this.props.username);
+    console.log("first: ", this.props.firstName);
+    console.log("last: ", this.props.lastName);
     return (
       <div>
         <div>

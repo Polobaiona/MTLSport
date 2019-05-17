@@ -7,7 +7,9 @@ class UnconnectedSignup extends Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      firstName: "",
+      lastName: ""
     };
   }
   handleUsernameChange = event => {

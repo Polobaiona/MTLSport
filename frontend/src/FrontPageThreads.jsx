@@ -6,19 +6,7 @@ class UnconnectedFrontPageThreads extends Component {
   constructor(props) {
     super(props);
   }
-  componentDidMount = () => {
-    fetch("http://localhost:4000/thread")
-      .then(x => {
-        return x.text();
-      })
-      .then(responseBody => {
-        let body = JSON.parse(responseBody);
-        this.props.dispatch({
-          type: "get-threads",
-          threads: body.results
-        });
-      });
-  };
+
   render = () => {
     console.log(this.props.threads);
     let messages = this.props.threads;
