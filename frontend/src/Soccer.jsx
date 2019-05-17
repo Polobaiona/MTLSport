@@ -30,7 +30,7 @@ class UnconnectedSoccer extends Component {
     return (
       <div className="fuckOffPaul">
         <div>
-          <div>{this.props.loggedIn && <SellModal />}</div>
+          <div>{this.props.loggedIn && <ThreadModal />}</div>
           <FilterLocation />
         </div>
         <div>{titles}</div>

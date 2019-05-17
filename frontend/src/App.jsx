@@ -23,6 +23,8 @@ import SellSoccer from "./SellSoccer.jsx";
 import SellTennis from "./SellTennis.jsx";
 import SellMisc from "./SellMisc.jsx";
 import SellModal from "./SellModal.jsx";
+import FrontPageThreads from "./FrontPageThreads.jsx";
+
 class UnconnectedApp extends Component {
   componentDidMount = () => {
     fetch("http://localhost:4000/thread")
@@ -59,10 +61,11 @@ class UnconnectedApp extends Component {
           </div>
         </div>
 
-        <MainForum />
-        <div>
+        <div className="fuckOffPaul">
+          <MainForum />
           <SellForum />
         </div>
+        <div />
       </div>
     );
   };

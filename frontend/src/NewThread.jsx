@@ -78,7 +78,18 @@ class UnconnectedNewThread extends Component {
             </select>
           </div>
           <div>
-            {this.props.categories.map(category => {
+            <div>Select your sport</div>
+            <select name="Category" onChange={this.handleCategory}>
+              <option value="undefined">------</option>
+              <option value="Basketball">Basketball</option>
+              <option value="Hockey">Hockey</option>
+              <option value="Tennis">Tennis</option>
+              <option value="Soccer">Soccer</option>
+              <option value="RockClimbing">RockClimbing</option>
+              <option value="Misc">Misc</option>
+            </select>
+
+            {/* {this.props.categories.map(category => {
               return (
                 <p>
                   <input
@@ -90,7 +101,7 @@ class UnconnectedNewThread extends Component {
                   {category}
                 </p>
               );
-            })}
+            })}*/}
           </div>
           <p>
             <textarea
