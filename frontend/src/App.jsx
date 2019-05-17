@@ -44,14 +44,15 @@ class UnconnectedApp extends Component {
       .then(responseBody => {
         console.log("responsebody", responseBody);
         let body = JSON.parse(responseBody);
+        console.log("body", body);
         if (body.success) {
           console.log("dispatching");
-          console.log("firstname", body.firstName);
+          console.log("firstname", body.results.firstName);
           this.props.dispatch({
             type: "login-success",
-            username: body.username,
-            firstName: body.firstName,
-            lastName: body.lastName
+            username: body.results.username,
+            firstName: body.results.firstName,
+            lastName: body.results.lastName
           });
           this.props.history.push("/");
         }
