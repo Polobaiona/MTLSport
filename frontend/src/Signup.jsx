@@ -63,13 +63,13 @@ class UnconnectedSignup extends Component {
           <input
             className="pass"
             type="text"
-            onChange={this.handlePasswordChange}
+            onChange={this.handleFirstNameChange}
             placeholder="First name"
           />
           <input
             className="pass"
             type="text"
-            onChange={this.handlePasswordChange}
+            onChange={this.handleLastNameChange}
             placeholder="Last name"
           />
           <input
