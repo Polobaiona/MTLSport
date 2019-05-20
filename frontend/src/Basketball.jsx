@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import ThreadModal from "./ThreadModal.jsx";
 import FilterLocation from "./FilterLocation.jsx";
+import "./main.css";
 class UnconnectedBasketball extends Component {
   constructor(props) {
     super(props);
@@ -23,17 +24,24 @@ class UnconnectedBasketball extends Component {
       let linkTo = "/Basketball/" + ele._id;
       return (
         <div>
-          <Link to={linkTo}>{ele.threadTitle} </Link>
+          <Link className="thread" to={linkTo}>
+            {ele.threadTitle}
+          </Link>
         </div>
       );
     }); //returns the title
     return (
-      <div className="fuckOffPaul">
-        <div>{this.props.loggedIn && <ThreadModal />}</div>
-        <div>
+      <div>
+        <img
+          className="thread-img"
+          src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/GYx5MFB/basketball-amateur-game-boy-make-successful-throw-to-basket-net_n2skahnbe__F0000.png"
+        />
+        <h2 className="thread-title">Basketball games</h2>
+        <div className="all-threads">
           <FilterLocation />
+          {this.props.loggedIn && <ThreadModal />}
+          <div>{titles}</div>
         </div>
-        <div>{titles}</div>
       </div>
     );
   };

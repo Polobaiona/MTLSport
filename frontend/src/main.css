@@ -1,6 +1,6 @@
 body {
-  background-color: rgb(207, 205, 205);
-  margin: 0;
+  background-color: whitesmoke;
+  margin: 3px;
 }
 
 .flex {
@@ -10,6 +10,7 @@ body {
 
 .fuckOffPaul {
   display: flex;
+  justify-content: space-between;
 }
 .description {
   text-align: center;
@@ -40,6 +41,8 @@ body {
   display: flex; /* we want to center the child div*/
   align-items: center; /* center the child div horizontally*/
   justify-content: center; /* center the child div vertically */
+  right: 0;
+  top: 0;
 }
 .modal-container {
   padding: 100px;
@@ -55,3 +58,29 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap; }*/
+.thread {
+  border: solid 1px;
+  justify-content: space-between;
+  text-decoration: none;
+  display: block;
+  width: 99%;
+  margin: 15px 0;
+  padding: 5px;
+  color: #61000f;
+}
+.all-threads {
+  justify-content: space-between;
+}
+.thread-title {
+  text-align: center;
+  position: absolute;
+  color: white;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 300%;
+}
+.thread-img {
+  height: 550px;
+  width: 1260px;
+}

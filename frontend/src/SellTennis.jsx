@@ -15,15 +15,26 @@ class UnconnectedSellTennis extends Component {
 
       return (
         <div>
-          <Link to={linkTo}>{ele.threadTitle}</Link>| Location: {ele.location}
+          <Link className="thread" to={linkTo}>
+            {ele.threadTitle}
+          </Link>
+          | Location: {ele.location}
         </div>
       );
     });
 
     return (
       <div>
-        <div>{this.props.loggedIn && <SellModal />}</div>
-        <div>{titles}</div>
+        <img
+          height="600px"
+          width="1260px"
+          src="https://media.timeout.com/images/102789069/image.jpg"
+        />
+        <h3 className="thread-title">Sell tennis equipment</h3>
+        <div className="all-threads">
+          {this.props.loggedIn && <SellModal />}
+          <div>{titles}</div>
+        </div>
       </div>
     );
   };

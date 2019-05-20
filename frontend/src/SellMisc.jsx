@@ -14,7 +14,7 @@ class UnconnectedSellMisc extends Component {
       let linkTo = "/SellMisc/" + ele._id;
 
       return (
-        <div>
+        <div className="thread">
           <Link to={linkTo}>{ele.threadTitle}</Link>| Location: {ele.location}
         </div>
       );
@@ -22,8 +22,16 @@ class UnconnectedSellMisc extends Component {
 
     return (
       <div>
-        <div>{this.props.loggedIn && <SellModal />}</div>
-        <div>{titles}</div>
+        <img
+          height="580px"
+          width="1260px"
+          src="http://gamerlimit.com/wp-content/uploads/2016/04/original.jpg"
+        />
+        <h2 className="thread-title">Sell miscellaneous equipment</h2>
+        <div className="all-threads">
+          {this.props.loggedIn && <SellModal />}
+          <div>{titles}</div>
+        </div>
       </div>
     );
   };

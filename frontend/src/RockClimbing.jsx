@@ -34,27 +34,25 @@ class UnconnectedRockClimbing extends Component {
       let linkTo = "/RockClimbing/" + ele._id;
       return (
         <div>
-          <Link to={linkTo}>{ele.threadTitle} </Link>
+          <Link className="thread" to={linkTo}>
+            {ele.threadTitle}
+          </Link>
         </div>
       );
-    }); //returns the title
-
-    /*let replies = messages[0].replies.map(ele => {
-        return (
-          <div>
-            <div>
-              {ele.user} | {ele.msg}
-            </div>
-          </div>
-        );
-      });*/
+    });
     return (
-      <div className="fuckOffPaul">
-        <div>
-          <div>{this.props.loggedIn && <ThreadModal />}</div>
+      <div>
+        <img
+          height="500px"
+          width="1260px"
+          src="https://mec.imgix.net/medias/sys_master/images/images/h0b/hb5/9001026158622/18-CM-61-Diversity-Explore-Hero-5x2-Climbing.jpg?w=1100&h=441&auto=format&q=30&bg=FFF"
+        />
+        <h2 className="thread-title">Rock Climbing</h2>
+        <div className="all-threads">
           <FilterLocation />
+          {this.props.loggedIn && <ThreadModal />}
+          <div>{titles}</div>
         </div>
-        <div>{titles}</div>
       </div>
     );
   };

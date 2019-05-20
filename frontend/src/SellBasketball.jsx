@@ -13,7 +13,7 @@ class UnconnectedSellBasketball extends Component {
     let titles = messages.map(ele => {
       let linkTo = "/SellBasketball/" + ele._id;
       return (
-        <div>
+        <div className="thread">
           <Link to={linkTo}>{ele.threadTitle}</Link>| Location: {ele.location}
         </div>
       );
@@ -21,8 +21,15 @@ class UnconnectedSellBasketball extends Component {
 
     return (
       <div>
-        <div>{this.props.loggedIn && <SellModal />}</div>
-        <div>{titles}</div>
+        <img
+          className="thread-img"
+          src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/GYx5MFB/basketball-amateur-game-boy-make-successful-throw-to-basket-net_n2skahnbe__F0000.png"
+        />
+        <h2 className="thread-title">Sell basketball equipment</h2>
+        <div className="all-threads">
+          {this.props.loggedIn && <SellModal />}
+          <div>{titles}</div>
+        </div>
       </div>
     );
   };

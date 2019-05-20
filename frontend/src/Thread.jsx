@@ -30,7 +30,9 @@ class UnconnectedThread extends Component {
       .then(responseBody => {
         let body = JSON.parse(responseBody);
         if (body.success) {
-          alert("thread deleted");
+          alert("Last message deleted");
+        } else {
+          alert("You don't have any message to delete.");
         }
         fetch("http://localhost:4000/thread")
           .then(x => x.text())
