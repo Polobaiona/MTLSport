@@ -1,16 +1,29 @@
 body {
-  background-color: whitesmoke;
-  margin: 3px;
+  /* background-color: rgb(207, 205, 205);*/
+  background-color: rgb(129, 120, 120);
+  margin: 0;
+}
+
+a:link {
+  text-decoration: none;
+  color: rgb(211, 205, 205);
+}
+a:visited {
+  text-decoration: none;
+  color: rgb(211, 205, 205);
 }
 
 .flex {
   display: flex;
   justify-content: space-between;
+  padding: 15px;
+  background-color: rgb(182, 27, 27);
+  color: whitesmoke;
 }
 
 .fuckOffPaul {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 .description {
   text-align: center;
@@ -58,6 +71,50 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap; }*/
+
+.findSportBar {
+  padding: 10px;
+  background-color: rgb(182, 27, 27);
+  color: whitesmoke;
+  justify-content: center;
+}
+.mainPageLinks {
+  position: relative;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.mainPageLinks::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #3cefff;
+  transform-origin: bottom right;
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+}
+
+.mainPageLinks:hover::before {
+  transform-origin: bottom left;
+  transform: scaleX(1);
+}
+
+.mostRecentThreads {
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+}
+
+.itemPicturesFrontPage {
+  padding: 20px;
+}
+
+.centerLinks {
+  text-align: center;
+}
 .thread {
   border: solid 1px;
   justify-content: space-between;

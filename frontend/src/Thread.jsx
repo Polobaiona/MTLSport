@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Replies from "./Replies.jsx";
+import DetailsUser from "./DetailsUser.jsx";
 import { withRouter } from "react-router-dom";
 import "./main.css";
 class UnconnectedThread extends Component {
@@ -57,7 +58,7 @@ class UnconnectedThread extends Component {
     let replies2 = threads[0].replies.map(ele => {
       return (
         <div>
-          {ele.user} | {ele.msg}
+          {<DetailsUser />} | {ele.msg}
         </div>
       );
     });
