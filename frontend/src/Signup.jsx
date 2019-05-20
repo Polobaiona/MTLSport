@@ -36,6 +36,26 @@ class UnconnectedSignup extends Component {
     data.append("firstName", this.state.firstName);
     data.append("lastName", this.state.lastName);
     data.append("age", this.state.age);
+    if (this.state.firstName === "") {
+      alert("please enter your first name");
+      return;
+    }
+    if (this.state.lastName === "") {
+      alert("please enter your last name");
+      return;
+    }
+    if (this.state.password === "") {
+      alert("please enter your password");
+      return;
+    }
+    if (this.state.username === "") {
+      alert("please enter your username");
+      return;
+    }
+    if (this.state.age === "") {
+      alert("please enter your age");
+      return;
+    }
     fetch("http://localhost:4000/signup", {
       method: "POST",
       body: data,
