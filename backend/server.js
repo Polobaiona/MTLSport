@@ -171,6 +171,15 @@ app.post("/sell-item", upload.none(), (req, res) => {
     return res.send(JSON.stringify({ sellItem, success: true }));
   });
 });
+app.get("/detailsUser", upload.none(), (req, res) => {
+  let db = dbs.db("Forum");
+  db.collection("users")
+    .find({})
+    .toArray((err, results) => {
+      console.log("user details", results);
+      res.send(JSON.stringify({ success: true, results }));
+    });
+});
 app.post("/delete-message", upload.none(), (req, res) => {
   let sessionId = req.cookies.sid;
   let threadId = req.body.threadId;
