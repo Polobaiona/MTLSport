@@ -59,9 +59,6 @@ app.post("/login", upload.none(), (req, res) => {
     {
       user: username,
       password: enteredPassword
-      // firstName: firstName,
-      // LastName: lastName,
-      // age: age
     },
     (err, results) => {
       if (results !== null) {
@@ -194,21 +191,19 @@ app.post("/delete-message", upload.none(), (req, res) => {
         console.log(err);
         let replies = results.replies;
         let lastIndex = undefined;
-        let deleted;
-        console.log("befforereplies", replies);
         for (let i = 0; i < replies.length; i++) {
           if (replies[i].user === username) {
             lastIndex = i;
           }
         }
-        deleted = replies.splice(lastIndex, 1);
-        console.log("replies", replies, "deleted", deleted);
-        db.collection("threads").updateOne(
-          { _id: ObjectId(threadId) },
-          { $set: { replies: replies } }
-        );
-
-        return res.send(JSON.stringify({ success: true }));
+        if (lastIndex !== undefined) {
+          replies.splice(lastIndex, 1);
+          db.collection("threads").updateOne(
+            { _id: ObjectId(threadId) },
+            { $set: { replies: replies } }
+          );
+          return res.send(JSON.stringify({ success: true }));
+        } else return res.send(JSON.stringify({ success: false }));
       }
     );
   });
