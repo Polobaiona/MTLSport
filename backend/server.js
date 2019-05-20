@@ -58,10 +58,10 @@ app.post("/login", upload.none(), (req, res) => {
   db.collection("users").findOne(
     {
       user: username,
-      password: enteredPassword,
-      firstName: firstName,
-      LastName: lastName,
-      age: age
+      password: enteredPassword
+      // firstName: firstName,
+      // LastName: lastName,
+      // age: age
     },
     (err, results) => {
       if (results !== null) {
