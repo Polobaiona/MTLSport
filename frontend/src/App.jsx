@@ -77,15 +77,18 @@ class UnconnectedApp extends Component {
             src="https://www.theflagshop.co.nz/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/m/o/montreal_2.gif"
           />
         </div>
-        <div className="fuckOffPaul">
+        <div>
           <MainForum />
+          <div className="mostRecentThreads">
+            <h2>Most Recent Threads</h2>
+            <FrontPageThreads />
+          </div>
           <SellForum />
-        </div>
-        Most Recent Threads
-        <FrontPageThreads />
-        Most Recent Items For Sale
-        <div className="fuckOffPaul">
-          <FrontPageItems />
+
+          <div className="mostRecentThreads">
+            <h2>Most Recent Items For Sale</h2>
+            <FrontPageItems />
+          </div>
         </div>
         <div />
       </div>
