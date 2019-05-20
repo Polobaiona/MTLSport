@@ -32,6 +32,16 @@ class UnconnectedThread extends Component {
         if (body.success) {
           alert("thread deleted");
         }
+        fetch("http://localhost:4000/thread")
+          .then(x => x.text())
+          .then(responseBody => {
+            let body = JSON.parse(responseBody);
+            this.props.dispatch({
+              type: "get-threads",
+              threads: body.results
+            });
+            // this.props.history.push("/");
+          });
       });
   };
   render = () => {

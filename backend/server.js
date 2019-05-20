@@ -64,7 +64,6 @@ app.post("/login", upload.none(), (req, res) => {
       age: age
     },
     (err, results) => {
-      console.log("userinfos", results);
       if (results !== null) {
         let expectedPassword = results.password;
         let expectedUsername = results.user;
@@ -87,21 +86,16 @@ app.post("/login", upload.none(), (req, res) => {
 
 app.get("/check-login", (req, res) => {
   let db = dbs.db("Forum");
-  console.log("cookies", req.cookies.sid);
   db.collection("sessions").findOne(
     { sessionId: req.cookies.sid },
     (err, results) => {
-      console.log("results", results);
       console.log(err);
       if (results) {
-        console.log("check-login results", results);
         let username = results.username;
         if (username !== undefined) {
-          console.log("sending back succes");
           res.send(JSON.stringify({ success: true, results }));
           return;
         }
-        console.log("sending back error");
         res.send(JSON.stringify({ success: false }));
       } else {
         res.json({ success: false });
@@ -130,10 +124,8 @@ app.post("/new-thread", upload.none(), (req, res) => {
 });
 app.post("/replies", upload.none(), (req, res) => {
   let sessionId = req.cookies.sid;
-  console.log("req.body", req.body);
   let db = dbs.db("Forum");
   let threadId = req.body.threadId;
-  console.log("threadId", threadId);
   db.collection("sessions").findOne({ sessionId }, (err, results) => {
     console.log(err);
     let username = results.username;
@@ -168,7 +160,6 @@ app.post("/myAccount", (req, res) => {
 });
 app.post("/sell-item", upload.none(), (req, res) => {
   let sellItem = req.body;
-  console.log("sells", sellItem);
   let sessionId = req.cookies.sid;
   let db = dbs.db("Forum");
   db.collection("sessions").findOne({ sessionId }, (err, results) => {
@@ -180,15 +171,36 @@ app.post("/sell-item", upload.none(), (req, res) => {
     return res.send(JSON.stringify({ sellItem, success: true }));
   });
 });
-app.get("/delete-lastReply", (req, res) => {
+app.post("/delete-message", upload.none(), (req, res) => {
   let sessionId = req.cookies.sid;
+  let threadId = req.body.threadId;
   let db = dbs.db("Forum");
   db.collection("sessions").findOne({ sessionId }, (err, results) => {
     console.log(err);
     let username = results.username;
-    db.collection("threads").updateOne(
+    console.log("threadId", threadId);
+    db.collection("threads").findOne(
       { _id: ObjectId(threadId) },
-      { $pop: { replies: { user: username, msg: req.body.msg } } }
+      (err, results) => {
+        console.log(err);
+        let replies = results.replies;
+        let lastIndex = undefined;
+        let deleted;
+        console.log("befforereplies", replies);
+        for (let i = 0; i < replies.length; i++) {
+          if (replies[i].user === username) {
+            lastIndex = i;
+          }
+        }
+        deleted = replies.splice(lastIndex, 1);
+        console.log("replies", replies, "deleted", deleted);
+        db.collection("threads").updateOne(
+          { _id: ObjectId(threadId) },
+          { $set: { replies: replies } }
+        );
+
+        return res.send(JSON.stringify({ success: true }));
+      }
     );
   });
 });
