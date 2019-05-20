@@ -42,7 +42,9 @@ class UnconnectedFrontPageThreads extends Component {
 
       return (
         <div>
-          <Link to={linkTo}>{ele.threadTitle}</Link>
+          <Link to={linkTo}>
+            {ele.threadTitle} Sport: {ele.category} Location: {ele.location}
+          </Link>
         </div>
       );
     });

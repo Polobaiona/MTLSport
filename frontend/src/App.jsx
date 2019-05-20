@@ -80,7 +80,7 @@ class UnconnectedApp extends Component {
         <div>
           <MainForum />
           <div className="mostRecentThreads">
-            <h2>Most Recent Threads</h2>
+            <h2>Most Recent Games</h2>
             <FrontPageThreads />
           </div>
           <SellForum />
