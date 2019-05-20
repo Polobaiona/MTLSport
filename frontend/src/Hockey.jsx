@@ -33,9 +33,9 @@ class UnconnectedHockey extends Component {
     let titles = messages.map(ele => {
       let linkTo = "/Hockey/" + ele._id;
       return (
-        <div>
-          <Link to={linkTo}>{ele.threadTitle} </Link>
-        </div>
+        <Link className="thread" to={linkTo}>
+          {ele.threadTitle}
+        </Link>
       );
     }); //returns the title
 
@@ -49,12 +49,17 @@ class UnconnectedHockey extends Component {
       );
     });*/
     return (
-      <div className="fuckOffPaul">
-        <div>{this.props.loggedIn && <ThreadModal />}</div>
-        <div>
+      <div>
+        <img
+          className="thread-img"
+          src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/VDOJV13Oeijqkbkz5/ice-hockey-the-game-of-regional-amateur-teams_sa74_cpx__F0000.png"
+        />
+        <h2 className="thread-title"> Hockey games</h2>
+        <div className="all-threads">
           <FilterLocation />
+          {this.props.loggedIn && <ThreadModal />}
+          <div>{titles}</div>
         </div>
-        <div>{titles}</div>
       </div>
     );
   };

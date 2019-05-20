@@ -12,15 +12,22 @@ class UnconnectedSellSoccer extends Component {
     let titles = messages.map(ele => {
       let linkTo = "/SellSoccer/" + ele._id;
       return (
-        <div>
+        <div className="thread">
           <Link to={linkTo}>{ele.threadTitle}</Link>| Location: {ele.location}
         </div>
       );
     });
     return (
       <div>
-        <div>{this.props.loggedIn && <SellModal />}</div>
-        <div>{titles}</div>
+        <img
+          className="thread-img"
+          src="https://bloximages.chicago2.vip.townnews.com/emissourian.com/content/tncms/assets/v3/editorial/d/1a/d1acf7a6-070d-11e6-9014-4baa087a48e1/5717a367d8c80.preview.jpg"
+        />
+        <h2 className="thread-title">Sell soccer equipment</h2>
+        <div className="all-threads">
+          {this.props.loggedIn && <SellModal />}
+          <div>{titles}</div>
+        </div>
       </div>
     );
   };

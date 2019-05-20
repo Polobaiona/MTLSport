@@ -54,6 +54,8 @@ a:visited {
   display: flex; /* we want to center the child div*/
   align-items: center; /* center the child div horizontally*/
   justify-content: center; /* center the child div vertically */
+  right: 0;
+  top: 0;
 }
 .modal-container {
   padding: 100px;
@@ -125,4 +127,30 @@ a:visited {
 
 .centerHeader {
   text-align: center;
+}
+.thread {
+  border: solid 1px;
+  justify-content: space-between;
+  text-decoration: none;
+  display: block;
+  width: 99%;
+  margin: 15px 0;
+  padding: 5px;
+  color: #61000f;
+}
+.all-threads {
+  justify-content: space-between;
+}
+.thread-title {
+  text-align: center;
+  position: absolute;
+  color: white;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 300%;
+}
+.thread-img {
+  height: 550px;
+  width: 1260px;
 }

@@ -14,15 +14,22 @@ class UnconnectedSellHockey extends Component {
       let linkTo = "/SellHockey/" + ele._id;
 
       return (
-        <div>
+        <div className="thread">
           <Link to={linkTo}>{ele.threadTitle}</Link> | Location: {ele.location}
         </div>
       );
     });
     return (
       <div>
-        <div>{this.props.loggedIn && <SellModal />}</div>
-        <div>{titles}</div>
+        <img
+          className="thread-img"
+          src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/VDOJV13Oeijqkbkz5/ice-hockey-the-game-of-regional-amateur-teams_sa74_cpx__F0000.png"
+        />
+        <h2 className="thread-title">Sell hockey equipment</h2>
+        <div className="all-threads">
+          {this.props.loggedIn && <SellModal />}
+          <div>{titles}</div>
+        </div>
       </div>
     );
   };

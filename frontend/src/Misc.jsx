@@ -33,9 +33,9 @@ class UnconnectedMisc extends Component {
     let titles = messages.map(ele => {
       let linkTo = "/Misc/" + ele._id;
       return (
-        <div>
-          <Link to={linkTo}>{ele.threadTitle} </Link>
-        </div>
+        <Link className="thread" to={linkTo}>
+          {ele.threadTitle}
+        </Link>
       );
     }); //returns the title
 
@@ -49,10 +49,18 @@ class UnconnectedMisc extends Component {
         );
       });*/
     return (
-      <div className="fuckOffPaul">
-        <div>{this.props.loggedIn && <ThreadModal />}</div>
-        <FilterLocation />
-        <div>{titles}</div>
+      <div>
+        <img
+          height="580px"
+          width="1260px"
+          src="http://gamerlimit.com/wp-content/uploads/2016/04/original.jpg"
+        />
+        <h2 className="thread-title">Miscellaneous</h2>
+        <div className="all-threads">
+          <FilterLocation />
+          {this.props.loggedIn && <ThreadModal />}
+          <div>{titles}</div>
+        </div>
       </div>
     );
   };

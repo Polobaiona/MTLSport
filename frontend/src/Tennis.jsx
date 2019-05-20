@@ -32,7 +32,11 @@ class UnconnectedTennis extends Component {
 
     let titles = messages.map(ele => {
       let linkTo = "/Tennis/" + ele._id;
-      return <Link to={linkTo}>{ele.threadTitle} </Link>;
+      return (
+        <Link className="thread" to={linkTo}>
+          {ele.threadTitle}{" "}
+        </Link>
+      );
     }); //returns the title
 
     /*let replies = messages[0].replies.map(ele => {
@@ -45,12 +49,18 @@ class UnconnectedTennis extends Component {
       );
     });*/
     return (
-      <div className="fuckOffPaul">
-        <div>
-          <div>{this.props.loggedIn && <ThreadModal />}</div>
+      <div>
+        <img
+          height="600px"
+          width="1260px"
+          src="https://media.timeout.com/images/102789069/image.jpg"
+        />
+        <h2 className="thread-title"> Tennis games</h2>
+        <div className="all-threads">
           <FilterLocation />
+          {this.props.loggedIn && <ThreadModal />}
+          <div>{titles}</div>
         </div>
-        <div>{titles}</div>
       </div>
     );
   };
