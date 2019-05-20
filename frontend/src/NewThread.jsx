@@ -21,7 +21,8 @@ class UnconnectedNewThread extends Component {
     this.setState({ category: event.target.value });
   };
   handleMessage = event => {
-    this.setState({ message: event.target.value });
+    console.log("message", event.target.value);
+    this.setState({ msg: event.target.value });
   };
   handleSubmit = event => {
     event.preventDefault();

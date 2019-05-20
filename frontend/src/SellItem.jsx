@@ -22,7 +22,7 @@ class UnconnectedSellItem extends Component {
     this.setState({ category: event.target.value });
   };
   handleMessage = event => {
-    this.setState({ message: event.target.value });
+    this.setState({ msg: event.target.value });
   };
   handleImage = event => {
     this.setState({ image: event.target.value });
