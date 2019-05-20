@@ -29,6 +29,26 @@ class UnconnectedSellItem extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
+
+    if (this.state.category === "") {
+      return alert("You must select a valid category");
+    }
+
+    if (this.state.location === "") {
+      return alert("You must select a valid location");
+    }
+
+    if (this.state.threadTitle === "") {
+      return alert("You must put a thread title");
+    }
+
+    if (this.state.msg === "") {
+      return alert("You must enter a descriptive message");
+    }
+    if (this.state.image === "") {
+      return alert("You must upload a picture of your item");
+    }
+
     let data = new FormData();
     data.append("location", this.state.location);
     data.append("threadTitle", this.state.threadTitle);
