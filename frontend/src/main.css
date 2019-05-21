@@ -139,7 +139,8 @@ a:visited {
   margin-top: 80px;
 }
 .thread {
-  border: solid 1px;
+  border: ridge 5px;
+  border-color: red;
   justify-content: space-between;
   text-decoration: none;
   display: block;
@@ -196,4 +197,15 @@ a:visited {
   justify-content: center;
   margin-left: 250px;
   margin-top: 700px;
+}
+.replies {
+  border: solid 1px;
+  justify-content: space-between;
+  text-decoration: none;
+  display: block;
+  width: 93.5%;
+  margin: 5px;
+  margin-left: 70px;
+  padding: 10px;
+  color: white;
 }

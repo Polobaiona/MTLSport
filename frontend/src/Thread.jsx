@@ -56,7 +56,7 @@ class UnconnectedThread extends Component {
     });
     let replies2 = threads[0].replies.map(ele => {
       return (
-        <div className="thread">
+        <div className="replies">
           {<DetailsUser username={ele.user} />} | {ele.msg}
         </div>
       );
