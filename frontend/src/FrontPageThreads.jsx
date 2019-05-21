@@ -34,6 +34,15 @@ class UnconnectedFrontPageThreads extends Component {
       i++;
       // }
     }
+    //Category to upper case
+    let categoryUpperCase = x => {
+      if (x === "soccer") return "Soccer";
+      if (x === "basketball") return "Basketball";
+      if (x === "hockey") return "Hockey";
+      if (x === "rockclimbing") return "Rock Climbing";
+      if (x === "tennis") return "Tennis";
+      if (x === "misc") return "Misc.";
+    };
 
     console.log("thread titles = ", threadTitles);
 
@@ -41,9 +50,13 @@ class UnconnectedFrontPageThreads extends Component {
       let linkTo = "/" + ele.category + "/" + ele._id;
 
       return (
-        <div>
+        <div className="thread">
           <Link to={linkTo}>
-            {ele.threadTitle} Sport: {ele.category} Location: {ele.location}
+            {ele.threadTitle}
+            <br />
+            Sport: {categoryUpperCase(ele.category)}
+            <br />
+            Location: {ele.location}
           </Link>
         </div>
       );

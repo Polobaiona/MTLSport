@@ -7,7 +7,7 @@ class UnconnectedTopBar extends Component {
     if (!this.props.loggedIn) {
       return (
         <div>
-          <div className="flex">
+          <div className="top-bar flex">
             <div>
               <Link to="/">MTLSport</Link>
             </div>
@@ -20,7 +20,7 @@ class UnconnectedTopBar extends Component {
     } else {
       return (
         <div>
-          <div className="flex">
+          <div className="flex top-bar">
             <div>
               <Link to="/">MTLSport</Link>
             </div>
