@@ -1,13 +1,9 @@
 body {
   /* background-color: rgb(207, 205, 205);*/
-<<<<<<< HEAD
   /* background-color: rgb(129, 120, 120); */
   /* background-color: rgb(209, 208, 208); */
   /* background-color: #e9f1f7; */
   background-color: #2274a5;
-=======
-  background-color: #e9f1f7;
->>>>>>> a0fba849ca0d65c3cd8ea0d67c93239472c91057
   margin: 0;
 }
 
@@ -147,15 +143,16 @@ a:visited {
 }
 .thread {
   border: ridge 10px;
-  border-color: #a64253;
+  border-color: #e7dfc6;
   justify-content: space-between;
   text-decoration: none;
-  background-color: #e7dfc6;
+  background-color: #a64253;
   display: block;
-  width: 99%;
+  width: 100%;
+  height: 100px;
   margin: 15px 0;
   padding: 5px;
-  color: black;
+  color: white;
 }
 .replies {
   border: solid 1px;
@@ -170,6 +167,8 @@ a:visited {
   color: black;
 }
 .userdetails {
+  border: solid 2px;
+  padding: 10px;
   color: blue;
 }
 .all-threads {
@@ -203,12 +202,8 @@ a:visited {
 
 .proxima-nova-font {
   font-family: "proxima-nova", sans-serif;
-<<<<<<< HEAD
   /* color: #131b23; */
   color: #e9f1f7;
-=======
-  color: #131b23;
->>>>>>> a0fba849ca0d65c3cd8ea0d67c93239472c91057
 }
 
 .bigger-font {
