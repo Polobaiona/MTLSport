@@ -42,7 +42,8 @@ app.post("/signup", upload.none(), (req, res) => {
         firstName: firstName,
         lastName: lastName,
         user: username,
-        password: enteredPassword
+        password: enteredPassword,
+        age: age
       });
       res.cookie("sid", sessionId);
       res.send(JSON.stringify({ success: true }));
@@ -61,6 +62,7 @@ app.post("/login", upload.none(), (req, res) => {
       password: enteredPassword
     },
     (err, results) => {
+      console.log("results login", results);
       if (results !== null) {
         let expectedPassword = results.password;
         let expectedUsername = results.user;
@@ -74,7 +76,7 @@ app.post("/login", upload.none(), (req, res) => {
             username
           });
           res.cookie("sid", sessionId);
-          res.send(JSON.stringify({ success: true }));
+          res.send(JSON.stringify({ success: true, results }));
         } else res.send(JSON.stringify({ success: false }));
       } else res.send(JSON.stringify({ success: false }));
     }
