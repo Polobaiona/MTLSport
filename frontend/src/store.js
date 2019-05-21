@@ -2,7 +2,12 @@ import { createStore } from "redux";
 
 let reducer = (state, action) => {
   if (action.type === "login-success") {
-    console.log(action.username, action.firstName, action.lastName);
+    console.log(
+      "login-succes",
+      action.username,
+      action.firstName,
+      action.lastName
+    );
     return {
       ...state,
       loggedIn: true,

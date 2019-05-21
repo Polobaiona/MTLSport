@@ -42,7 +42,8 @@ app.post("/signup", upload.none(), (req, res) => {
         firstName: firstName,
         lastName: lastName,
         user: username,
-        password: enteredPassword
+        password: enteredPassword,
+        age: age
       });
       res.cookie("sid", sessionId);
       res.send(JSON.stringify({ success: true }));
@@ -61,6 +62,7 @@ app.post("/login", upload.none(), (req, res) => {
       password: enteredPassword
     },
     (err, results) => {
+      console.log("results login", results);
       if (results !== null) {
         let expectedPassword = results.password;
         let expectedUsername = results.user;
@@ -71,10 +73,13 @@ app.post("/login", upload.none(), (req, res) => {
           let sessionId = generateId();
           db.collection("sessions").insertOne({
             sessionId,
-            username
+            username,
+            firstName: results.firstName,
+            lastName: results.lastName,
+            age: results.age
           });
           res.cookie("sid", sessionId);
-          res.send(JSON.stringify({ success: true }));
+          res.send(JSON.stringify({ success: true, results }));
         } else res.send(JSON.stringify({ success: false }));
       } else res.send(JSON.stringify({ success: false }));
     }
@@ -86,7 +91,7 @@ app.get("/check-login", (req, res) => {
   db.collection("sessions").findOne(
     { sessionId: req.cookies.sid },
     (err, results) => {
-      console.log(err);
+      console.log("results momo check-login", results);
       if (results) {
         let username = results.username;
         if (username !== undefined) {
