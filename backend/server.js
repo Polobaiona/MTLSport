@@ -73,7 +73,10 @@ app.post("/login", upload.none(), (req, res) => {
           let sessionId = generateId();
           db.collection("sessions").insertOne({
             sessionId,
-            username
+            username,
+            firstName: results.firstName,
+            lastName: results.lastName,
+            age: results.age
           });
           res.cookie("sid", sessionId);
           res.send(JSON.stringify({ success: true, results }));
@@ -88,7 +91,7 @@ app.get("/check-login", (req, res) => {
   db.collection("sessions").findOne(
     { sessionId: req.cookies.sid },
     (err, results) => {
-      console.log(err);
+      console.log("results momo check-login", results);
       if (results) {
         let username = results.username;
         if (username !== undefined) {
