@@ -124,8 +124,8 @@ class UnconnectedNewThread extends Component {
             <textarea
               onChange={this.handleThreadTitle}
               placeholder="Title"
-              rows="4"
-              cols="50"
+              rows="2"
+              cols="30"
               form="new-thread"
             />
           </p>
@@ -133,8 +133,8 @@ class UnconnectedNewThread extends Component {
             <textarea
               onChange={this.handleMessage}
               placeholder="Message"
-              rows="4"
-              cols="50"
+              rows="2"
+              cols="30"
               form="new-thread"
             />
           </p>

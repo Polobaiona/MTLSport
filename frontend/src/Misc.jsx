@@ -20,17 +20,8 @@ class UnconnectedMisc extends Component {
       })
       .reverse(); //takes the threads in the soccer category
 
-    console.log("threads: " + JSON.stringify(messages));
-
     if (this.props.location !== undefined) {
       messages = messages.filter(ele => {
-        console.log(
-          "ele location: ",
-          ele.location,
-          " props: ",
-          this.props.location
-        );
-
         return ele.location === this.props.location;
       });
     }
