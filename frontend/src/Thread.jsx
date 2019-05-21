@@ -57,7 +57,7 @@ class UnconnectedThread extends Component {
     });
     let replies2 = threads[0].replies.map(ele => {
       return (
-        <div>
+        <div className="thread">
           {<DetailsUser username={ele.user} />} | {ele.msg}
         </div>
       );
@@ -74,13 +74,13 @@ class UnconnectedThread extends Component {
     }
     return (
       <div>
-        <div>
+        <div className="thread">
           {threads[0].user} | {threads[0].msg}
           {threads[0].image && (
             <img src={threads[0].image} style={s} onClick={this.flipToggle} />
           )}
         </div>
-        <div>{replies2}</div>
+        {replies2}
         <div>
           {this.props.loggedIn && (
             <button onClick={this.showReplySubmission}>Reply</button>
