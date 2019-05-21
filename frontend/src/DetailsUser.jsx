@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-class UnconnectedDetailsUser extends Component {
+export default class UnconnectedDetailsUser extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,11 +32,3 @@ class UnconnectedDetailsUser extends Component {
     );
   };
 }
-let mapStateToProps = state => {
-  return {
-    username: state.username
-  };
-};
-let DetailsUser = connect(mapStateToProps)(UnconnectedDetailsUser);
-
-export default withRouter(DetailsUser);
