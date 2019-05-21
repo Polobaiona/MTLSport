@@ -91,7 +91,6 @@ app.get("/check-login", (req, res) => {
   db.collection("sessions").findOne(
     { sessionId: req.cookies.sid },
     (err, results) => {
-      console.log("results momo check-login", results);
       if (results) {
         let username = results.username;
         if (username !== undefined) {
@@ -178,7 +177,6 @@ app.get("/detailsUser", upload.none(), (req, res) => {
   db.collection("users")
     .find({})
     .toArray((err, results) => {
-      console.log("user details", results);
       res.send(JSON.stringify({ success: true, results }));
     });
 });
