@@ -38,6 +38,7 @@ class UnconnectedBasketball extends Component {
         </div>
       );
     }); //returns the title
+
     return (
       <div>
         <img

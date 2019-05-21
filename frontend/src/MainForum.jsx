@@ -65,7 +65,7 @@ class UnconnectedMainForum extends Component {
             <Link to="/Misc">
               <img
                 className="frontPageSportImage"
-                src="https://i.ebayimg.com/images/g/VZMAAOSwSWJXRWSe/s-l640.jpg"
+                src="http://www.stickpng.com/assets/images/58595cd74f6ae202fedf284d.png"
               />
               <br />
               <span className="proxima-nova-font">Misc.</span>

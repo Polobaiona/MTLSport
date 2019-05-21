@@ -13,7 +13,7 @@ class UnconnectedMisc extends Component {
     }
   };
   render = () => {
-    console.log(this.props.threads);
+    console.log("your are here", this.props.threads);
     let messages = this.props.threads
       .filter(ele => {
         return ele.category === "misc";

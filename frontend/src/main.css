@@ -1,7 +1,9 @@
 body {
   /* background-color: rgb(207, 205, 205);*/
   /* background-color: rgb(129, 120, 120); */
-  background-color: rgb(209, 208, 208);
+  /* background-color: rgb(209, 208, 208); */
+  /* background-color: #e9f1f7; */
+  background-color: #2274a5;
   margin: 0;
 }
 
@@ -18,7 +20,7 @@ a:visited {
   display: flex;
   justify-content: space-between;
   padding: 15px;
-  background-color: rgb(182, 27, 27);
+  background-color: #a64253;
   color: whitesmoke;
 }
 
@@ -74,7 +76,7 @@ a:visited {
   flex-wrap: wrap; }*/
 
 .findSportBar {
-  background-color: rgb(182, 27, 27);
+  background-color: #a64253;
   color: whitesmoke;
   justify-content: space-between;
   /* text-align: center; */
@@ -176,11 +178,13 @@ a:visited {
   text-decoration: none;
   margin: 15px 0;
   padding: 5px;
-  color: #61000f;
+  color: #a64253;
 }
 
 .proxima-nova-font {
   font-family: "proxima-nova", sans-serif;
+  /* color: #131b23; */
+  color: #e9f1f7;
 }
 
 .bigger-font {
@@ -214,7 +218,7 @@ a:visited {
   margin-top: 1%;
   padding-top: 1%;
   border-color: black;
-  background-color: rgb(182, 27, 27);
+  background-color: #a64253;
   /* border-radius: 5%; */
 }
 
