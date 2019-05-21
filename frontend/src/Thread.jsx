@@ -82,6 +82,7 @@ class UnconnectedThread extends Component {
             )}
           </div>
         </div>
+
         {replies2}
         <div className="delete">
           <button onClick={this.deleteMessage}>Delete latest message</button>
