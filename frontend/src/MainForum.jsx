@@ -8,10 +8,10 @@ class UnconnectedMainForum extends Component {
       //  took out findSportBar
       <div className="centerHeader">
         <div>
-          <h1 className="proxima-nova-font">Find an Activity </h1>
+          <h1 className="proxima-nova-font">Find A Sport </h1>
         </div>
         <div className="fuckOffPaul">
-          <div className="mainPageLinks">
+          <div className="mainPageLinks grow">
             <Link to="/Basketball">
               <img
                 className="frontPageSportImage"
@@ -21,7 +21,7 @@ class UnconnectedMainForum extends Component {
               <span className="proxima-nova-font">Basketball</span>
             </Link>
           </div>
-          <div className="mainPageLinks">
+          <div className="mainPageLinks grow">
             <Link to="/Hockey">
               <img
                 className="frontPageSportImage"
@@ -31,7 +31,7 @@ class UnconnectedMainForum extends Component {
               <span className="proxima-nova-font">Hockey</span>
             </Link>
           </div>
-          <div className="mainPageLinks">
+          <div className="mainPageLinks grow">
             <Link to="/RockClimbing">
               <img
                 className="frontPageSportImage"
@@ -41,7 +41,7 @@ class UnconnectedMainForum extends Component {
               <span className="proxima-nova-font">Rock Climbing</span>
             </Link>
           </div>
-          <div className="mainPageLinks">
+          <div className="mainPageLinks grow">
             <Link to="/Soccer">
               <img
                 className="frontPageSportImage"
@@ -51,7 +51,7 @@ class UnconnectedMainForum extends Component {
               <span className="proxima-nova-font">Soccer</span>
             </Link>
           </div>
-          <div className="mainPageLinks">
+          <div className="mainPageLinks grow">
             <Link to="/Tennis">
               <img
                 className="frontPageSportImage"
@@ -61,7 +61,7 @@ class UnconnectedMainForum extends Component {
               <span className="proxima-nova-font">Tennis</span>
             </Link>
           </div>
-          <div className="mainPageLinks">
+          <div className="mainPageLinks grow">
             <Link to="/Misc">
               <img
                 className="frontPageSportImage"

@@ -50,19 +50,19 @@ class UnconnectedFrontPageThreads extends Component {
       let linkTo = "/" + ele.category + "/" + ele._id;
 
       return (
-        <div className="thread">
+        <div className="singleFrontPageThread grow">
           <Link to={linkTo}>
             {ele.threadTitle}
-            <br />
+            <br /> <br />
             Sport: {categoryUpperCase(ele.category)}
-            <br />
+            <br /> <br />
             Location: {ele.location}
           </Link>
         </div>
       );
     });
 
-    return <div>{titles}</div>;
+    return <div className="frontPageThreads">{titles}</div>;
   };
 }
 

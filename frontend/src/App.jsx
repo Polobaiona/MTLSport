@@ -83,16 +83,22 @@ class UnconnectedApp extends Component {
             <SellForum />
           </div>
 
-          <div className="most-recent-flex">
-            <div classname="mostRecentThreads">
-              <h2>Most Recent Games</h2>
+          <div>
+            <div>
               <div>
-                <FrontPageThreads />
+                <h2 className="proxima-nova-font bigger-font">
+                  Most Recent Games
+                </h2>
+                <div>
+                  <FrontPageThreads />
+                </div>
               </div>
             </div>
 
-            <div className="most-recent-items">
-              <h2>Most Recent Items For Sale</h2>
+            <div>
+              <h2 className="proxima-nova-font bigger-font">
+                Most Recent Items For Sale
+              </h2>
               <div>
                 <FrontPageItems />
               </div>
