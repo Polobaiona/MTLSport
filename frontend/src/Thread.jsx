@@ -81,7 +81,9 @@ class UnconnectedThread extends Component {
           )}
         </div>
         {replies2}
-        <button onClick={this.deleteMessage}>Delete latest message</button>
+        <div className="delete">
+          <button onClick={this.deleteMessage}>Delete latest message</button>
+        </div>
         <div>{this.props.loggedIn && <Replies thread={threads[0]} />}</div>
       </div>
     );
