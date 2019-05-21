@@ -43,7 +43,6 @@ class UnconnectedThread extends Component {
               type: "get-threads",
               threads: body.results
             });
-            // this.props.history.push("/");
           });
       });
   };

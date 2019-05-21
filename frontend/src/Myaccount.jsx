@@ -36,15 +36,11 @@ class UnconnectedAccount extends Component {
           />
         </div>
         <div className="accountinfos">
-          <p>Your personal informations: </p>
-          <p>Your username: </p>
-          <p id="user">{this.props.username}</p>
-          <p>Your first name: </p>
-          <p id="user">{this.props.firstName}</p>
-          <p>Your last name: </p>
-          <p id="user">{this.props.lastName}</p>
-          <p>Your are: </p>
-          <p id="user">{this.props.age} years old</p>
+          <p>Your personal information: </p>
+          <p id="user">Your username: {this.props.username}</p>
+          <p id="user">Your first name: {this.props.firstName}</p>
+          <p id="user">Your last name: {this.props.lastName}</p>
+          <p id="user">Your are: {this.props.age} years old</p>
         </div>
         <div className="logout">
           <button onClick={this.logout}>log out!</button>

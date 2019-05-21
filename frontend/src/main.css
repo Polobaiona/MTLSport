@@ -67,10 +67,9 @@ a:visited {
   flex-direction: column;
   flex-wrap: wrap;
 }
-/* #user {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap; }*/
+#user {
+  border: solid;
+}
 
 .findSportBar {
   background-color: rgb(182, 27, 27);
