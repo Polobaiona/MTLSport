@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 class UnconnectedMainForum extends Component {
   render = () => {
     return (
-      <div className="findSportBar centerHeader">
+      //  took out findSportBar
+      <div className="centerHeader">
         <div>
           <h1 className="proxima-nova-font">Find an Activity </h1>
         </div>
@@ -15,7 +16,7 @@ class UnconnectedMainForum extends Component {
               <img
                 className="frontPageSportImage"
                 src="https://images.complex.com/complex/images/c_limit,w_680/fl_lossy,pg_1,q_auto/kfwfrlxmbtsqmznivevv/vince-carter-25000-dunk-2018"
-              />{" "}
+              />
               <br />
               <span className="proxima-nova-font">Basketball</span>
             </Link>

@@ -75,18 +75,20 @@ a:visited {
 .findSportBar {
   background-color: rgb(182, 27, 27);
   color: whitesmoke;
-  justify-content: center;
-  text-align: center;
-  height: 300px;
+  justify-content: space-between;
+  /* text-align: center; */
+  height: 555px;
   border-width: 5px;
   border-style: double;
 }
 .mainPageLinks {
   position: relative;
-  padding: 50px;
+  /* padding: 50px; */
+  padding-left: 50px;
+  padding-right: 50px;
   height: 100px;
   width: 100px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 /* .mainPageLinks::before {
@@ -110,7 +112,8 @@ a:visited {
 .mostRecentThreads {
   padding: 5px;
   margin: 5px;
-  text-align: center;
+  /* text-align: center; */
+  width: 25%;
 }
 
 .itemPicturesFrontPage {
@@ -129,6 +132,12 @@ a:visited {
 
 .centerHeader {
   text-align: center;
+  /* margin-top: 50px; */
+}
+
+.centerSecondHeader {
+  text-align: center;
+  margin-top: 80px;
 }
 .thread {
   border: solid 1px;
@@ -175,4 +184,17 @@ a:visited {
 
 .bigger-font {
   font-size: 1.3em;
+}
+
+.most-recent-flex {
+  display: flex;
+  margin-left: 50px;
+}
+
+.most-recent-items {
+  align-content: center;
+  text-align: center;
+  justify-content: center;
+  margin-left: 250px;
+  margin-top: 700px;
 }

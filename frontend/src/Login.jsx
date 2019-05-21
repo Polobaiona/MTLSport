@@ -8,9 +8,7 @@ class UnconnectedLogin extends Component {
     this.state = {
       username: "",
       password: "",
-      firstName: "",
-      lastName: "",
-      age: ""
+      details: {}
     };
   }
   handleUsernameChange = event => {
@@ -33,9 +31,11 @@ class UnconnectedLogin extends Component {
         return x.text();
       })
       .then(responseBody => {
-        console.log("responsebody", responseBody);
+        console.log("responsebody momo", responseBody);
         let body = JSON.parse(responseBody);
-        console.log("body", body);
+        let details = body.results;
+        console.log("details momo", details);
+        this.setState({ details });
         if (!body.success) {
           alert("Login failed");
           return;
@@ -43,9 +43,9 @@ class UnconnectedLogin extends Component {
         this.props.dispatch({
           type: "login-success",
           username: this.state.username,
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
-          age: this.state.age
+          firstName: this.state.details.firstName,
+          lastName: this.state.details.lastName,
+          age: this.state.details.age
         });
         this.props.history.push("/");
       });
