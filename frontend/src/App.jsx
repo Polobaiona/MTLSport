@@ -78,19 +78,24 @@ class UnconnectedApp extends Component {
           />
         </div>
         <div>
-          <MainForum />
-          <div className="mostRecentThreads">
-            <h2>Most Recent Games</h2>
-            <div className="fuckOffPaul">
-              <FrontPageThreads />
-            </div>
+          <div className="findSportBar">
+            <MainForum />
+            <SellForum />
           </div>
-          <SellForum />
 
-          <div className="mostRecentThreads">
-            <h2>Most Recent Items For Sale</h2>
-            <div>
-              <FrontPageItems />
+          <div className="most-recent-flex">
+            <div classname="mostRecentThreads">
+              <h2>Most Recent Games</h2>
+              <div>
+                <FrontPageThreads />
+              </div>
+            </div>
+
+            <div className="most-recent-items">
+              <h2>Most Recent Items For Sale</h2>
+              <div>
+                <FrontPageItems />
+              </div>
             </div>
           </div>
         </div>
