@@ -166,7 +166,7 @@ a:visited {
   text-decoration: none;
   background-color: #a64253;
   display: flex;
-  width: 98%;
+  padding: 10px;
   height: 100px;
   margin: 15px 0;
   color: white;
@@ -177,13 +177,13 @@ a:visited {
   display: flex;
   justify-content: space-between;
   background-color: #e7dfc6;
-  width: 92%;
-  margin: 5px;
+  width: 93.5%;
+  margin: 10px;
   margin-left: 70px;
   padding: 10px;
   color: black;
 }
-.threaduser {
+.thread-user {
   border: solid 2px;
   padding: 10px;
   color: blue;

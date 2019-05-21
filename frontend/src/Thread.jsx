@@ -75,13 +75,14 @@ class UnconnectedThread extends Component {
       <div>
         <div className="grandthread">
           <div className="thread">
-            <div className="threaduser">{threads[0].user} </div>{" "}
+            <div className="thread-user">{threads[0].user} </div>
             {threads[0].msg}
             {threads[0].image && (
               <img src={threads[0].image} style={s} onClick={this.flipToggle} />
             )}
           </div>
         </div>
+
         {replies2}
         <div className="delete">
           <button onClick={this.deleteMessage}>Delete latest message</button>
