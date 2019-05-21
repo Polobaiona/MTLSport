@@ -1,23 +1,21 @@
 body {
   /* background-color: rgb(207, 205, 205);*/
-<<<<<<< HEAD
   /* background-color: rgb(129, 120, 120); */
   /* background-color: rgb(209, 208, 208); */
   /* background-color: #e9f1f7; */
   background-color: #2274a5;
-=======
-  background-color: #e9f1f7;
->>>>>>> a0fba849ca0d65c3cd8ea0d67c93239472c91057
   margin: 0;
 }
 
 a:link {
   text-decoration: none;
-  color: rgb(211, 205, 205);
+  /* color: rgb(211, 205, 205); */
+  color: #131b23;
 }
 a:visited {
   text-decoration: none;
-  color: rgb(211, 205, 205);
+  /* color: rgb(211, 205, 205); */
+  color: #131b23;
 }
 
 .flex {
@@ -203,12 +201,8 @@ a:visited {
 
 .proxima-nova-font {
   font-family: "proxima-nova", sans-serif;
-<<<<<<< HEAD
   /* color: #131b23; */
   color: #e9f1f7;
-=======
-  color: #131b23;
->>>>>>> a0fba849ca0d65c3cd8ea0d67c93239472c91057
 }
 
 .bigger-font {
