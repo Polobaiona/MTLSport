@@ -184,7 +184,6 @@ app.post("/delete-message", upload.none(), (req, res) => {
   db.collection("sessions").findOne({ sessionId }, (err, results) => {
     console.log(err);
     let username = results.username;
-    console.log("threadId", threadId);
     db.collection("threads").findOne(
       { _id: ObjectId(threadId) },
       (err, results) => {
