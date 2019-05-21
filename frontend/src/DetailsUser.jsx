@@ -24,7 +24,7 @@ export default class UnconnectedDetailsUser extends Component {
   render = () => {
     console.log("state", this.state);
     return (
-      <div>
+      <div className="userdetails">
         <div>{this.state.details[0].user}</div>
         <div>{this.state.details[0].firstName}</div>
         <div>{this.state.details[0].lastName}</div>
