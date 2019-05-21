@@ -8,6 +8,11 @@ class UnconnectedSoccer extends Component {
   constructor(props) {
     super(props);
   }
+  componentDidMount = () => {
+    if (this.props.location !== undefined) {
+      this.props.dispatch({ type: "location-change", value: undefined });
+    }
+  };
   render = () => {
     let messages = this.props.threads
       .filter(ele => {
