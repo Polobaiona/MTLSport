@@ -39,7 +39,7 @@ class UnconnectedRockClimbing extends Component {
       let linkTo = "/RockClimbing/" + ele._id;
       return (
         <div>
-          <Link className="thread" to={linkTo}>
+          <Link className="threadTitle" to={linkTo}>
             {ele.threadTitle}
           </Link>
         </div>

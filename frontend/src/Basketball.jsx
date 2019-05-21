@@ -32,7 +32,7 @@ class UnconnectedBasketball extends Component {
       let linkTo = "/Basketball/" + ele._id;
       return (
         <div>
-          <Link className="thread" to={linkTo}>
+          <Link className="threadTitle" to={linkTo}>
             {ele.threadTitle}
           </Link>
         </div>
