@@ -5,7 +5,6 @@ class UnconnectedReplies extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: "",
       message: ""
     };
   }
@@ -20,7 +19,6 @@ class UnconnectedReplies extends Component {
     }
     this.setState({ message: "" });
     let data = new FormData();
-    data.append("user", this.state.user);
     data.append("msg", this.state.message);
     data.append("threadId", this.props.thread._id);
     fetch("http://localhost:4000/replies", {
@@ -51,9 +49,10 @@ class UnconnectedReplies extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <input
+            className="text-area"
             type="text"
             onChange={this.handleMessage}
-            placeholder="Message"
+            placeholder="Enter your reply"
             value={this.state.message}
           />
           <input type="submit" />

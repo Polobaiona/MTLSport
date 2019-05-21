@@ -43,7 +43,6 @@ class UnconnectedThread extends Component {
               type: "get-threads",
               threads: body.results
             });
-            // this.props.history.push("/");
           });
       });
   };
@@ -81,15 +80,8 @@ class UnconnectedThread extends Component {
           )}
         </div>
         {replies2}
-        <div>
-          {this.props.loggedIn && (
-            <button onClick={this.showReplySubmission}>Reply</button>
-          )}
-          {this.props.showAddReply && <Replies thread={threads[0]} />}
-          {this.props.loggedIn && (
-            <button onClick={this.deleteMessage}>Delete message</button>
-          )}
-        </div>
+        <button onClick={this.deleteMessage}>Delete latest message</button>
+        <div>{this.props.loggedIn && <Replies thread={threads[0]} />}</div>
       </div>
     );
   };
