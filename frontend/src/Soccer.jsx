@@ -60,7 +60,9 @@ class UnconnectedSoccer extends Component {
         <h2 className="thread-title"> Soccer games</h2>
         <div className="all-threads">
           <FilterLocation />
-          {this.props.loggedIn && <ThreadModal />}
+          <div className="button-move">
+            {this.props.loggedIn && <ThreadModal />}
+          </div>
           <div>{titles}</div>
         </div>
       </div>
