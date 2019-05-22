@@ -41,6 +41,7 @@ class UnconnectedFrontPageThreads extends Component {
         console.log("new title: ", newTitle);
         messages[i].shortThreadTitle = newTitle;
       }
+      messages[i].shortThreadTitle = messages[i].threadTitle;
 
       i++;
       // }

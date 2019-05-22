@@ -233,7 +233,6 @@ a:visited {
 }
 .top-bar {
   border-width: 5px;
-  border-bottom-style: solid;
 }
 
 .front-page-threads {
@@ -337,4 +336,9 @@ a:visited {
 }
 .white-font {
   color: #e9f1f7;
+}
+
+.button-move {
+  align-content: right;
+  margin-left: 90%;
 }
