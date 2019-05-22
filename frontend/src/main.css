@@ -158,10 +158,12 @@ a:visited {
 .threadTitle {
   /* border: ridge 10px;
   border-color: #e7dfc6; */
-  justify-content: space-between;
-  text-decoration: none;
+  /* justify-content: space-between;
+    text-decoration: none; */
   background-color: #a64253;
-  display: block;
+  padding-top: 35px;
+  padding-left: 40px;
+  display: flex;
   height: 70px;
   margin: 45px;
   margin-left: 100px;
@@ -312,7 +314,6 @@ a:visited {
 
 .thread-title-display {
   margin-left: 2%;
-
   margin-top: 5%;
 }
 .textboth {
