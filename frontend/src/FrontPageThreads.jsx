@@ -36,13 +36,13 @@ class UnconnectedFrontPageThreads extends Component {
       console.log("title is: ", theTitle);
       console.log("title length: ", theTitle.length);
 
-      if (theTitle.length > 35) {
-        let newTitle = theTitle.slice(0, 34) + "...";
+      if (theTitle.length > 25) {
+        let newTitle = theTitle.slice(0, 25) + "...";
         console.log("new title: ", newTitle);
         messages[i].shortThreadTitle = newTitle;
+      } else {
+        messages[i].shortThreadTitle = messages[i].threadTitle;
       }
-      messages[i].shortThreadTitle = messages[i].threadTitle;
-
       i++;
       // }
     }

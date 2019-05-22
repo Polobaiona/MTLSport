@@ -179,21 +179,18 @@ a:visited {
 .thread {
   /* border: ridge 10px;
     border-color: #e7dfc6; */
-  justify-content: space-between;
+
   text-decoration: none;
-  background-color: #a64253;
+  background-color: #e7dfc6;
   display: flex;
-  padding: 10px;
-  height: 100px;
   margin-right: 200px;
-  color: white;
+  color: black;
 }
 .replies {
-  border: solid 1px;
+  /* border: solid 1px; */
   text-decoration: none;
   display: flex;
-  justify-content: space-between;
-  background-color: #e7dfc6;
+  background-color: #e9f1f7;
   width: 93.5%;
   margin: 10px;
   margin-left: 70px;
@@ -202,6 +199,8 @@ a:visited {
 }
 .thread-user {
   padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   color: blue;
 }
 .userdetails {
@@ -274,7 +273,7 @@ a:visited {
   /* border: solid 1.5px;
   border-style: double; */
   width: 20%;
-  text-align: center;
+  /* text-align: center; */
   margin: 1%;
   height: 10%;
   margin-top: 1%;
@@ -282,6 +281,8 @@ a:visited {
   padding-bottom: 1%;
   border-color: black;
   background-color: #e7dfc6;
+  padding-left: 15px;
+  padding-right: 15px;
   /* border-radius: 5%; */
 }
 
