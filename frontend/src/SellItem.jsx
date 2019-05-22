@@ -53,7 +53,7 @@ class UnconnectedSellItem extends Component {
     data.append("location", this.state.location);
     data.append("threadTitle", this.state.threadTitle);
     data.append("category", this.state.category);
-    data.append("msg", this.state.message);
+    data.append("msg", this.state.msg);
     data.append("image", this.state.image);
     fetch("http://localhost:4000/sell-item", {
       method: "POST",

@@ -299,6 +299,6 @@ a:visited {
 
 .thread-title-display {
   margin-left: 2%;
-  text-decoration: underline;
+  font-style: italic;
   margin-top: 5%;
 }

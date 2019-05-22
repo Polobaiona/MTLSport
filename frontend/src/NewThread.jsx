@@ -46,7 +46,12 @@ class UnconnectedNewThread extends Component {
     data.append("location", this.state.location);
     data.append("threadTitle", this.state.threadTitle);
     data.append("category", this.state.category);
-    data.append("msg", this.state.message);
+    data.append("msg", this.state.msg);
+
+    console.log("location: ", this.state.location);
+    console.log("threadTitle", this.state.threadTitle);
+    console.log("category", this.state.category);
+    console.log("msg", this.state.msg);
     fetch("http://localhost:4000/new-thread", {
       method: "POST",
       body: data,
@@ -61,6 +66,7 @@ class UnconnectedNewThread extends Component {
             type: "set-newThread",
             newThread: body.results
           });
+          console.log("body in new thread fetch: ", body.results);
           this.props.dispatch({ type: "show-form", showAddThread: false });
         }
         fetch("http://localhost:4000/thread")
