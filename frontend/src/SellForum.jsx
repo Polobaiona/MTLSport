@@ -6,9 +6,7 @@ class UnconnectedSellForum extends Component {
     return (
       <div className="centerSecondHeader">
         <div>
-          <h1 className="proxima-nova-font white-font">
-            Buy Sports Equipment{" "}
-          </h1>
+          <h1 className="proxima-nova-font">Buy and Sell Sports Equipment </h1>
         </div>
         <div className="center-flex">
           <div className="mainPageLinks grow">
@@ -24,7 +22,7 @@ class UnconnectedSellForum extends Component {
           <div className="mainPageLinks grow">
             <Link to="/SellHockey">
               <img
-                className="frontPageSportImage"
+                className="frontPageSportImage fit-image"
                 src="http://pngimg.com/uploads/hockey/hockey_PNG13.png"
               />
               <br />
