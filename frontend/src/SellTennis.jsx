@@ -43,8 +43,7 @@ class UnconnectedSellTennis extends Component {
     return (
       <div>
         <img
-          height="600px"
-          width="100%"
+          className="thread-img"
           src="https://media.timeout.com/images/102789069/image.jpg"
         />
         <h3 className="thread-title">Tennis Equipment</h3>
