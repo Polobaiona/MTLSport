@@ -38,8 +38,13 @@ class UnconnectedTennis extends Component {
     let titles = messages.map(ele => {
       let linkTo = "/Tennis/" + ele._id;
       return (
-        <Link className="thread" to={linkTo}>
-          {ele.threadTitle} | Location: {ele.location}
+        <Link className="threadTitle" to={linkTo}>
+          <div>
+            <div>{ele.threadTitle} </div>
+            <div className="titleofthread" style={{ display: "block" }}>
+              Location: {ele.location}
+            </div>
+          </div>
         </Link>
       );
     }); //returns the title
