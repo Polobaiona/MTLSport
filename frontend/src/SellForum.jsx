@@ -6,7 +6,9 @@ class UnconnectedSellForum extends Component {
     return (
       <div className="centerSecondHeader">
         <div>
-          <h1 className="proxima-nova-font">Buy Sports Equipment </h1>
+          <h1 className="proxima-nova-font white-font">
+            Buy Sports Equipment{" "}
+          </h1>
         </div>
         <div className="center-flex">
           <div className="mainPageLinks grow">

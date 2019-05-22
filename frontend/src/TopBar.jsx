@@ -10,10 +10,12 @@ class UnconnectedTopBar extends Component {
           <div className="top-bar flex">
             <div>
               <Link to="/">
-                <span className="proxima-nova-font bigger-font">MTLSport</span>
+                <span className="proxima-nova-font bigger-font white-font">
+                  MTLSport
+                </span>
               </Link>
             </div>
-            <div className="proxima-nova-font bigger-font">
+            <div className="proxima-nova-font bigger-font white-font">
               <Link to="/both">Signup/login</Link>
             </div>
           </div>
@@ -26,12 +28,14 @@ class UnconnectedTopBar extends Component {
             <div>
               <Link to="/">
                 {" "}
-                <span className="proxima-nova-font bigger-font">MTLSport</span>
+                <span className="proxima-nova-font bigger-font white-font">
+                  MTLSport
+                </span>
               </Link>
             </div>
             <div className="form">
               <Link to="/myAccount">
-                <span className="proxima-nova-font">My Account</span>
+                <span className="proxima-nova-font white-font">My Account</span>
               </Link>
             </div>
           </div>

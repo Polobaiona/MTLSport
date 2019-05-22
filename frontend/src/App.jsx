@@ -86,7 +86,7 @@ class UnconnectedApp extends Component {
           <div>
             <div>
               <div>
-                <h2 className="proxima-nova-font bigger-font">
+                <h2 className="proxima-nova-font bigger-font ">
                   Most Recent Games
                 </h2>
                 <div>
@@ -96,7 +96,7 @@ class UnconnectedApp extends Component {
             </div>
 
             <div>
-              <h2 className="proxima-nova-font bigger-font">
+              <h2 className="proxima-nova-font bigger-font ">
                 Most Recent Items For Sale
               </h2>
               <div>

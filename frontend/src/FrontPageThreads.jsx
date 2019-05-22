@@ -31,6 +31,11 @@ class UnconnectedFrontPageThreads extends Component {
       ) {
         threadTitles.push(messages[i]);
       }
+
+      let theTitle = messages[i].threadTitle.toString();
+      console.log("title is: ", theTitle);
+      console.log("title length: ", theTitle.length);
+
       i++;
       // }
     }
