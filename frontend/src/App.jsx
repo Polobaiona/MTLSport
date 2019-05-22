@@ -63,19 +63,13 @@ class UnconnectedApp extends Component {
     return (
       <div>
         <div className="description center-flex">
-          <img
-            className="imageResize"
-            src="https://www.theflagshop.co.nz/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/m/o/montreal_2.gif"
-          />
-          <div className="description site-header">
-            MTLSport is a site dedicated to finding friendly local sports games{" "}
+          <img className="imageResize" src="/montreal-flag.png" />
+          <div className="title">
+            MTLSport is a site dedicated to finding friendly local sports games
             <br />
             Voted #1 website by Gene's Mom
           </div>
-          <img
-            className="imageResize"
-            src="https://www.theflagshop.co.nz/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/m/o/montreal_2.gif"
-          />
+          <img className="imageResize" src="/montreal-flag.png" />
         </div>
         <div>
           <div className="findSportBar">
