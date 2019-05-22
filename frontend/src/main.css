@@ -143,6 +143,9 @@ a:visited {
   height: 100%;
   border-radius: 100%;
 }
+.fit-image {
+  object-fit: contain;
+}
 
 .centerHeader {
   text-align: center;

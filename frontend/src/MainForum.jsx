@@ -64,7 +64,7 @@ class UnconnectedMainForum extends Component {
           <div className="mainPageLinks grow">
             <Link to="/Misc">
               <img
-                className="frontPageSportImage"
+                className="frontPageSportImage fit-image"
                 src="http://www.stickpng.com/assets/images/58595cd74f6ae202fedf284d.png"
               />
               <br />
