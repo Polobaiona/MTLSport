@@ -52,7 +52,7 @@ class UnconnectedMisc extends Component {
             className="thread-img"
             src="http://gamerlimit.com/wp-content/uploads/2016/04/original.jpg"
           />
-          <h2 className="thread-title">Basketball games</h2>
+          <h2 className="thread-title">Miscellaneous Sports</h2>
           <div className="all-threads">
             <FilterLocation />
             {this.props.loggedIn && <ThreadModal />}
@@ -71,7 +71,7 @@ class UnconnectedMisc extends Component {
           width="100%"
           src="http://gamerlimit.com/wp-content/uploads/2016/04/original.jpg"
         />
-        <h2 className="thread-title">Miscellaneous</h2>
+        <h2 className="thread-title">Miscellaneous Sports</h2>
         <div className="all-threads">
           <FilterLocation />
           {this.props.loggedIn && <ThreadModal />}
