@@ -8,7 +8,7 @@ class UnconnectedMainForum extends Component {
       //  took out findSportBar
       <div className="centerHeader">
         <div>
-          <h1 className="proxima-nova-font white-font">Find A Sport </h1>
+          <h1 className="proxima-nova-font">Find A Sport </h1>
         </div>
         <div className="center-flex">
           <div className="mainPageLinks grow">
