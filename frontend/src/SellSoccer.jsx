@@ -12,7 +12,7 @@ class UnconnectedSellSoccer extends Component {
     let titles = messages.map(ele => {
       let linkTo = "/SellSoccer/" + ele._id;
       return (
-        <div className="thread">
+        <div className="threadTitle">
           <Link to={linkTo}>{ele.threadTitle}</Link> | Location: {ele.location}
         </div>
       );

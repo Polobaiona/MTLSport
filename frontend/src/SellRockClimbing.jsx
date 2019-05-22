@@ -14,7 +14,7 @@ class UnconnectedSellRockClimbing extends Component {
       let linkTo = "/SellRockClimbing/" + ele._id;
 
       return (
-        <div className="thread">
+        <div className="threadTitle">
           <Link to={linkTo}>{ele.threadTitle}</Link> | Location: {ele.location}
         </div>
       );

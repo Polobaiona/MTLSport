@@ -39,7 +39,7 @@ class UnconnectedTennis extends Component {
       let linkTo = "/Tennis/" + ele._id;
       return (
         <Link className="thread" to={linkTo}>
-          {ele.threadTitle} || Started by: {ele.user}
+          {ele.threadTitle} | Location: {ele.location}
         </Link>
       );
     }); //returns the title
