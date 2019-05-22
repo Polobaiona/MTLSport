@@ -14,8 +14,15 @@ class UnconnectedSellMisc extends Component {
       let linkTo = "/SellMisc/" + ele._id;
 
       return (
-        <div className="threadTitle">
-          <Link to={linkTo}>{ele.threadTitle}</Link> | Location: {ele.location}
+        <div>
+          <Link className="threadTitle" to={linkTo}>
+            <div>
+              <div>{ele.threadTitle} </div>
+              <div className="titleofthread" style={{ display: "block" }}>
+                Location: {ele.location}
+              </div>
+            </div>
+          </Link>
         </div>
       );
     });

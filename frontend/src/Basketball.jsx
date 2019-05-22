@@ -33,7 +33,12 @@ class UnconnectedBasketball extends Component {
       return (
         <div>
           <Link className="threadTitle" to={linkTo}>
-            {ele.threadTitle} | Location: {ele.location}
+            <div>
+              <div>{ele.threadTitle} </div>
+              <div className="titleofthread" style={{ display: "block" }}>
+                Location: {ele.location}
+              </div>
+            </div>
           </Link>
         </div>
       );
