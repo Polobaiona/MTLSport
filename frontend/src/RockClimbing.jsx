@@ -39,8 +39,8 @@ class UnconnectedRockClimbing extends Component {
       let linkTo = "/RockClimbing/" + ele._id;
       return (
         <div>
-          <Link className="thread" to={linkTo}>
-            {ele.threadTitle} || Started by: {ele.user}
+          <Link className="threadTitle" to={linkTo}>
+            {ele.threadTitle}
           </Link>
         </div>
       );

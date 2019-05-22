@@ -1,6 +1,5 @@
 body {
   /* background-color: rgb(207, 205, 205);*/
-  /*background-color: rgb(209, 208, 208);*/
   /* background-color: rgb(129, 120, 120); */
   /* background-color: rgb(209, 208, 208); */
   /* background-color: #e9f1f7; */
@@ -150,17 +149,33 @@ a:visited {
   text-align: center;
   margin-top: 110px;
 }
-.thread {
+.threadTitle {
   border: ridge 10px;
-  border-color: #a64253;
+  border-color: #e7dfc6;
   justify-content: space-between;
   text-decoration: none;
-  background-color: #e7dfc6;
+  background-color: #a64253;
   display: block;
-  width: 99%;
+  width: 97%;
+  height: 100px;
   margin: 15px 0;
   padding: 5px;
-  color: black;
+  color: white;
+}
+.grandthread {
+  width: 100%;
+}
+.thread {
+  border: ridge 10px;
+  border-color: #e7dfc6;
+  justify-content: space-between;
+  text-decoration: none;
+  background-color: #a64253;
+  display: flex;
+  padding: 10px;
+  height: 100px;
+  margin: 15px 0;
+  color: white;
 }
 .replies {
   border: solid 1px;
@@ -169,12 +184,19 @@ a:visited {
   justify-content: space-between;
   background-color: #e7dfc6;
   width: 93.5%;
-  margin: 5px;
+  margin: 10px;
   margin-left: 70px;
   padding: 10px;
   color: black;
 }
+.threaduser {
+  border: solid 2px;
+  padding: 10px;
+  color: blue;
+}
 .userdetails {
+  border: solid 2px;
+  padding: 10px;
   color: blue;
 }
 .all-threads {
@@ -253,9 +275,15 @@ a:visited {
   transform: scale(1.3);
 }
 .text-area {
-  width: 99%;
+  width: 93.5%;
   height: 50px;
   margin-top: 15px;
+  margin-left: 70px;
+}
+.delete {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 8px;
 }
 
 .image-front-page {

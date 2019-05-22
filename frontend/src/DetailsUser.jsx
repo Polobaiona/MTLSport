@@ -5,7 +5,7 @@ export default class UnconnectedDetailsUser extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      details: [{ user: "", firstName: "", lastName: "" }]
+      details: [{ user: "", firstName: "", lastName: "", age: "" }]
     };
   }
   componentDidMount = () => {
@@ -24,10 +24,10 @@ export default class UnconnectedDetailsUser extends Component {
   render = () => {
     console.log("state", this.state);
     return (
-      <div>
-        <div>{this.state.details[0].user}</div>
-        <div>{this.state.details[0].firstName}</div>
-        <div>{this.state.details[0].lastName}</div>
+      <div className="userdetails">
+        <div>Username: {this.state.details[0].user}</div>
+        <div>Name:{this.state.details[0].firstName}</div>
+        <div>Age:{this.state.details[0].age} years old</div>
       </div>
     );
   };

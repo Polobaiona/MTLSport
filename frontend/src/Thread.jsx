@@ -58,8 +58,7 @@ class UnconnectedThread extends Component {
     let replies2 = threads[0].replies.map(ele => {
       return (
         <div className="replies">
-          {<DetailsUser className="userdetails" username={ele.user} />}{" "}
-          {ele.msg}
+          {<DetailsUser username={ele.user} />} {ele.msg}
         </div>
       );
     });
@@ -73,21 +72,27 @@ class UnconnectedThread extends Component {
         width: "300px"
       };
     }
+
+    console.log("undefined here because?: ", threads[0]);
     return (
       <div>
         <h2 className="thread-title-display">
           {threads[0].threadTitle.toUpperCase()}
         </h2>
-        <div className="thread">
-          {threads[0].user} {threads[0].msg}
-          {threads[0].image && (
-            <div>
+        <div className="grandthread">
+          <div className="thread">
+            <div className="threaduser">{threads[0].user} </div>{" "}
+            {threads[0].msg}
+            {threads[0].image && (
               <img src={threads[0].image} style={s} onClick={this.flipToggle} />
-            </div>
-          )}
+            )}
+          </div>
         </div>
+
         {replies2}
-        <button onClick={this.deleteMessage}>Delete latest message</button>
+        <div className="delete">
+          <button onClick={this.deleteMessage}>Delete latest message</button>
+        </div>
         <div>{this.props.loggedIn && <Replies thread={threads[0]} />}</div>
       </div>
     );

@@ -55,7 +55,9 @@ class UnconnectedReplies extends Component {
             placeholder="Enter your reply"
             value={this.state.message}
           />
-          <input type="submit" />
+          <p className="delete">
+            <input type="submit" />
+          </p>
         </form>
       </div>
     );
