@@ -23,6 +23,24 @@ class UnconnectedSellTennis extends Component {
       );
     });
 
+    if (titles.length === 0) {
+      return (
+        <div>
+          <img
+            className="thread-img"
+            src="https://media.timeout.com/images/102789069/image.jpg"
+          />
+          <h2 className="thread-title">Tennis Equipment</h2>
+          <div className="all-threads">
+            {this.props.loggedIn && <SellModal />}
+            <div className="thread-title-display no-games-message">
+              No one is selling tennis equipment.
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div>
         <img
@@ -30,7 +48,7 @@ class UnconnectedSellTennis extends Component {
           width="100%"
           src="https://media.timeout.com/images/102789069/image.jpg"
         />
-        <h3 className="thread-title">Sell tennis equipment</h3>
+        <h3 className="thread-title">Tennis Equipment</h3>
         <div className="all-threads">
           {this.props.loggedIn && <SellModal />}
           <div>{titles}</div>

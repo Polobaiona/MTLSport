@@ -45,6 +45,26 @@ class UnconnectedRockClimbing extends Component {
         </div>
       );
     });
+
+    if (titles.length === 0) {
+      return (
+        <div>
+          <img
+            className="thread-img"
+            src="https://mec.imgix.net/medias/sys_master/images/images/h0b/hb5/9001026158622/18-CM-61-Diversity-Explore-Hero-5x2-Climbing.jpg?w=1100&h=441&auto=format&q=30&bg=FFF"
+          />
+          <h2 className="thread-title">Rock Climbing</h2>
+          <div className="all-threads">
+            <FilterLocation />
+            {this.props.loggedIn && <ThreadModal />}
+            <div className="thread-title-display no-games-message">
+              No one is looking for games in your area, start one!
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div>
         <img
