@@ -15,10 +15,28 @@ class UnconnectedSellBasketball extends Component {
       let linkTo = "/SellBasketball/" + ele._id;
       return (
         <div className="thread">
-          <Link to={linkTo}>{ele.threadTitle}</Link>| Location: {ele.location}
+          <Link to={linkTo}>{ele.threadTitle}</Link> | Location: {ele.location}
         </div>
       );
     });
+
+    if (titles.length === 0) {
+      return (
+        <div>
+          <img
+            className="thread-img"
+            src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/GYx5MFB/basketball-amateur-game-boy-make-successful-throw-to-basket-net_n2skahnbe__F0000.png"
+          />
+          <h2 className="thread-title">Basketball Equipment</h2>
+          <div className="all-threads">
+            {this.props.loggedIn && <SellModal />}
+            <div className="thread-title-display no-games-message">
+              No one is selling Basketball equipment.
+            </div>
+          </div>
+        </div>
+      );
+    }
 
     return (
       <div>
@@ -26,7 +44,7 @@ class UnconnectedSellBasketball extends Component {
           className="thread-img"
           src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/GYx5MFB/basketball-amateur-game-boy-make-successful-throw-to-basket-net_n2skahnbe__F0000.png"
         />
-        <h2 className="thread-title">Sell basketball equipment</h2>
+        <h2 className="thread-title">Basketball Equipment</h2>
         <div className="all-threads">
           {this.props.loggedIn && <SellModal />}
           <div>{titles}</div>

@@ -13,17 +13,36 @@ class UnconnectedSellSoccer extends Component {
       let linkTo = "/SellSoccer/" + ele._id;
       return (
         <div className="thread">
-          <Link to={linkTo}>{ele.threadTitle}</Link>| Location: {ele.location}
+          <Link to={linkTo}>{ele.threadTitle}</Link> | Location: {ele.location}
         </div>
       );
     });
+
+    if (titles.length === 0) {
+      return (
+        <div>
+          <img
+            className="thread-img"
+            src="https://bloximages.chicago2.vip.townnews.com/emissourian.com/content/tncms/assets/v3/editorial/d/1a/d1acf7a6-070d-11e6-9014-4baa087a48e1/5717a367d8c80.preview.jpg"
+          />
+          <h2 className="thread-title">Soccer Equipment</h2>
+          <div className="all-threads">
+            {this.props.loggedIn && <SellModal />}
+            <div className="thread-title-display no-games-message">
+              No one is selling soccer equipment.
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div>
         <img
           className="thread-img"
           src="https://bloximages.chicago2.vip.townnews.com/emissourian.com/content/tncms/assets/v3/editorial/d/1a/d1acf7a6-070d-11e6-9014-4baa087a48e1/5717a367d8c80.preview.jpg"
         />
-        <h2 className="thread-title">Sell soccer equipment</h2>
+        <h2 className="thread-title">Soccer Equipment</h2>
         <div className="all-threads">
           {this.props.loggedIn && <SellModal />}
           <div>{titles}</div>

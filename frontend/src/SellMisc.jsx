@@ -15,10 +15,28 @@ class UnconnectedSellMisc extends Component {
 
       return (
         <div className="thread">
-          <Link to={linkTo}>{ele.threadTitle}</Link>| Location: {ele.location}
+          <Link to={linkTo}>{ele.threadTitle}</Link> | Location: {ele.location}
         </div>
       );
     });
+
+    if (titles.length === 0) {
+      return (
+        <div>
+          <img
+            className="thread-img"
+            src="http://gamerlimit.com/wp-content/uploads/2016/04/original.jpg"
+          />
+          <h2 className="thread-title">Miscellaneous Equipment</h2>
+          <div className="all-threads">
+            {this.props.loggedIn && <SellModal />}
+            <div className="thread-title-display no-games-message">
+              No one is selling equipment in your area.
+            </div>
+          </div>
+        </div>
+      );
+    }
 
     return (
       <div>
@@ -27,7 +45,7 @@ class UnconnectedSellMisc extends Component {
           width="100%"
           src="http://gamerlimit.com/wp-content/uploads/2016/04/original.jpg"
         />
-        <h2 className="thread-title">Sell miscellaneous equipment</h2>
+        <h2 className="thread-title">Miscellaneous Equipment</h2>
         <div className="all-threads">
           {this.props.loggedIn && <SellModal />}
           <div>{titles}</div>

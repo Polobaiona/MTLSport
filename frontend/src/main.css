@@ -26,30 +26,34 @@ a:visited {
   color: whitesmoke;
 }
 
-.fuckOffPaul {
+.center-flex {
   display: flex;
   justify-content: center;
 }
 .description {
+  margin-top: 2%;
   text-align: center;
+  font-size: 1.2em;
 }
-.pass {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100px;
-}
+
 .logout {
   display: flex;
   justify-content: flex-end;
 }
 .img {
-  width: 20px;
-  height: 20px;
+  width: 200px;
+  height: 200px;
+  margin-top: 25px;
+  margin-left: 30%;
 }
-
+.site-header {
+  margin-top: 7%;
+}
 .imageResize {
-  width: 100px;
-  height: 90px;
+  width: 17%;
+  height: 17%;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .modal-body {
   background-color: rgba(0, 0, 0, 0.5); /* black with some transparency */
@@ -66,14 +70,20 @@ a:visited {
   padding: 100px;
   background-color: white;
 }
+.account {
+  display: flex;
+}
 .accountinfos {
   display: flex;
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
-}
-#user {
   border: solid;
+  background-color: #e7dfc6;
+  padding-left: 50px;
+  margin-top: 25px;
+  width: 50%;
+  margin-left: 10%;
 }
 
 .findSportBar {
@@ -278,4 +288,38 @@ a:visited {
   display: flex;
   justify-content: flex-end;
   margin-right: 8px;
+}
+
+.image-front-page {
+  padding: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.image-front-page-center {
+  justify-content: center;
+  text-align: center;
+}
+
+.thread-title-display {
+  margin-left: 2%;
+  font-style: italic;
+  margin-top: 5%;
+}
+.textboth {
+  display: flex;
+  justify-content: center;
+}
+.signup {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.pass {
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  margin: 8px;
 }

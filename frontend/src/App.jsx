@@ -62,15 +62,15 @@ class UnconnectedApp extends Component {
   renderRoot = () => {
     return (
       <div>
-        <div className="description fuckOffPaul">
+        <div className="description center-flex">
           <img
             className="imageResize"
             src="https://www.theflagshop.co.nz/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/m/o/montreal_2.gif"
           />
-          <div className="description">
+          <div className="description site-header">
             MTLSport is a site dedicated to finding friendly local sports games{" "}
             <br />
-            {/* Voted #1 website by Gene's Mom */}
+            Voted #1 website by Gene's Mom
           </div>
           <img
             className="imageResize"
@@ -129,8 +129,12 @@ class UnconnectedApp extends Component {
   both = () => {
     return (
       <div>
-        <Signup />
-        <Login />
+        <div className="signup">
+          <Signup />
+        </div>
+        <div className="signup">
+          <Login />
+        </div>
       </div>
     );
   };

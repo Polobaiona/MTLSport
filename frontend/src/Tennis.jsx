@@ -39,7 +39,7 @@ class UnconnectedTennis extends Component {
       let linkTo = "/Tennis/" + ele._id;
       return (
         <Link className="thread" to={linkTo}>
-          {ele.threadTitle}{" "}
+          {ele.threadTitle} || Started by: {ele.user}
         </Link>
       );
     }); //returns the title
@@ -53,6 +53,25 @@ class UnconnectedTennis extends Component {
         </div>
       );
     });*/
+
+    if (titles.length === 0) {
+      return (
+        <div>
+          <img
+            className="thread-img"
+            src="https://media.timeout.com/images/102789069/image.jpg"
+          />
+          <h2 className="thread-title">Tennis games</h2>
+          <div className="all-threads">
+            <FilterLocation />
+            {this.props.loggedIn && <ThreadModal />}
+            <div className="thread-title-display no-games-message">
+              No one is looking for games in your area, start one!
+            </div>
+          </div>
+        </div>
+      );
+    }
     return (
       <div>
         <img

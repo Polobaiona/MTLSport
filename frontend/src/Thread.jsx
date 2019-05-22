@@ -46,6 +46,7 @@ class UnconnectedThread extends Component {
           });
       });
   };
+
   render = () => {
     if (this.props.threads.length === 0) {
       return "loading...";
@@ -72,9 +73,14 @@ class UnconnectedThread extends Component {
         zIndex: "1"
       };
     }
+
+    console.log("undefined here because?: ", threads[0]);
     return (
       <div>
-        <div className="grand-thread">
+        <h2 className="thread-title-display">
+          {threads[0].threadTitle.toUpperCase()}
+        </h2>
+        <div className="grandthread">
           <div className="thread">
             <div className="thread-user">{threads[0].user} </div>
             {threads[0].msg}

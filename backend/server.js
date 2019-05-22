@@ -113,6 +113,7 @@ app.get("/logout", (req, res) => {
 app.post("/new-thread", upload.none(), (req, res) => {
   let newThread = req.body;
   let sessionId = req.cookies.sid;
+  console.log("endpoint body here: ", req.body);
   let db = dbs.db("Forum");
   db.collection("sessions").findOne({ sessionId }, (err, results) => {
     console.log(err);

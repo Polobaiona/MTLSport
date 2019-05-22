@@ -15,10 +15,28 @@ class UnconnectedSellRockClimbing extends Component {
 
       return (
         <div className="thread">
-          <Link to={linkTo}>{ele.threadTitle}</Link>| Location: {ele.location}
+          <Link to={linkTo}>{ele.threadTitle}</Link> | Location: {ele.location}
         </div>
       );
     });
+
+    if (titles.length === 0) {
+      return (
+        <div>
+          <img
+            className="thread-img"
+            src="https://mec.imgix.net/medias/sys_master/images/images/h0b/hb5/9001026158622/18-CM-61-Diversity-Explore-Hero-5x2-Climbing.jpg?w=1100&h=441&auto=format&q=30&bg=FFF"
+          />
+          <h2 className="thread-title">Rock Climbing Equipment</h2>
+          <div className="all-threads">
+            {this.props.loggedIn && <SellModal />}
+            <div className="thread-title-display no-games-message">
+              No one is selling rock climbing equipment.
+            </div>
+          </div>
+        </div>
+      );
+    }
 
     return (
       <div>
@@ -27,7 +45,7 @@ class UnconnectedSellRockClimbing extends Component {
           width="100%"
           src="https://mec.imgix.net/medias/sys_master/images/images/h0b/hb5/9001026158622/18-CM-61-Diversity-Explore-Hero-5x2-Climbing.jpg?w=1100&h=441&auto=format&q=30&bg=FFF"
         />
-        <h2 className="thread-title">Sell rock climbing equipment</h2>
+        <h2 className="thread-title">Rock Climbing Equipment</h2>
         <div className="all-threads">
           {this.props.loggedIn && <SellModal />}
           <div>{titles}</div>
