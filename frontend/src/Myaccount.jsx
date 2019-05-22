@@ -38,9 +38,9 @@ class UnconnectedAccount extends Component {
           </div>
           <div className="accountinfos">
             <p>Your personal information: </p>
-            <p id="user">Your username: {this.props.username}</p>
-            <p id="user">Your first name: {this.props.firstName}</p>
-            <p id="user">Your last name: {this.props.lastName}</p>
+            <p id="user">Username: {this.props.username}</p>
+            <p id="user">First name: {this.props.firstName}</p>
+            <p id="user">Last name: {this.props.lastName}</p>
             <p id="user">You are: {this.props.age} years old</p>
           </div>
         </div>
