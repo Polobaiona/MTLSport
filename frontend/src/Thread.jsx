@@ -68,12 +68,13 @@ class UnconnectedThread extends Component {
     if (this.state.toggle) {
       s = {
         height: "300px",
-        width: "300px"
+        width: "300px",
+        zIndex: "1"
       };
     }
     return (
       <div>
-        <div className="grandthread">
+        <div className="grand-thread">
           <div className="thread">
             <div className="thread-user">{threads[0].user} </div>
             {threads[0].msg}
