@@ -45,8 +45,9 @@ a:visited {
   justify-content: flex-end;
 }
 .img {
-  width: 20px;
-  height: 20px;
+  width: 200px;
+  height: 200px;
+  margin-top: 25px;
 }
 .site-header {
   margin-top: 7%;
@@ -72,14 +73,21 @@ a:visited {
   padding: 100px;
   background-color: white;
 }
+.account {
+  display: flex;
+}
 .accountinfos {
   display: flex;
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
+  border: solid;
+  background-color: #e7dfc6;
+  padding-left: 50px;
+  margin-top: 25px;
+  width: 100%;
 }
 #user {
-  border: solid;
 }
 
 .findSportBar {

@@ -29,21 +29,25 @@ class UnconnectedAccount extends Component {
   render = () => {
     return (
       <div>
+        <div className="account">
+          <div>
+            <img
+              className="img"
+              src="http://simpleicon.com/wp-content/uploads/account.png"
+            />
+          </div>
+          <div className="accountinfos">
+            <p>Your personal information: </p>
+            <p id="user">Your username: {this.props.username}</p>
+            <p id="user">Your first name: {this.props.firstName}</p>
+            <p id="user">Your last name: {this.props.lastName}</p>
+            <p id="user">You are: {this.props.age} years old</p>
+          </div>
+        </div>
         <div>
-          <img
-            className="img"
-            src="http://simpleicon.com/wp-content/uploads/account.png"
-          />
-        </div>
-        <div className="accountinfos">
-          <p>Your personal information: </p>
-          <p id="user">Your username: {this.props.username}</p>
-          <p id="user">Your first name: {this.props.firstName}</p>
-          <p id="user">Your last name: {this.props.lastName}</p>
-          <p id="user">Your are: {this.props.age} years old</p>
-        </div>
-        <div className="logout">
-          <button onClick={this.logout}>log out!</button>
+          <div className="logout">
+            <button onClick={this.logout}>log out!</button>
+          </div>
         </div>
       </div>
     );
