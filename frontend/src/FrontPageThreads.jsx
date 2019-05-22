@@ -36,6 +36,13 @@ class UnconnectedFrontPageThreads extends Component {
       console.log("title is: ", theTitle);
       console.log("title length: ", theTitle.length);
 
+      if (theTitle.length > 35) {
+        let newTitle = theTitle.slice(0, 34) + "...";
+        console.log("new title: ", newTitle);
+        messages[i].shortThreadTitle = newTitle;
+      }
+      messages[i].shortThreadTitle = messages[i].threadTitle;
+
       i++;
       // }
     }
@@ -57,7 +64,7 @@ class UnconnectedFrontPageThreads extends Component {
       return (
         <div className="singleFrontPageThread grow">
           <Link to={linkTo}>
-            {ele.threadTitle}
+            {ele.shortThreadTitle}
             <br /> <br />
             Sport: {categoryUpperCase(ele.category)}
             <br /> <br />
