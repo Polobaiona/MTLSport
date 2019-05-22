@@ -43,8 +43,7 @@ class UnconnectedSellRockClimbing extends Component {
     return (
       <div>
         <img
-          height="500px"
-          width="100%"
+          className="thread-img"
           src="https://mec.imgix.net/medias/sys_master/images/images/h0b/hb5/9001026158622/18-CM-61-Diversity-Explore-Hero-5x2-Climbing.jpg?w=1100&h=441&auto=format&q=30&bg=FFF"
         />
         <h2 className="thread-title">Rock Climbing Equipment</h2>

@@ -43,8 +43,7 @@ class UnconnectedSellMisc extends Component {
     return (
       <div>
         <img
-          height="580px"
-          width="100%"
+          className="thread-img"
           src="http://gamerlimit.com/wp-content/uploads/2016/04/original.jpg"
         />
         <h2 className="thread-title">Miscellaneous Equipment</h2>
