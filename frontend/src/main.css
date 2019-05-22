@@ -302,3 +302,7 @@ a:visited {
   font-style: italic;
   margin-top: 5%;
 }
+.no-games-message {
+  margin-bottom: 5%;
+  margin-left: 40%;
+}

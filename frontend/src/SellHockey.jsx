@@ -19,13 +19,31 @@ class UnconnectedSellHockey extends Component {
         </div>
       );
     });
+
+    if (titles.length === 0) {
+      return (
+        <div>
+          <img
+            className="thread-img"
+            src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/VDOJV13Oeijqkbkz5/ice-hockey-the-game-of-regional-amateur-teams_sa74_cpx__F0000.png"
+          />
+          <h2 className="thread-title">Hockey Equipment</h2>
+          <div className="all-threads">
+            {this.props.loggedIn && <SellModal />}
+            <div className="thread-title-display no-games-message">
+              No one is selling Hockey equipment.
+            </div>
+          </div>
+        </div>
+      );
+    }
     return (
       <div>
         <img
           className="thread-img"
           src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/VDOJV13Oeijqkbkz5/ice-hockey-the-game-of-regional-amateur-teams_sa74_cpx__F0000.png"
         />
-        <h2 className="thread-title">Sell hockey equipment</h2>
+        <h2 className="thread-title">Hockey Equipment</h2>
         <div className="all-threads">
           {this.props.loggedIn && <SellModal />}
           <div>{titles}</div>

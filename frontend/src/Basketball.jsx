@@ -39,6 +39,24 @@ class UnconnectedBasketball extends Component {
       );
     }); //returns the title
 
+    if (titles.length === 0) {
+      return (
+        <div>
+          <img
+            className="thread-img"
+            src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/GYx5MFB/basketball-amateur-game-boy-make-successful-throw-to-basket-net_n2skahnbe__F0000.png"
+          />
+          <h2 className="thread-title">Basketball games</h2>
+          <div className="all-threads">
+            <FilterLocation />
+            {this.props.loggedIn && <ThreadModal />}
+            <div className="thread-title-display no-games-message">
+              No one is looking for games in your area, start one!
+            </div>
+          </div>
+        </div>
+      );
+    }
     return (
       <div>
         <img

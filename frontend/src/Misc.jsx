@@ -44,6 +44,26 @@ class UnconnectedMisc extends Component {
           </div>
         );
       });*/
+
+    if (titles.length === 0) {
+      return (
+        <div>
+          <img
+            className="thread-img"
+            src="http://gamerlimit.com/wp-content/uploads/2016/04/original.jpg"
+          />
+          <h2 className="thread-title">Basketball games</h2>
+          <div className="all-threads">
+            <FilterLocation />
+            {this.props.loggedIn && <ThreadModal />}
+            <div className="thread-title-display no-games-message">
+              No one is looking for games in your area, start one!
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div>
         <img
