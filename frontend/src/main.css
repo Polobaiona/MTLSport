@@ -201,6 +201,11 @@ a:visited {
   border: solid 2px;
   padding: 10px;
   color: black;
+  text-align: center;
+}
+.userimg {
+  height: 20px;
+  width: 20px;
 }
 .all-threads {
   justify-content: space-between;
