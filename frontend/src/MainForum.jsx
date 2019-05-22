@@ -10,7 +10,7 @@ class UnconnectedMainForum extends Component {
         <div>
           <h1 className="proxima-nova-font">Find A Sport </h1>
         </div>
-        <div className="fuckOffPaul">
+        <div className="center-flex">
           <div className="mainPageLinks grow">
             <Link to="/Basketball">
               <img

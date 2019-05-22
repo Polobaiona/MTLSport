@@ -15,7 +15,7 @@ class UnconnectedSellBasketball extends Component {
       let linkTo = "/SellBasketball/" + ele._id;
       return (
         <div className="thread">
-          <Link to={linkTo}>{ele.threadTitle}</Link>| Location: {ele.location}
+          <Link to={linkTo}>{ele.threadTitle}</Link> | Location: {ele.location}
         </div>
       );
     });

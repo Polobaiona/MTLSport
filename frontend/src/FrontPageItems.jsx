@@ -37,13 +37,17 @@ class UnconnectedFrontPageItems extends Component {
       let linkTo = "/" + ele.category + "/" + ele._id;
 
       return (
-        <Link className="itemPicturesFrontPage" to={linkTo}>
-          <img height="150px" src={ele.image} />
+        <Link className="itemPicturesFrontPage " to={linkTo}>
+          <img
+            className="grow image-front-page"
+            height="150px"
+            src={ele.image}
+          />
         </Link>
       );
     });
 
-    return <div>{titles}</div>;
+    return <div className="image-front-page-center">{titles}</div>;
   };
 }
 

@@ -17,7 +17,7 @@ class UnconnectedFilterLocation extends Component {
         <div>Select your location</div>
         <select name="Location" onChange={this.handleLocationChange}>
           <option value="undefined">All Locations</option>
-          <option value="Ahuntsic">Ahuntsic test</option>
+          <option value="Ahuntsic">Ahuntsic </option>
           <option value="Anjou">Anjou</option>
           <option value="Cote-Des-Neiges">Cote-Des-Neiges</option>
           <option value="Central Montreal">Central Montreal</option>

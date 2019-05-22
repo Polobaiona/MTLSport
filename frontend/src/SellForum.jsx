@@ -8,7 +8,7 @@ class UnconnectedSellForum extends Component {
         <div>
           <h1 className="proxima-nova-font">Buy Sports Equipment </h1>
         </div>
-        <div className="fuckOffPaul">
+        <div className="center-flex">
           <div className="mainPageLinks grow">
             <Link to="/SellBasketball">
               <img

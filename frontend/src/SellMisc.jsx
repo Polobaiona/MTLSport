@@ -15,7 +15,7 @@ class UnconnectedSellMisc extends Component {
 
       return (
         <div className="thread">
-          <Link to={linkTo}>{ele.threadTitle}</Link>| Location: {ele.location}
+          <Link to={linkTo}>{ele.threadTitle}</Link> | Location: {ele.location}
         </div>
       );
     });

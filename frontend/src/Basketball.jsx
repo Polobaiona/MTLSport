@@ -33,7 +33,7 @@ class UnconnectedBasketball extends Component {
       return (
         <div>
           <Link className="thread" to={linkTo}>
-            {ele.threadTitle}
+            {ele.threadTitle} || Started by: {ele.user}
           </Link>
         </div>
       );

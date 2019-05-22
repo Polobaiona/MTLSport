@@ -46,6 +46,7 @@ class UnconnectedThread extends Component {
           });
       });
   };
+
   render = () => {
     if (this.props.threads.length === 0) {
       return "loading...";
@@ -74,10 +75,15 @@ class UnconnectedThread extends Component {
     }
     return (
       <div>
+        <h2 className="thread-title-display">
+          {threads[0].threadTitle.toUpperCase()}
+        </h2>
         <div className="thread">
           {threads[0].user} {threads[0].msg}
           {threads[0].image && (
-            <img src={threads[0].image} style={s} onClick={this.flipToggle} />
+            <div>
+              <img src={threads[0].image} style={s} onClick={this.flipToggle} />
+            </div>
           )}
         </div>
         {replies2}
