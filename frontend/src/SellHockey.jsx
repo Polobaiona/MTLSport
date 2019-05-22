@@ -15,7 +15,14 @@ class UnconnectedSellHockey extends Component {
 
       return (
         <div className="thread">
-          <Link to={linkTo}>{ele.threadTitle}</Link> | Location: {ele.location}
+          <Link className="threadTitle" to={linkTo}>
+            <div>
+              <div>{ele.threadTitle} </div>
+              <div className="titleofthread" style={{ display: "block" }}>
+                Location: {ele.location}
+              </div>
+            </div>
+          </Link>
         </div>
       );
     });
