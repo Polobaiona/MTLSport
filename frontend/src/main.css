@@ -35,11 +35,7 @@ a:visited {
   text-align: center;
   font-size: 1.2em;
 }
-.pass {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100px;
-}
+
 .logout {
   display: flex;
   justify-content: flex-end;
@@ -309,4 +305,21 @@ a:visited {
   margin-left: 2%;
   font-style: italic;
   margin-top: 5%;
+}
+.textboth {
+  display: flex;
+  justify-content: center;
+}
+.signup {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.pass {
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  margin: 8px;
 }

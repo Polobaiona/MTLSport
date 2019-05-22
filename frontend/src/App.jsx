@@ -129,8 +129,12 @@ class UnconnectedApp extends Component {
   both = () => {
     return (
       <div>
-        <Signup />
-        <Login />
+        <div className="signup">
+          <Signup />
+        </div>
+        <div className="signup">
+          <Login />
+        </div>
       </div>
     );
   };
