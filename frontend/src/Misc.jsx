@@ -30,7 +30,7 @@ class UnconnectedMisc extends Component {
       let linkTo = "/Misc/" + ele._id;
       return (
         <Link className="threadTitle" to={linkTo}>
-          {ele.threadTitle}
+          {ele.threadTitle} | Location: {ele.location}
         </Link>
       );
     }); //returns the title
