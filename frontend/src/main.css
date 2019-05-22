@@ -165,15 +165,15 @@ a:visited {
     text-decoration: none; */
   background-color: #a64253;
   padding-top: 35px;
-  padding-left: 40px;
+  padding-left: 80px;
   display: flex;
+  text-align: center;
   height: 70px;
   margin: 45px;
-  margin-left: 100px;
-  margin-right: 40px;
-  padding: 5px;
-
+  margin-left: 150px;
+  margin-right: 230px;
   color: white;
+  font-size: 1.4em;
 }
 .grand-thread {
   width: 100%;
