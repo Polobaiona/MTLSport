@@ -69,7 +69,8 @@ class UnconnectedThread extends Component {
     if (this.state.toggle) {
       s = {
         height: "300px",
-        width: "300px"
+        width: "300px",
+        zIndex: "1"
       };
     }
 
@@ -81,7 +82,7 @@ class UnconnectedThread extends Component {
         </h2>
         <div className="grandthread">
           <div className="thread">
-            <div className="threaduser">{threads[0].user} </div>{" "}
+            <div className="thread-user">{threads[0].user} </div>
             {threads[0].msg}
             {threads[0].image && (
               <img src={threads[0].image} style={s} onClick={this.flipToggle} />

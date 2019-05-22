@@ -53,15 +53,17 @@ class UnconnectedLogin extends Component {
 
   render = () => {
     return (
-      <div className="login">
-        <h3>Login</h3>
+      <div>
+        <h3 className="textboth">Login</h3>
         <form onSubmit={this.handleSubmit}>
           <input
+            className="pass"
             type="text"
             onChange={this.handleUsernameChange}
             placeholder="Username"
           />
           <input
+            className="pass"
             type="password"
             onChange={this.handlePasswordChange}
             placeholder="Password"

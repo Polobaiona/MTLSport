@@ -13,7 +13,7 @@ class UnconnectedTopBar extends Component {
                 <span className="proxima-nova-font bigger-font">MTLSport</span>
               </Link>
             </div>
-            <div className="form">
+            <div className="proxima-nova-font bigger-font">
               <Link to="/both">Signup/login</Link>
             </div>
           </div>
