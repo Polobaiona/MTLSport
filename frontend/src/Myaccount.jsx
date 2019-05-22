@@ -46,7 +46,7 @@ class UnconnectedAccount extends Component {
         </div>
         <div>
           <div className="logout">
-            <button onClick={this.logout}>log out!</button>
+            <button onClick={this.logout}>Logout!</button>
           </div>
         </div>
       </div>

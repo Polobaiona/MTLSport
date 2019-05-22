@@ -76,11 +76,11 @@ class UnconnectedThread extends Component {
 
     console.log("undefined here because?: ", threads[0]);
     return (
-      <div>
+      <div className="style-replies">
         <h2 className="thread-title-display">
           {threads[0].threadTitle.toUpperCase()}
         </h2>
-        <div className="grandthread">
+        <div>
           <div className="thread">
             <div className="thread-user">
               {<DetailsUser username={threads[0].user} />}{" "}
@@ -91,7 +91,6 @@ class UnconnectedThread extends Component {
             )}
           </div>
         </div>
-
         {replies2}
         <div className="delete">
           <button onClick={this.deleteMessage}>Delete latest message</button>
