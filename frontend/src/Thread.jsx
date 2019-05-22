@@ -82,7 +82,9 @@ class UnconnectedThread extends Component {
         </h2>
         <div className="grandthread">
           <div className="thread">
-            <div className="thread-user">{threads[0].user} </div>
+            <div className="thread-user">
+              {<DetailsUser username={threads[0].user} />}{" "}
+            </div>
             {threads[0].msg}
             {threads[0].image && (
               <img src={threads[0].image} style={s} onClick={this.flipToggle} />
