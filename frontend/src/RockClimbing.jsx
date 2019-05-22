@@ -55,8 +55,12 @@ class UnconnectedRockClimbing extends Component {
           />
           <h2 className="thread-title">Rock Climbing</h2>
           <div className="all-threads">
-            <FilterLocation />
-            {this.props.loggedIn && <ThreadModal />}
+            <div className="move-location">
+              <FilterLocation />
+            </div>
+            <div className="button-move">
+              {this.props.loggedIn && <ThreadModal />}
+            </div>
             <div className="thread-title-display no-games-message">
               No one is looking for games in your area, start one!
             </div>
@@ -68,14 +72,17 @@ class UnconnectedRockClimbing extends Component {
     return (
       <div>
         <img
-          height="500px"
-          width="100%"
+          className="thread-img"
           src="https://mec.imgix.net/medias/sys_master/images/images/h0b/hb5/9001026158622/18-CM-61-Diversity-Explore-Hero-5x2-Climbing.jpg?w=1100&h=441&auto=format&q=30&bg=FFF"
         />
         <h2 className="thread-title">Rock Climbing</h2>
         <div className="all-threads">
-          <FilterLocation />
-          {this.props.loggedIn && <ThreadModal />}
+          <div className="move-location">
+            <FilterLocation />
+          </div>
+          <div className="button-move">
+            {this.props.loggedIn && <ThreadModal />}
+          </div>
           <div>{titles}</div>
         </div>
       </div>

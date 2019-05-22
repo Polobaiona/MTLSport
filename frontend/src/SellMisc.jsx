@@ -29,7 +29,9 @@ class UnconnectedSellMisc extends Component {
           />
           <h2 className="thread-title">Miscellaneous Equipment</h2>
           <div className="all-threads">
-            {this.props.loggedIn && <SellModal />}
+            <div className="button-move">
+              {this.props.loggedIn && <SellModal />}
+            </div>
             <div className="thread-title-display no-games-message">
               No one is selling equipment in your area.
             </div>
@@ -41,13 +43,14 @@ class UnconnectedSellMisc extends Component {
     return (
       <div>
         <img
-          height="580px"
-          width="100%"
+          className="thread-img"
           src="http://gamerlimit.com/wp-content/uploads/2016/04/original.jpg"
         />
         <h2 className="thread-title">Miscellaneous Equipment</h2>
         <div className="all-threads">
-          {this.props.loggedIn && <SellModal />}
+          <div className="button-move">
+            {this.props.loggedIn && <SellModal />}
+          </div>
           <div>{titles}</div>
         </div>
       </div>

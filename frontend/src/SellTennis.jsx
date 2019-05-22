@@ -31,7 +31,9 @@ class UnconnectedSellTennis extends Component {
           />
           <h2 className="thread-title">Tennis Equipment</h2>
           <div className="all-threads">
-            {this.props.loggedIn && <SellModal />}
+            <div className="button-move">
+              {this.props.loggedIn && <SellModal />}
+            </div>
             <div className="thread-title-display no-games-message">
               No one is selling tennis equipment.
             </div>
@@ -43,13 +45,14 @@ class UnconnectedSellTennis extends Component {
     return (
       <div>
         <img
-          height="600px"
-          width="100%"
+          className="thread-img"
           src="https://media.timeout.com/images/102789069/image.jpg"
         />
         <h3 className="thread-title">Tennis Equipment</h3>
         <div className="all-threads">
-          {this.props.loggedIn && <SellModal />}
+          <div className="button-move">
+            {this.props.loggedIn && <SellModal />}
+          </div>
           <div>{titles}</div>
         </div>
       </div>

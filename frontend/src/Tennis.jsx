@@ -63,8 +63,12 @@ class UnconnectedTennis extends Component {
           />
           <h2 className="thread-title">Tennis games</h2>
           <div className="all-threads">
-            <FilterLocation />
-            {this.props.loggedIn && <ThreadModal />}
+            <div className="move-location">
+              <FilterLocation />
+            </div>
+            <div className="button-move">
+              {this.props.loggedIn && <ThreadModal />}
+            </div>
             <div className="thread-title-display no-games-message">
               No one is looking for games in your area, start one!
             </div>
@@ -75,13 +79,14 @@ class UnconnectedTennis extends Component {
     return (
       <div>
         <img
-          height="600px"
-          width="100%"
+          className="thread-img"
           src="https://media.timeout.com/images/102789069/image.jpg"
         />
         <h2 className="thread-title"> Tennis games</h2>
         <div className="all-threads">
-          <FilterLocation />
+          <div className="move-location">
+            <FilterLocation />
+          </div>
           <div className="button-move">
             {this.props.loggedIn && <ThreadModal />}
           </div>

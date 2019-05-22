@@ -54,8 +54,12 @@ class UnconnectedMisc extends Component {
           />
           <h2 className="thread-title">Miscellaneous Sports</h2>
           <div className="all-threads">
-            <FilterLocation />
-            {this.props.loggedIn && <ThreadModal />}
+            <div className="move-location">
+              <FilterLocation />
+            </div>
+            <div className="button-move">
+              {this.props.loggedIn && <ThreadModal />}
+            </div>
             <div className="thread-title-display no-games-message">
               No one is looking for games in your area, start one!
             </div>
@@ -67,13 +71,14 @@ class UnconnectedMisc extends Component {
     return (
       <div>
         <img
-          height="580px"
-          width="100%"
+          className="thread-img"
           src="http://gamerlimit.com/wp-content/uploads/2016/04/original.jpg"
         />
         <h2 className="thread-title">Miscellaneous Sports</h2>
         <div className="all-threads">
-          <FilterLocation />
+          <div className="move-location">
+            <FilterLocation />
+          </div>
           <div className="button-move">
             {this.props.loggedIn && <ThreadModal />}
           </div>
