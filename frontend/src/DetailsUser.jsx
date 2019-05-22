@@ -5,7 +5,7 @@ export default class UnconnectedDetailsUser extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      details: [{ user: "", firstName: "", lastName: "", age: "" }]
+      details: [{ user: "", firstName: "", lastName: "", age: "", image: "" }]
     };
   }
   componentDidMount = () => {
@@ -17,7 +17,7 @@ export default class UnconnectedDetailsUser extends Component {
           console.log("comparaison", ele.user, this.props.username);
           return ele.user === this.props.username;
         });
-        console.log("details", details);
+        console.log("detailsUser", details);
         this.setState({ details });
       });
   };
@@ -25,9 +25,13 @@ export default class UnconnectedDetailsUser extends Component {
     console.log("state", this.state);
     return (
       <div className="userdetails">
-        <div>Username: {this.state.details[0].user}</div>
-        <div>Name:{this.state.details[0].firstName}</div>
-        <div>Age:{this.state.details[0].age} years old</div>
+        <img
+          className="userimg"
+          src="http://simpleicon.com/wp-content/uploads/account.png"
+        />
+        <div>{this.state.details[0].user}</div>
+        {/* <div>Name:{this.state.details[0].firstName}</div> */}
+        <div>{this.state.details[0].age} years old</div>
       </div>
     );
   };
