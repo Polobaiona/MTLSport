@@ -27,7 +27,9 @@ class UnconnectedSellSoccer extends Component {
           />
           <h2 className="thread-title">Soccer Equipment</h2>
           <div className="all-threads">
-            {this.props.loggedIn && <SellModal />}
+            <div className="button-move">
+              {this.props.loggedIn && <SellModal />}
+            </div>
             <div className="thread-title-display no-games-message">
               No one is selling soccer equipment.
             </div>
@@ -44,7 +46,9 @@ class UnconnectedSellSoccer extends Component {
         />
         <h2 className="thread-title">Soccer Equipment</h2>
         <div className="all-threads">
-          {this.props.loggedIn && <SellModal />}
+          <div className="button-move">
+            {this.props.loggedIn && <SellModal />}
+          </div>
           <div>{titles}</div>
         </div>
       </div>

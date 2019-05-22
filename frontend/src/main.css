@@ -278,6 +278,7 @@ a:visited {
   height: 10%;
   margin-top: 1%;
   padding-top: 1%;
+  padding-bottom: 1%;
   border-color: black;
   background-color: #a64253;
   /* border-radius: 5%; */
@@ -341,4 +342,9 @@ a:visited {
 .button-move {
   align-content: right;
   margin-left: 90%;
+}
+
+.move-location {
+  margin-left: 2%;
+  margin-top: 2%;
 }

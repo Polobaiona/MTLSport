@@ -48,8 +48,12 @@ class UnconnectedBasketball extends Component {
           />
           <h2 className="thread-title">Basketball games</h2>
           <div className="all-threads">
-            <FilterLocation />
-            {this.props.loggedIn && <ThreadModal />}
+            <div className="move-location">
+              <FilterLocation />
+            </div>
+            <div className="button-move">
+              {this.props.loggedIn && <ThreadModal />}
+            </div>
             <div className="thread-title-display no-games-message">
               No one is looking for games in your area, start one!
             </div>
@@ -65,7 +69,9 @@ class UnconnectedBasketball extends Component {
         />
         <h2 className="thread-title">Basketball games</h2>
         <div className="all-threads">
-          <FilterLocation />
+          <div className="move-location">
+            <FilterLocation />
+          </div>
           <div className="button-move">
             {this.props.loggedIn && <ThreadModal />}
           </div>
