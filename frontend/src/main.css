@@ -194,14 +194,13 @@ a:visited {
   color: black;
 }
 .thread-user {
-  border: solid 2px;
   padding: 10px;
   color: black;
 }
 .userdetails {
   border: solid 2px;
   padding: 10px;
-  color: ;
+  color: black;
 }
 .all-threads {
   justify-content: space-between;
