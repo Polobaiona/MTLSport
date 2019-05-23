@@ -69,11 +69,13 @@ class UnconnectedHockey extends Component {
           />
           <h2 className="thread-title">Hockey games</h2>
           <div className="all-threads">
-            <div className="move-location">
-              <FilterLocation />
-            </div>
-            <div className="button-move">
-              {this.props.loggedIn && <ThreadModal />}
+            <div className="move">
+              <div className="move-location">
+                <FilterLocation />
+              </div>
+              <div className="button-move">
+                {this.props.loggedIn && <ThreadModal />}
+              </div>
             </div>
             <div className="thread-title-display no-games-message">
               No one is looking for games in your area, start one!
@@ -90,11 +92,13 @@ class UnconnectedHockey extends Component {
         />
         <h2 className="thread-title"> Hockey games</h2>
         <div className="all-threads">
-          <div className="move-location">
-            <FilterLocation />
-          </div>
-          <div className="button-move">
-            {this.props.loggedIn && <ThreadModal />}
+          <div className="move">
+            <div className="move-location">
+              <FilterLocation />
+            </div>
+            <div className="button-move">
+              {this.props.loggedIn && <ThreadModal />}
+            </div>
           </div>
           <div>{titles}</div>
         </div>

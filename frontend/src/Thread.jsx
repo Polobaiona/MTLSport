@@ -83,7 +83,7 @@ class UnconnectedThread extends Component {
         <div>
           <div className="thread">
             <div className="thread-user">
-              {<DetailsUser username={threads[0].user} />}{" "}
+              {<DetailsUser username={threads[0].user} />}
             </div>
             {/* test */}
             <div>
