@@ -15,7 +15,7 @@ class UnconnectedSellRockClimbing extends Component {
 
       return (
         <div className="threadTitle">
-          <Link className="threadTitle" to={linkTo}>
+          <Link to={linkTo}>
             <div>
               <div>{ele.threadTitle} </div>
               <div className="titleofthread" style={{ display: "block" }}>
