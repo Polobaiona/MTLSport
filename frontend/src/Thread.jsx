@@ -58,13 +58,15 @@ class UnconnectedThread extends Component {
     let replies2 = threads[0].replies.map(ele => {
       return (
         <div className="replies">
-          {<DetailsUser username={ele.user} />} {ele.msg}
+          {<DetailsUser username={ele.user} />}{" "}
+          <p className="message">{ele.msg}</p>
         </div>
       );
     });
     let s = {
       height: "100px",
-      width: "100px"
+      width: "100px",
+      padding: "2%"
     };
     if (this.state.toggle) {
       s = {
@@ -85,8 +87,12 @@ class UnconnectedThread extends Component {
             <div className="thread-user">
               {<DetailsUser username={threads[0].user} />}
             </div>
+            <p className="message">{threads[0].msg}</p>
+            {threads[0].image && (
+              <img src={threads[0].image} style={s} onClick={this.flipToggle} />
+            )}
             {/* test */}
-            <div>
+            {/* <div>
               {threads[0].msg} <br />
               <div>
                 {threads[0].image && (
@@ -98,13 +104,15 @@ class UnconnectedThread extends Component {
                   />
                 )}
               </div>
-            </div>
+            </div> */}
             {/* test */}
           </div>
         </div>
         {replies2}
         <div className="delete">
-          <button onClick={this.deleteMessage}>Delete latest message</button>
+          {this.props.loggedIn && (
+            <button onClick={this.deleteMessage}>Delete latest message</button>
+          )}
         </div>
         <div>{this.props.loggedIn && <Replies thread={threads[0]} />}</div>
       </div>
