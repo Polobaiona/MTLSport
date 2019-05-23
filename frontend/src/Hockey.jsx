@@ -64,10 +64,10 @@ class UnconnectedHockey extends Component {
       return (
         <div>
           <img
-            className="thread-img"
+            className="thread-img "
             src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/VDOJV13Oeijqkbkz5/ice-hockey-the-game-of-regional-amateur-teams_sa74_cpx__F0000.png"
           />
-          <h2 className="thread-title">Hockey games</h2>
+          <h2 className="thread-title background-color-hockey">Hockey games</h2>
           <div className="all-threads">
             <div className="move">
               <div className="move-location">
@@ -87,10 +87,10 @@ class UnconnectedHockey extends Component {
     return (
       <div>
         <img
-          className="thread-img"
+          className="thread-img "
           src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/VDOJV13Oeijqkbkz5/ice-hockey-the-game-of-regional-amateur-teams_sa74_cpx__F0000.png"
         />
-        <h2 className="thread-title"> Hockey games</h2>
+        <h2 className="thread-title background-color-hockey"> Hockey games</h2>
         <div className="all-threads">
           <div className="move">
             <div className="move-location">
