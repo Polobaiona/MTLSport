@@ -13,8 +13,8 @@ class UnconnectedFilterLocation extends Component {
 
   render = () => {
     return (
-      <div>
-        <div>Select your location</div>
+      <div className="filterlocation">
+        <div>Select your location : </div>
         <select name="Location" onChange={this.handleLocationChange}>
           <option value="undefined">All Locations</option>
           <option value="Ahuntsic">Ahuntsic </option>

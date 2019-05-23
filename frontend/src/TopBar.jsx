@@ -15,8 +15,12 @@ class UnconnectedTopBar extends Component {
                 </span>
               </Link>
             </div>
-            <div className="proxima-nova-font bigger-font white-font">
-              <Link to="/both">Signup/login</Link>
+            <div>
+              <Link to="/both">
+                <span className="proxima-nova-font bigger-font white-font">
+                  Signup/login
+                </span>
+              </Link>
             </div>
           </div>
         </div>
