@@ -65,7 +65,8 @@ class UnconnectedThread extends Component {
     });
     let s = {
       height: "100px",
-      width: "100px"
+      width: "100px",
+      padding: "2%"
     };
     if (this.state.toggle) {
       s = {
