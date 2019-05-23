@@ -66,8 +66,6 @@ class UnconnectedApp extends Component {
           <img className="imageResize" src="/montreal-flag.png" />
           <div className="title">
             MTLSport is a site dedicated to finding friendly local sports games
-            <br />
-            Voted #1 website by Gene's Mom
           </div>
           <img className="imageResize" src="/montreal-flag.png" />
         </div>

@@ -65,7 +65,8 @@ class UnconnectedThread extends Component {
     });
     let s = {
       height: "100px",
-      width: "100px"
+      width: "100px",
+      padding: "2%"
     };
     if (this.state.toggle) {
       s = {
@@ -86,8 +87,12 @@ class UnconnectedThread extends Component {
             <div className="thread-user">
               {<DetailsUser username={threads[0].user} />}
             </div>
+            <p className="message">{threads[0].msg}</p>
+            {threads[0].image && (
+              <img src={threads[0].image} style={s} onClick={this.flipToggle} />
+            )}
             {/* test */}
-            <div>
+            {/* <div>
               {threads[0].msg} <br />
               <div>
                 {threads[0].image && (
@@ -99,7 +104,7 @@ class UnconnectedThread extends Component {
                   />
                 )}
               </div>
-            </div>
+            </div> */}
             {/* test */}
           </div>
         </div>
