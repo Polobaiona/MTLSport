@@ -85,10 +85,21 @@ class UnconnectedThread extends Component {
             <div className="thread-user">
               {<DetailsUser username={threads[0].user} />}{" "}
             </div>
-            {threads[0].msg}
-            {threads[0].image && (
-              <img src={threads[0].image} style={s} onClick={this.flipToggle} />
-            )}
+            {/* test */}
+            <div>
+              {threads[0].msg} <br />
+              <div>
+                {threads[0].image && (
+                  <img
+                    className="seller-item-image"
+                    src={threads[0].image}
+                    style={s}
+                    onClick={this.flipToggle}
+                  />
+                )}
+              </div>
+            </div>
+            {/* test */}
           </div>
         </div>
         {replies2}

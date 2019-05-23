@@ -359,3 +359,10 @@ a:visited {
 .style-replies {
   margin: 0 300px 0 150px;
 }
+
+.seller-item-image {
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  margin-left: 20%;
+}
