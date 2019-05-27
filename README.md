@@ -15,6 +15,7 @@ Future Plans:
 - Notifications for new replies
 - Direct messaging
 
-Contact:
-  - pocciaeugenio@gmail.com 
-  - https://www.linkedin.com/in/eugeniopoccia
+To run the code:
+- run nodemon server.js in /backend
+- run npm start in /frontend
+- hosted on localhost:3000
