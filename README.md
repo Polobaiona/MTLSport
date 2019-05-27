@@ -15,6 +15,6 @@ Future Plans:
 - Notifications for new replies
 - Direct messaging
 
-CONTACT:
-pocciaeugenio@gmail.com
-https://www.linkedin.com/in/eugeniopoccia
+Contact:
+  - pocciaeugenio@gmail.com 
+  - https://www.linkedin.com/in/eugeniopoccia
