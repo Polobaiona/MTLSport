@@ -65,12 +65,13 @@ Secondary Section:
    <br />
     
     
-   Thread:
+Thread:
    ![Thread](https://i.imgur.com/w3215Vg.png)
-      - View the original post looking for game
-      - View replies
-      - Add your own reply
-      - Delete your last message if you made a mistake
+       
+   - View the original post looking for game
+   - View replies
+   - Add your own reply
+   - Delete your last message if you made a mistake
 
 
 
