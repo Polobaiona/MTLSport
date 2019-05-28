@@ -5,7 +5,7 @@ A forum built to help people find local sports games they can join
 <h1>About</h1>
 MTLSport was a final project done at DecodeMTL. It was built in a week with the hopes of expanding later on and launching it.
 
-<h1>Getting Start</h1>
+<h1>Getting Started</h1>
 
 <h2>Installing</h2>
 Simply follow these steps to launch the forum:<br /><br />
