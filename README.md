@@ -29,13 +29,15 @@ Fatoumata Traore<br />
 <br />
 <br />
 
-<h2> The site </h2>
+<h1> The site </h1>
+
+
 Homepage: 
 ![Homepage](https://i.imgur.com/tO6O98q.png)
  
  - browse different sport forums 
-  - The top bar remains on all pages
-  - MTLSport on the upper left is a link to the homepage
+ - The top bar remains on all pages
+ - MTLSport on the upper left is a link to the homepage
  
  <br />
 <br />
