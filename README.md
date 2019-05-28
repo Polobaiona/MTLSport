@@ -8,7 +8,7 @@ MTLSport was a final project done at DecodeMTL. It was built in a week with the 
 <h1>Getting Start</h1>
 
 <h2>Installing</h2>
-Simply follow these steps to launch the forum:<br />
+Simply follow these steps to launch the forum:<br /><br />
   1. Fork repository<br />
   2. cd /backend<br />
   3. nodemon (or node) server.js<br />
