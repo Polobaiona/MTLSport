@@ -30,13 +30,15 @@ Fatoumata Traore<br />
 <br />
 
 
-/*Homepage: 
+Homepage: 
 ![Homepage](https://i.imgur.com/tO6O98q.png)
   - browse different sport forums 
   - The top bar remains on all pages
   - MTLSport on the upper left is a link to the homepage
   <br />
-<br />*/
+<br />
+
+
 Secondary Section:
 ![Secondary](https://i.imgur.com/5n9pDNl.png)
   - browse different sport sections to buy/sell equipment
@@ -44,7 +46,9 @@ Secondary Section:
   - view most recent items posted by users
   <br />
   <br />
-  Sport Forum: 
+ 
+ 
+ Sport Forum: 
   ![Tennis](https://i.imgur.com/WHr5Mhz.png)
     - View all games for a specific sport (screenshot is the Tennis section)
     - Filter by location to find a sport closest to you
@@ -52,7 +56,9 @@ Secondary Section:
     <br />
     <br />
     Thread:
-    ![Thread](https://i.imgur.com/w3215Vg.png)
+   
+   
+   ![Thread](https://i.imgur.com/w3215Vg.png)
       - View the original post looking for game
       - View replies
       - Add your own reply
