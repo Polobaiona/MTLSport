@@ -55,9 +55,11 @@ Secondary Section:
  Sport Forum: 
   ![Tennis](https://i.imgur.com/WHr5Mhz.png)
   
-    - View all games for a specific sport (screenshot is the Tennis section)
-    - Filter by location to find a sport closest to you
-    - Add a new post if there are no games close to you
+    <li>
+    <ul>View all games for a specific sport (screenshot is the Tennis section)</ul>
+    <ul> Filter by location to find a sport closest to you</ul>
+   <ul> Add a new post if there are no games close to you</ul>
+   </li>
    
    <br />
     <br />
