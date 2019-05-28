@@ -23,6 +23,6 @@ We used React and Redux to compartmentalize the site into smaller components to 
 We used MongoDB to store all users and posts permanently
 
 <h1>Authors</h1>
-Eugenio Poccia
-Paul Jeambrun
+Eugenio Poccia<br />
+Paul Jeambrun<br />
 Fatoumata Traore
