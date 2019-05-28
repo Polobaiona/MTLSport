@@ -1,21 +1,28 @@
-Project done for DecodeMTL to showcase full-stack development.
+<h1>MTLSport</h1>
 
-Features:
-- Login/Signup
-- Link to homepage
-- Different forums for each sport
-- Filter by locations closest to you
-- Different forums for selling equipment
-- Pop-up form for adding a new post or item
-- Shows latest posts and items for sale
-- User details
+A forum built to help people find local sports games they can join
 
-Future Plans: 
-- Add unique pictures for users
-- Notifications for new replies
-- Direct messaging
+<h1>About</h1>
+MTLSport was a final project done at DecodeMTL. It was built in a week with the hopes of expanding later on and launching it.
 
-To run the code:
-- run nodemon server.js in /backend
-- run npm start in /frontend
-- hosted on localhost:3000
+<h1>Getting Start</h1>
+
+<h2>Installing</h2>
+Simply follow these steps to launch the forum:
+  1. Fork repository
+  2. cd /backend
+  3. nodemon (or node) server.js
+  4. cd /frontend
+  5. npm start
+  
+<h1>Built with</h1>
+<h2>React - Redux</h2>
+We used React and Redux to compartmentalize the site into smaller components to work efficiently
+
+<h2>MongoDB</h2>
+We used MongoDB to store all users and posts permanently
+
+<h1>Authors</h1>
+Eugenio Poccia
+Paul Jeambrun
+Fatoumata Traore
