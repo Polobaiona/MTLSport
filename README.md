@@ -26,3 +26,7 @@ We used MongoDB to store all users and posts permanently
 Eugenio Poccia<br />
 Paul Jeambrun<br />
 Fatoumata Traore
+
+
+TEST 
+![Homepage](https://imgur.com/tO6O98q)
