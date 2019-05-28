@@ -30,13 +30,13 @@ Fatoumata Traore<br />
 <br />
 
 
-Homepage: 
+/*Homepage: 
 ![Homepage](https://i.imgur.com/tO6O98q.png)
   - browse different sport forums 
   - The top bar remains on all pages
   - MTLSport on the upper left is a link to the homepage
   <br />
-<br />
+<br />*/
 Secondary Section:
 ![Secondary](https://i.imgur.com/5n9pDNl.png)
   - browse different sport sections to buy/sell equipment
